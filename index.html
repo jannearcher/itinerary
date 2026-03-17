@@ -13,6 +13,7 @@
     --kyoto: #4527A0; --kyoto-bg: #EDE7F6; --kyoto-bd: #7E57C2;
     --tokyo: #0D47A1; --tokyo-bg: #E3F2FD; --tokyo-bd: #1E88E5;
     --fuji:  #1B5E20; --fuji-bg:  #E8F5E9; --fuji-bd:  #43A047;
+    --seoul: #B91C4A; --seoul-bg: #FDE7F0; --seoul-bd: #E879A0;
     --text: #1a1a1a; --text2: #555; --text3: #888;
     --border: #e0e0e0; --border2: #bbb;
     --bg: #fff; --bg2: #f7f7f5; --bg3: #f0f0ee;
@@ -56,6 +57,7 @@
   .tl-cell.kyoto { background: var(--kyoto-bg); border-color: var(--kyoto-bd); }
   .tl-cell.tokyo { background: var(--tokyo-bg); border-color: var(--tokyo-bd); }
   .tl-cell.fuji  { background: var(--fuji-bg);  border-color: var(--fuji-bd);  }
+  .tl-cell.seoul { background: #FDE7F0; border-color: #E879A0; }
   .tl-cell.sel { outline: 2.5px solid var(--text); outline-offset: 2px; }
   .tl-icon { font-size: 17px; line-height: 1; }
   .tl-clabel { font-size: 10px; font-weight: 600; }
@@ -63,6 +65,7 @@
   .tl-cell.kyoto .tl-clabel { color: var(--kyoto); }
   .tl-cell.tokyo .tl-clabel { color: var(--tokyo); }
   .tl-cell.fuji  .tl-clabel { color: var(--fuji);  }
+  .tl-cell.seoul .tl-clabel { color: #B91C4A; }
 
   /* HOTEL BAR */
   .hotel-strip { display: flex; gap: 0; min-width: max-content; margin-top: 6px; margin-bottom: 14px; }
@@ -147,10 +150,47 @@
   @media (prefers-color-scheme: dark) {
     .must-badge { background: #3a0020; color: #f472b6; }
   }
-  .note-banner { background: var(--bg3); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 14px; border-left: 3px solid #E879A0; }
+  /* RESTAURANT TAB */
+  .rest-card { background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 14px; margin-bottom: 10px; box-shadow: var(--shadow); }
+  .rest-name { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .rest-city { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 8px; display: inline-block; margin-bottom: 6px; }
+  .rest-city.osaka { background: var(--osaka-bg); color: var(--osaka); }
+  .rest-city.kyoto { background: var(--kyoto-bg); color: var(--kyoto); }
+  .rest-city.tokyo { background: var(--tokyo-bg); color: var(--tokyo); }
+  .rest-type { font-size: 12px; color: var(--text2); margin-bottom: 6px; }
+  .rest-desc { font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 8px; }
+  .rest-order { background: #FFFBEB; border-left: 3px solid #F59E0B; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 7px 10px; margin-bottom: 8px; font-size: 12px; color: #78350F; line-height: 1.5; }
+  .rest-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .rest-tag { font-size: 11px; padding: 2px 8px; border-radius: 8px; background: var(--bg3); color: var(--text2); }
+  .rest-must { border-left: 3px solid #E879A0; }
+  .rest-must-badge { background: #FDE7F0; color: #9D1754; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 8px; display: inline-block; margin-bottom: 6px; }
+  @media (prefers-color-scheme: dark) {
+    .rest-order { background: #2a1f00; border-color: #B45309; }
+    .rest-order { color: #FCD34D; }
+    .rest-must-badge { background: #3a0020; color: #f472b6; }
+  }
+  /* FLIGHT TAB */
+  .fly-card { background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border); padding: 16px; margin-bottom: 12px; box-shadow: var(--shadow); }
+  .fly-route { font-size: 18px; font-weight: 700; margin-bottom: 2px; letter-spacing: 0.5px; }
+  .fly-date { font-size: 12px; color: var(--text3); margin-bottom: 10px; }
+  .fly-times { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .fly-time { font-size: 20px; font-weight: 700; }
+  .fly-line { flex: 1; height: 1px; background: var(--border2); position: relative; }
+  .fly-line::after { content: '✈'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 14px; color: var(--text3); }
+  .fly-airports { display: flex; justify-content: space-between; font-size: 11px; color: var(--text3); margin-bottom: 8px; }
+  .fly-meta { font-size: 12px; color: var(--text2); }
+  .fly-tip { background: var(--bg3); border-radius: var(--radius-sm); padding: 8px 12px; font-size: 12px; color: var(--text2); line-height: 1.5; margin-top: 8px; }
+  .fly-direction { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text3); margin: 16px 0 8px; }
+
+.note-banner { background: var(--bg3); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 14px; border-left: 3px solid #E879A0; }
+
+
+
 </style>
 </head>
 <body>
+
+
 
 <div class="header">
   <div class="header-top">
@@ -163,6 +203,8 @@
     <div class="tab on"  onclick="sw('tl',this)">Tidslinje</div>
     <div class="tab"     onclick="sw('map',this)">Kart</div>
     <div class="tab"     onclick="sw('wag',this)">Te & Wagashi</div>
+    <div class="tab"     onclick="sw('rest',this)">Restauranter</div>
+    <div class="tab"     onclick="sw('fly',this)">Fly</div>
     <div class="tab"     onclick="sw('prac',this)">Praktisk</div>
   </div>
 </div>
@@ -279,6 +321,204 @@
 </div>
 
 <!-- PRACTICAL -->
+<div id="v-fly" class="view">
+  <div class="note-banner">Alle flyruter på én plass. Trykk på flynummeret for å søke opp flystatus.</div>
+
+  <div class="fly-direction">→ Utreise</div>
+  <div class="fly-card">
+    <div class="fly-route">Oslo → Seoul/Incheon</div>
+    <div class="fly-date">Før avreise til Japan</div>
+    <div class="fly-times">
+      <div class="fly-time">OSL</div>
+      <div class="fly-line"></div>
+      <div class="fly-time">ICN</div>
+    </div>
+    <div class="fly-airports"><span>Oslo Lufthavn, Gardermoen</span><span>Seoul/Incheon Terminal 2</span></div>
+    <div class="fly-tip">💡 Sjekk inn online. Visit Japan Web QR-kode for japansk immigrasjon er klar.</div>
+  </div>
+
+  <div class="fly-card" style="border-color:#F9A825">
+    <div class="fly-route" style="color:#E65100">ICN → KIX (Seoul → Osaka)</div>
+    <div class="fly-date">Tirsdag 24. mars 2026</div>
+    <div class="fly-times">
+      <div class="fly-time">18:45</div>
+      <div class="fly-line"></div>
+      <div class="fly-time">20:45</div>
+    </div>
+    <div class="fly-airports"><span>Seoul/Incheon · Terminal 2</span><span>Osaka/Kansai · Terminal 1</span></div>
+    <div class="fly-meta">✈️ Korean Air KE721 · Boeing 787-9 · Economy Standard · 2t 0min</div>
+    <div class="fly-tip">💡 Sete: In-seat power og WiFi om bord. Haiku-flyets Korea-natt inkludert. Kansai airport er rask å komme seg fra — ta Haruka-toget til Osaka sentrum (~30 min).</div>
+  </div>
+
+  <div class="fly-direction">← Hjemreise</div>
+  <div class="fly-card" style="border-color:#1E88E5">
+    <div class="fly-route" style="color:#0D47A1">Tokyo → Seoul/Incheon</div>
+    <div class="fly-date">Torsdag 2. april 2026</div>
+    <div class="fly-times">
+      <div class="fly-time">TYO</div>
+      <div class="fly-line"></div>
+      <div class="fly-time">ICN</div>
+    </div>
+    <div class="fly-airports"><span>Tokyo (Narita eller Haneda)</span><span>Seoul/Incheon</span></div>
+    <div class="fly-tip">💡 Overnatter på Nest Hotel Incheon denne natten. Incheon har eksepsjonell duty free — K-beauty, sjokolade, alkohol. Beregn tid til shopping.</div>
+  </div>
+
+  <div class="fly-card">
+    <div class="fly-route">Seoul → London</div>
+    <div class="fly-date">Fredag 3. april 2026 · 12:25 → 18:50</div>
+    <div class="fly-times">
+      <div class="fly-time">12:25</div>
+      <div class="fly-line"></div>
+      <div class="fly-time">18:50</div>
+    </div>
+    <div class="fly-airports"><span>Seoul/Incheon</span><span>London</span></div>
+    <div class="fly-tip">💡 Husk: Sjekk inn tidlig — Incheon er stor. Gå gjennom duty free før gate. Eventuelt: Overnatt i London og ta morgenflytet til Oslo neste dag.</div>
+  </div>
+
+  <div class="fly-card">
+    <div class="fly-route">Seoul → Oslo</div>
+    <div class="fly-date">Lørdag 4. april 2026 · 06:40 → 12:55</div>
+    <div class="fly-times">
+      <div class="fly-time">06:40</div>
+      <div class="fly-line"></div>
+      <div class="fly-time">12:55</div>
+    </div>
+    <div class="fly-airports"><span>Seoul/Incheon</span><span>Oslo Lufthavn, Gardermoen</span></div>
+    <div class="fly-tip">💡 Tidlig morgenfly — om du ikke er på Nest Hotel: book hotell nær flyplassen kvelden før. Nest Hotel er ideelt for dette.</div>
+  </div>
+</div>
+
+<div id="v-rest" class="view">
+  <div class="note-banner" style="border-color:#E879A0">Restauranter er sortert geografisk etter nabolag — slik at du samler det som ligger nær hverandre på samme dag. Steder merket med ⭐ bør reserveres i god tid.</div>
+
+  <div class="section-title">Osaka</div>
+  <div class="rest-card">
+    <div class="rest-name">Kizuya</div>
+    <span class="rest-city osaka">Osaka — Dotonbori</span>
+    <div class="rest-type">🍡 Takoyaki / Street food</div>
+    <div class="rest-desc">Regnes som en av Oskas beste takoyaki-steder — små, dampende blekksprutkuler med sprø bunn og myk innside. Kø er normalt, men går raskt.</div>
+    <div class="rest-order">💡 Bestill: Standard takoyaki (8 stk). Spis på stedet, stående.</div>
+    <div class="rest-tags"><span class="rest-tag">Ingen reservasjon</span><span class="rest-tag">Billig</span><span class="rest-tag">Stående</span></div>
+  </div>
+  <div class="rest-card rest-must">
+    <div class="rest-must-badge">⭐ Ikke gå glipp av</div>
+    <div class="rest-name">Kushikatsu Daruma</div>
+    <span class="rest-city osaka">Osaka — Shinsekai / Dotonbori</span>
+    <div class="rest-type">🍢 Kushikatsu (panerte spyd)</div>
+    <div class="rest-desc">Det originale kushikatsu-stedet fra Shinsekai. Bredbente spyd med alt fra biff til løk til ost, fritert i sprø panering. Enkel, morsom og veldig Osaka.</div>
+    <div class="rest-order">💡 Bestill: Assortert sett. Bruk kålen til å øse saus. ALDRI dobbeltdypp — hellig regel.</div>
+    <div class="rest-tags"><span class="rest-tag">Ingen reservasjon</span><span class="rest-tag">Lokal klassiker</span></div>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name">Ichiran Ramen</div>
+    <span class="rest-city osaka">Osaka — Dotonbori</span>
+    <div class="rest-type">🍜 Tonkotsu ramen</div>
+    <div class="rest-desc">Solo-spise-bås-ramen — du sitter bak en liten vegg og spiser alene med ramen i fokus. Perfekt etter sen ankomst. Bestill fra automat i inngangen.</div>
+    <div class="rest-order">💡 Bestill: Basic tonkotsu, ekstra noodles (kaedama). Styrke på 5–6 av 10.</div>
+    <div class="rest-tags"><span class="rest-tag">Ingen reservasjon</span><span class="rest-tag">Åpent sent</span><span class="rest-tag">Solo-bås</span></div>
+  </div>
+
+  <div class="section-title" style="margin-top:18px">Kyoto</div>
+  <div class="rest-card rest-must">
+    <div class="rest-must-badge">⭐ Reserver nå</div>
+    <div class="rest-name">Kikunoi Roan</div>
+    <span class="rest-city kyoto">Kyoto — Higashiyama</span>
+    <div class="rest-type">🍱 Kaiseki (sesongbasert høykjøkken)</div>
+    <div class="rest-desc">En av Kyotos mest tilgjengelige kaiseki-restauranter — tre Michelin-stjerner for moderrestauranten, men Roan (søsterrestauranten) er mer avslappet og halvparten av prisen. Sakura-kaiseki i slutten av mars er eksepsjonelt.</div>
+    <div class="rest-order">💡 Bestill: Lunch kaiseki-kurs (mye rimeligere enn middag). Reserver via restaurant-nettsiden eller Tableall.</div>
+    <div class="rest-tags"><span class="rest-tag">Reserver</span><span class="rest-tag">Kaiseki</span><span class="rest-tag">Higashiyama</span></div>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name">Nishiki Warai</div>
+    <span class="rest-city kyoto">Kyoto — Nishiki Market</span>
+    <div class="rest-type">🍱 Kyoto-mat / Obanzai</div>
+    <div class="rest-desc">Obanzai er Kyotos hverdagsmat — mange små retter med sesonggrønnsaker, tofu og fisk. Enkelt, vakkert og genuint lokalt. Perfekt lunsj ved Nishiki Market.</div>
+    <div class="rest-order">💡 Bestill: Obanzai-set. Spør hva som er sesongbasert i dag.</div>
+    <div class="rest-tags"><span class="rest-tag">Lokal stil</span><span class="rest-tag">Nishiki</span><span class="rest-tag">Lunsj</span></div>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name">Pontocho Izakaya (velg selv)</div>
+    <span class="rest-city kyoto">Kyoto — Pontocho</span>
+    <div class="rest-type">🍶 Izakaya / Delemat</div>
+    <div class="rest-desc">Pontocho er en smal gate fylt med restaurant på restaurant — gå rundt kl. 19:00 og se hvilken stemning som fanger deg. Se etter steder med håndskrevet meny og ingen engelskspråklig promotering utenfor.</div>
+    <div class="rest-order">💡 Bestill: Kyoto-spesialiteter — yudofu (varm tofu), nishin soba, og lokal sake eller umeshu.</div>
+    <div class="rest-tags"><span class="rest-tag">Velg selv</span><span class="rest-tag">Kveld</span><span class="rest-tag">Pontocho</span></div>
+  </div>
+
+  <div class="section-title" style="margin-top:18px">Tokyo — Sentrum / Chiyoda</div>
+  <div class="rest-card">
+    <div class="rest-name">Hamarikyu Nakajima Teahouse</div>
+    <span class="rest-city tokyo">Tokyo — Hamarikyu (Chuo)</span>
+    <div class="rest-type">🍵 Matcha & wagashi</div>
+    <div class="rest-desc">Tehus på en øy i Hamarikyu-hagen. Matcha og sesongbasert wagashi servert i stille omgivelser — skyscraperne rundt gjør kontrasten spektakulær. Ingen reservasjon.</div>
+    <div class="rest-order">💡 Bestill: Matcha-settet (¥750 inkl. wagashi). Koicha (tykk matcha) om tilgjengelig.</div>
+    <div class="rest-tags"><span class="rest-tag">Ingen reservasjon</span><span class="rest-tag">Hamarikyu</span><span class="rest-tag">Billig</span></div>
+  </div>
+  <div class="rest-card rest-must">
+    <div class="rest-must-badge">⭐ Reserver nå</div>
+    <div class="rest-name">Higashiya Ginza</div>
+    <span class="rest-city tokyo">Tokyo — Ginza (Chuo)</span>
+    <div class="rest-type">🍡 Wagashi & te-kurs</div>
+    <div class="rest-desc">Den mest raffinerte wagashi-opplevelsen i Tokyo. Tradisjonell te-kurs med 5–6 serveringer: ulike teer matchet med sesongbaserte søtsaker. Meditativ atmosfære. Stengt mandag.</div>
+    <div class="rest-order">💡 Bestill: Tradisjonell te-kurs. Fortell at det er sakura-sesong — de tilpasser wagashi-en.</div>
+    <div class="rest-tags"><span class="rest-tag">Reserver</span><span class="rest-tag">Wagashi</span><span class="rest-tag">Ginza</span><span class="rest-tag">Stengt mandag</span></div>
+  </div>
+
+  <div class="section-title" style="margin-top:18px">Tokyo — Koenji / Nakameguro / Yanaka</div>
+  <div class="rest-card rest-must">
+    <div class="rest-must-badge">⭐ Book via nettsiden</div>
+    <div class="rest-name">Sake Bar KoKoN</div>
+    <span class="rest-city tokyo">Tokyo — Koenji</span>
+    <div class="rest-type">🍶 Sake-bar</div>
+    <div class="rest-desc">5-stjerners sake-bar med roterende daglig utvalg. Eieren guider deg gjennom hvert glass — fra fruktig og frisk til dyp og umami. Kveldsmat inkludert. En av Tokyos mest unike bar-opplevelser.</div>
+    <div class="rest-order">💡 Bestill: La eieren velge for deg. Si hva du liker (tørr/søt, frisk/rik). Prøv minst én naturlig sake.</div>
+    <div class="rest-tags"><span class="rest-tag">Book nettsiden</span><span class="rest-tag">Koenji</span><span class="rest-tag">Kveld</span></div>
+  </div>
+  <div class="rest-card rest-must">
+    <div class="rest-must-badge">⭐ Reserver via Omakase.in</div>
+    <div class="rest-name">L'Éterre Kagurazaka</div>
+    <span class="rest-city tokyo">Tokyo — Kagurazaka (Shinjuku)</span>
+    <div class="rest-type">🍽 Fransk omakase (counter)</div>
+    <div class="rest-desc">Liten disk-sete restaurant med 4,8 stjerner. Sjef-kokken lager en kort omakase der franske teknikker møter japanske råvarer. Intim, varm og uvanlig god. En av Tokyos skjulte perler.</div>
+    <div class="rest-order">💡 Bestill: Hele omakase-kurset. Velg vinparing om tilgjengelig. Fortell om allergier på forhånd.</div>
+    <div class="rest-tags"><span class="rest-tag">Reserver Omakase.in</span><span class="rest-tag">Kagurazaka</span><span class="rest-tag">Kveld</span></div>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name">Monzen-Nakacho Izakaya-gate</div>
+    <span class="rest-city tokyo">Tokyo — Monzen-Nakacho (Koto)</span>
+    <div class="rest-type">🍺 Izakaya / Tachinomi</div>
+    <div class="rest-desc">Lokal arbeiderklasse-kveld — velg deg en liten, røykfylt izakaya og still deg ved bardisken. Yakitori over kull, høy stemning, lave priser. Ingen turister. Ekte Tokyo etter jobb.</div>
+    <div class="rest-order">💡 Bestill: Toriaezu biiru (øl for nå). Så yakitori, edamame, karaage. Del alt.</div>
+    <div class="rest-tags"><span class="rest-tag">Ingen reservasjon</span><span class="rest-tag">Billig</span><span class="rest-tag">Lokal</span><span class="rest-tag">Kveld</span></div>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name">Hanaju Café</div>
+    <span class="rest-city tokyo">Tokyo — Yanaka (Taito)</span>
+    <div class="rest-type">☕ Kafé / Dessert</div>
+    <div class="rest-desc">Blomsterkafé rett ved Yanaka kirkegård. Søtpotet crème brûlée er eksepsjonell. French toast laget med Pelican-brød. Hagesetting når solen er fremme.</div>
+    <div class="rest-order">💡 Bestill: Søtpotet crème brûlée + iced matcha latte. Spis i hagen om mulig.</div>
+    <div class="rest-tags"><span class="rest-tag">Yanaka</span><span class="rest-tag">Dag</span><span class="rest-tag">Hage</span></div>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name">Kagurazaka Saryo</div>
+    <span class="rest-city tokyo">Tokyo — Kagurazaka (Shinjuku)</span>
+    <div class="rest-type">🍵 Matcha / Te & mat</div>
+    <div class="rest-desc">Elegant matcha-kafé med eksepsjonell te og god udon. Kø dannes ved åpning — kom tidlig eller rett etter lunch-rush. Shizuoka genmaicha og matcha smore er høydepunktene.</div>
+    <div class="rest-order">💡 Bestill: Matcha + smore. Eller mentaiko udon til lunsj. Prøv Shizuoka genmaicha.</div>
+    <div class="rest-tags"><span class="rest-tag">Kagurazaka</span><span class="rest-tag">Dag/Lunsj</span><span class="rest-tag">Kø mulig</span></div>
+  </div>
+
+  <div class="section-title" style="margin-top:18px">Tokyo — Akasaka / Toraya</div>
+  <div class="rest-card">
+    <div class="rest-name">Toraya Akasaka</div>
+    <span class="rest-city tokyo">Tokyo — Akasaka (Minato)</span>
+    <div class="rest-type">🍡 Wagashi & matcha</div>
+    <div class="rest-desc">500 år gammelt wagashi-hus — leverandør til keiserfamilien. Hinoki-sypressvegger, kafé i 3. etasje med utsikt mot Akasaka Imperial Grounds. Matcha + yokan i zen-aktig ro.</div>
+    <div class="rest-order">💡 Bestill: Matcha + anmitsu eller yokan. Be om sesongbasert wagashi.</div>
+    <div class="rest-tags"><span class="rest-tag">Historisk</span><span class="rest-tag">Akasaka</span><span class="rest-tag">Dag/Kveld</span></div>
+  </div>
+</div>
+
 <div id="v-prac" class="view">
   <div class="prac-section">
     <div class="section-title">Før avreise</div>
@@ -472,13 +712,14 @@
 </div>
 
 <script>
-const C={osaka:{fg:"#E65100",bg:"#FFF3E0",bd:"#F9A825"},kyoto:{fg:"#4527A0",bg:"#EDE7F6",bd:"#7E57C2"},tokyo:{fg:"#0D47A1",bg:"#E3F2FD",bd:"#1E88E5"},fuji:{fg:"#1B5E20",bg:"#E8F5E9",bd:"#43A047"}};
+const C={osaka:{fg:"#E65100",bg:"#FFF3E0",bd:"#F9A825"},kyoto:{fg:"#4527A0",bg:"#EDE7F6",bd:"#7E57C2"},tokyo:{fg:"#0D47A1",bg:"#E3F2FD",bd:"#1E88E5"},fuji:{fg:"#1B5E20",bg:"#E8F5E9",bd:"#43A047"},seoul:{fg:"#B91C4A",bg:"#FDE7F0",bd:"#E879A0"}};
 
 const HOTELS={
   osaka:{name:"Osaka Excel Hotel Tokyu",addr:"4-1-15 Kyūtarōmachi, Chuo Ward, Osaka",dates:"24 mars · 1 natt",note:"Lobby i 16. etasje. Bruk Hommachi stasjon utgang 16 (rulletrapper) — IKKE utgang 9. Svært nær Dotonbori og Shinsaibashi.",maps:"https://maps.google.com/?q=Osaka+Excel+Hotel+Tokyu,+Osaka",city:"osaka"},
   kyoto:{name:"Keio Prelia Hotel Kyoto Karasuma Gojo",addr:"396 Gōjōkarasumachō, Shimogyo Ward, Kyoto",dates:"25–26 mars · 2 netter",note:"Onsen/offentlig bad i hotellet — bruk det! En t-banestopp fra Kyoto Stasjon. Gion og Nishiki Market er gangavstand.",maps:"https://maps.google.com/?q=Keio+Prelia+Hotel+Kyoto+Karasuma+Gojo",city:"kyoto"},
   toshi:{name:"Toshi Center Hotel",addr:"2-4-1 Hirakawachō, Chiyoda City, Tokyo",dates:"27–29 mars · 3 netter",note:"Nær Imperial Palace-graven — Chidorigafuchi er gangavstand. FamilyMart rett over gaten.",maps:"https://maps.google.com/?q=Toshi+Center+Hotel,+Chiyoda+City,+Tokyo",city:"tokyo"},
   rakuyu:{name:"Rakuyu Ryokan",addr:"1182 Azagawa, Fujikawaguchiko, Yamanashi",dates:"30 mars · 1 natt",note:"Innsjøutsikt (ikke direkte Fuji-utsikt fra rom). Onsen, kaiseki middag + frokost inkludert. Hottarakashi Onsen i nærheten for Fuji-fra-vannet.",maps:"https://maps.google.com/?q=Rakuyu+Ryokan,+Fujikawaguchiko",city:"fuji"},
+  incheon:{name:"Nest Hotel Incheon",addr:"Incheon International Airport, Seoul",dates:"2–3. april · 1 natt",note:"Rett ved Incheon flyplass. Perfekt for tidlig avgang. Duty free i terminalen.",maps:"https://maps.google.com/?q=Nest+Hotel+Incheon+Airport",city:"seoul"},
   prince:{name:"Grand Prince Hotel Takanawa",addr:"3-13-1 Takanawa, Minato City, Tokyo",dates:"31 mars – 2. april · 3 netter",note:"Større rom enn typisk Tokyo-hotell. Vakker hage. Bratt bakke fra Shinagawa — ta drosje med bagasje (3 min, billig).",maps:"https://maps.google.com/?q=Grand+Prince+Hotel+Takanawa,+Tokyo",city:"tokyo"},
 };
 
@@ -640,13 +881,25 @@ cats:[
 {n:"Tax-free refund",tip:"Har du handlet tax-free? Gå til toll-skranken FØR sikkerhetskontroll med kvitteringene og passet. Vær tidlig ute."},
 ]},
 ]},
-];
+,
+{d:"3. april",wd:"Fre",city:"seoul",icon:"✈️",hotel:"incheon",checkout:true,
+cats:[
+  {ic:"🏨",t:"Nest Hotel Incheon",items:[
+    {n:"Sen utsjekk om mulig",tip:"Hotellet er rett ved Incheon flyplass. Perfekt base for tidlig avgang."},
+    {n:"Siste shopping i duty free",tip:"Incheon flyplass har eksepsjonell duty free — K-beauty, koreansk godteri og alkohol til gode priser."},
+  ]},
+  {ic:"✈️",t:"Hjemreise",items:[
+    {n:"Hjemreise til London",a:"Fre 3. apr · 12:25 → 18:50",tip:"Sjekk inn tidlig — Incheon er stor flyplass. Beregn god tid."},
+    {n:"Hjemreise til Oslo (via London?)",a:"Lør 4. apr · 06:40 → 12:55",tip:"Tidlig morgenfly — om du overnatter i London, book hotell nær flyplassen."},
+  ]},
+]},];
 
 function hotelForIdx(i){
   const c=DAYS[i].city;
   if(c==='osaka') return HOTELS.osaka;
   if(c==='kyoto') return HOTELS.kyoto;
   if(c==='fuji')  return HOTELS.rakuyu;
+  if(c==='seoul') return HOTELS.incheon;
   return i<=6 ? HOTELS.toshi : HOTELS.prince;
 }
 
@@ -664,14 +917,14 @@ function renderTL(){
     </div>`;
     grid.appendChild(col);
   });
-  const segs=[{k:'osaka',n:1},{k:'kyoto',n:2},{k:'toshi',n:3},{k:'rakuyu',n:1},{k:'prince',n:2}];
+  const segs=[{k:'osaka',n:1},{k:'kyoto',n:2},{k:'toshi',n:3},{k:'rakuyu',n:1},{k:'prince',n:2},{k:'incheon',n:1}];
   segs.forEach((s,si)=>{
     const h=HOTELS[s.k]; const col=C[h.city];
     const w=s.n*68-6;
     const a=document.createElement('a');
     a.className='hblk'; a.href=h.maps; a.target='_blank';
     a.style.cssText=`width:${w}px;background:${col.bg};color:${col.fg};border-color:${col.bd}`;
-    const nm={osaka:'Osaka Excel',kyoto:'Keio Prelia',toshi:'Toshi Center',rakuyu:'Rakuyu',prince:'Grand Prince'};
+    const nm={osaka:'Osaka Excel',kyoto:'Keio Prelia',toshi:'Toshi Center',rakuyu:'Rakuyu',prince:'Grand Prince',incheon:'Nest Incheon'};
     a.textContent=nm[s.k]; a.title=h.name;
     strip.appendChild(a);
     if(si<segs.length-1){const g=document.createElement('div');g.className='hblk-gap';strip.appendChild(g);}
@@ -710,7 +963,7 @@ function pick(i){
         <div class="panel-top-row">
           <div>
             <div class="panel-day-title">${d.icon} ${d.wd} ${d.d}</div>
-            <div class="panel-day-sub">${d.city==='fuji'?'Fuji / Yamanashi':d.city[0].toUpperCase()+d.city.slice(1)}</div>
+            <div class="panel-day-sub">${d.city==='fuji'?'Fuji / Yamanashi':d.city==='seoul'?'Seoul / Incheon':d.city[0].toUpperCase()+d.city.slice(1)}</div>
           </div>
           <a class="hotel-link" href="${h.maps}" target="_blank" style="background:${col.bg};color:${col.fg};border-color:${col.bd}">
             📍 ${h.name.split(' ').slice(0,3).join(' ')} ↗
@@ -750,5 +1003,7 @@ function sw(id,btn){
 renderTL();
 pick(0);
 </script>
+</div>
+
 </body>
 </html>
