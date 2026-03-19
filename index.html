@@ -182,7 +182,57 @@
   .fly-tip { background: var(--bg3); border-radius: var(--radius-sm); padding: 8px 12px; font-size: 12px; color: var(--text2); line-height: 1.5; margin-top: 8px; }
   .fly-direction { font-size: 11px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text3); margin: 16px 0 8px; }
 
-.note-banner { background: var(--bg3); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 14px; border-left: 3px solid #E879A0; }
+
+  /* TRANSPORT TAB */
+  .trans-section-label { font-size: 11px; font-weight: 700; color: var(--text3); letter-spacing: 0.07em; text-transform: uppercase; margin: 16px 0 8px; }
+  .leg-card { border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 10px; overflow: hidden; background: var(--bg); }
+  .leg-header { padding: 11px 14px; cursor: pointer; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; user-select: none; }
+  .leg-header:hover { background: var(--bg2); }
+  .leg-left { flex: 1; min-width: 0; }
+  .leg-route { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .leg-sub { font-size: 12px; color: var(--text2); }
+  .leg-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+  .mode-pill { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 10px; white-space: nowrap; }
+  .dur { font-size: 11px; color: var(--text3); }
+  .leg-chev { font-size: 11px; color: var(--text3); transition: transform 0.2s; }
+  .leg-chev.open { transform: rotate(180deg); }
+  .leg-body { display: none; padding: 10px 14px 14px; border-top: 1px solid var(--border); }
+  .leg-body.open { display: block; }
+  .lstep { display: flex; gap: 10px; align-items: flex-start; margin-top: 9px; }
+  .lstep:first-child { margin-top: 0; }
+  .lstep-line { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 16px; padding-top: 4px; }
+  .lstep-dot { width: 8px; height: 8px; border-radius: 50%; border: 2px solid var(--border2); background: var(--bg); flex-shrink: 0; }
+  .lstep-dot.colored { border-color: currentColor; }
+  .lstep-conn { width: 2px; flex: 1; background: var(--border); min-height: 14px; margin-top: 3px; }
+  .lstep-body { flex: 1; padding-bottom: 4px; }
+  .lstep-station { font-size: 13px; font-weight: 600; color: var(--text); }
+  .lstep-detail { font-size: 12px; color: var(--text2); margin-top: 2px; line-height: 1.5; }
+  .lstep-exit { display: inline-block; background: #FFF9C4; color: #5D4037; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 6px; margin-top: 3px; border: 1px solid #F9A825; }
+  @media (prefers-color-scheme: dark) { .lstep-exit { background: #3a2a00; color: #FCD34D; border-color: #B45309; } }
+  .trans-tip { background: #FFFBEB; border-left: 3px solid #F59E0B; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 7px 10px; margin-top: 9px; font-size: 12px; color: #78350F; line-height: 1.5; }
+  @media (prefers-color-scheme: dark) { .trans-tip { background: #2a1f00; color: #FCD34D; } }
+  .maps-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 20px; text-decoration: none; border: 1px solid; margin-top: 10px; transition: opacity 0.15s; }
+  .maps-link:active { opacity: 0.75; }
+  .trans-cost { font-size: 12px; color: var(--text2); margin-top: 6px; }
+  .trans-cost b { color: var(--text); font-weight: 600; }
+
+  
+  /* TRANSPORT PILLS between activities */
+  .trans-pill {
+    display: flex; align-items: center; gap: 8px;
+    padding: 5px 10px; margin: 6px 0 2px 14px;
+    border-radius: 20px; width: fit-content;
+    font-size: 11px; font-weight: 700;
+    border: 1px solid; cursor: pointer;
+    text-decoration: none; transition: opacity 0.15s;
+    line-height: 1.3;
+  }
+  .trans-pill:active { opacity: 0.7; }
+  .trans-pill-icon { font-size: 13px; flex-shrink: 0; }
+  .trans-pill-text { color: inherit; }
+  .trans-pill-time { font-size: 10px; font-weight: 500; opacity: 0.75; margin-left: 2px; }
+
+  .note-banner { background: var(--bg3); border-radius: var(--radius-sm); padding: 10px 12px; font-size: 12px; color: var(--text2); line-height: 1.6; margin-bottom: 14px; border-left: 3px solid #E879A0; }
 
 
 
@@ -205,6 +255,7 @@
     <div class="tab"     onclick="sw('wag',this)">Te & Wagashi</div>
     <div class="tab"     onclick="sw('rest',this)">Restauranter</div>
     <div class="tab"     onclick="sw('fly',this)">Fly</div>
+    <div class="tab"     onclick="sw('trans',this)">Transport</div>
     <div class="tab"     onclick="sw('prac',this)">Praktisk</div>
   </div>
 </div>
@@ -517,6 +568,433 @@
     <div class="rest-order">💡 Bestill: Matcha + anmitsu eller yokan. Be om sesongbasert wagashi.</div>
     <div class="rest-tags"><span class="rest-tag">Historisk</span><span class="rest-tag">Akasaka</span><span class="rest-tag">Dag/Kveld</span></div>
   </div>
+</div>
+
+<div id="v-trans" class="view">
+  <div class="note-banner" style="border-color:#E879A0">Trykk på en etappe for detaljer · utganger og Google Maps-lenker er inkludert · gå-turer under 40 min er markert grønt</div>
+
+  <div class="trans-section-label">Tirsdag 24. mars — Ankomst Osaka</div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">KIX flyplass → Osaka Excel Hotel Tokyu</div>
+        <div class="leg-sub">Osaka/Kansai Terminal 1 → Hommachi</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#FF6B00;color:#fff">Haruka + Metro</span>
+        <span class="dur">~45 min · ¥2 030</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">KIX Terminal 1 — avgang</div><div class="lstep-detail">Haruka Airport Express mot Tennoji/Shin-Osaka. Avgår hvert 30. min. Kjøp billett i automatene ved plattformen.</div></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Tennoji stasjon</div><div class="lstep-detail">Bytt til Osaka Metro Midosuji-linja (rød linje). Gå mot nord mot Umeda.</div><span class="lstep-exit">Inngang: JR-siden · følg skilt til Metro</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Hommachi stasjon</div><div class="lstep-detail">2 stopp nord for Tennoji på Midosuji-linja. 3 min gange til hotellet.</div><span class="lstep-exit">Utgang 16 (rulletrapper!) — IKKE utgang 9</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Osaka Excel Hotel Tokyu</div></div>
+      </div>
+      <div class="trans-tip">Ankommer kl. 20:45 — Haruka avgår hvert 30. min fra KIX. Neste Haruka etter landing: sjekk skjermen i terminalen.</div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Kansai+International+Airport/Osaka+Excel+Hotel+Tokyu/@34.65,135.4,11z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x6000f5f0b036e889:0xcd2f5ebef02b7ac4!2m2!1d135.2381!2d34.4273!1m5!1m1!1s0x6000e6f0c2b7e1b5:0x1!2m2!1d135.5005!2d34.6804!3e3" target="_blank" style="background:#E8F5E9;color:#1B5E20;border-color:#43A047">Åpne rute i Google Maps ↗</a>
+      <div class="trans-cost">Haruka til Tennoji: <b>¥1 800</b> · Metro 2 stopp: <b>¥230</b></div>
+    </div>
+  </div>
+
+  <div class="trans-section-label">Onsdag 25. mars — Osaka → Kyoto</div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Osaka hotell → Keio Prelia Kyoto</div>
+        <div class="leg-sub">Hommachi → Kyoto Karasuma Gojo</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#0057A8;color:#fff">Shinkansen</span>
+        <span class="dur">~40 min · ¥1 950</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Hommachi stasjon</div><div class="lstep-detail">Ta Midosuji-linja (rød) nord til Shin-Osaka. 4 stopp.</div><span class="lstep-exit">Inngang: Utgang 16 fra hotellet</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Shin-Osaka stasjon → Shinkansen</div><div class="lstep-detail">Hikari-toget tar 28 min til Kyoto og er billigere enn Nozomi. Avgår hvert 10-15 min.</div><span class="lstep-exit">Shinkansen-billettene: sentralhallen i Shin-Osaka · sitt A/B (venstre) for Fuji østover (men Kyoto → Tokyo, ikke denne etappen)</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Kyoto stasjon</div><div class="lstep-detail">Bytt til Karasuma-linja metro (lilla). 1 stopp sør til Gojo.</div><span class="lstep-exit">Utgang Karasuma-siden · metro-inngang i stasjonshallen</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Gojo stasjon → Keio Prelia (2 min gange)</div></div>
+      </div>
+      <div class="trans-tip">Send bagasje med TA-Q-BIN til Kyoto-hotellet kvelden FØR — reis lett på shinkansen.</div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Osaka+Excel+Hotel+Tokyu/Keio+Prelia+Hotel+Kyoto+Karasuma+Gojo/@34.85,135.6,10z" target="_blank" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">Åpne rute i Google Maps ↗</a>
+      <div class="trans-cost">Metro Hommachi→Shin-Osaka: <b>¥280</b> · Shinkansen Hikari: <b>¥1 430</b> · Metro 1 stopp: <b>¥230</b></div>
+    </div>
+  </div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Hotellet → Kinkaku-ji → Nishiki Market</div>
+        <div class="leg-sub">Gojo → Nordvest → Sentrum</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#00A651;color:#fff">Buss</span>
+        <span class="dur">~35 min · ¥460</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Karasuma Gojo busstopp</div><div class="lstep-detail">Ta buss 12 eller 59 mot Kinkaku-ji. ~30 min.</div><span class="lstep-exit">Bussholdeplass: rett ved Gojo metro-utgang 3</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Kinkakuji-michi (Kinkaku-ji)</div><div class="lstep-detail">Av her. Ta buss 12 tilbake mot sentrum etter besøket.</div></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Shijo Karasuma → Nishiki Market (3 min gange)</div><div class="lstep-detail">Nishiki er parallellgaten én blokk nord for Shijo.</div></div>
+      </div>
+      <div class="lstep" style="margin-top:12px">
+        <div class="lstep-line"><div class="lstep-dot" style="background:#1B5E20;border-color:#1B5E20"></div></div>
+        <div class="lstep-body"><div class="lstep-station" style="color:#1B5E20">Nishiki → Pontocho/Shirakawa: gå (~12 min)</div><div class="lstep-detail" style="color:#388E3C">Gå øst mot Kamo-elven. Pontocho er elvebredden. Shirakawa 10 min videre øst i Gion.</div></div>
+      </div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Keio+Prelia+Hotel+Kyoto/Kinkakuji/@35.02,135.74,13z" target="_blank" style="background:#E8F5E9;color:#1B5E20;border-color:#43A047">Åpne rute i Google Maps ↗</a>
+      <div class="trans-cost">Buss dagspass: <b>¥700</b> (anbefales om dere tar 3+ busser)</div>
+    </div>
+  </div>
+
+  <div class="trans-section-label">Torsdag 26. mars — Kyoto dag 2</div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Hotellet → Ishibe-kōji / Gion-området</div>
+        <div class="leg-sub">Karasuma Gojo → Higashiyama</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#1B5E20;color:#fff">Til fots</span>
+        <span class="dur">~25 min</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot" style="background:#1B5E20;border-color:#1B5E20"></div></div>
+        <div class="lstep-body"><div class="lstep-station" style="color:#1B5E20">Gå langs Kamo-elven nordover</div><div class="lstep-detail">Vakker morgenrute — gå ved daggry. Ishibe-kōji, Shirakawa-kanalen og Kagizen Yoshifusa er alle innen 15 min av hverandre i Gion.</div></div>
+      </div>
+      <div class="lstep" style="margin-top:12px">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Gion → Tsuruya Yoshinobu (nord)</div><div class="lstep-detail">Ta Karasuma-linja metro fra Gion-Shijo nord til Imadegawa. Tsuruya er 7 min gange.</div><span class="lstep-exit">Inngang: Gion-Shijo stasjon · Karasuma-linja nordgående</span></div>
+      </div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Keio+Prelia+Hotel+Kyoto/Ishibe+Koji+Lane,+Kyoto/@35.003,135.77,14z" target="_blank" style="background:#E8F5E9;color:#1B5E20;border-color:#43A047">Åpne rute i Google Maps ↗</a>
+    </div>
+  </div>
+
+  <div class="trans-section-label">Fredag 27. mars — Kyoto → Tokyo</div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Kyoto → Toshi Center Hotel Tokyo</div>
+        <div class="leg-sub">Kyoto Stasjon → Chiyoda, Tokyo</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#0057A8;color:#fff">Nozomi Shinkansen</span>
+        <span class="dur">~2t 15 min · ¥14 340</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Keio Prelia → Kyoto Stasjon (metro 1 stopp)</div><div class="lstep-detail">Karasuma-linja 1 stopp sør fra Gojo til Kyoto-stasjon.</div><span class="lstep-exit">Gojo stasjon inngang rett ved hotellet · sørover</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Kyoto → Tokyo (Nozomi Shinkansen)</div><div class="lstep-detail">Sitt A eller B-sete (venstre side, østover) for Fuji-utsikt! Fuji vises etter ca. 40 min mellom Shin-Fuji og Shizuoka.</div><span class="lstep-exit">Shinkansen: sentralhallen i Kyoto stasjon · følg Shinkansen-skiltene opp</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Tokyo Stasjon → Toshi Center Hotel</div><div class="lstep-detail">Ta Marunouchi-linja (rød) 2 stopp til Otemachi, eller Tozai-linja til Takebashi. Begge ~8 min gange til hotellet.</div><span class="lstep-exit">Tokyo Stasjon: Marunouchi-siden · utgang Marunouchi Central</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Toshi Center Hotel (8 min gange fra Takebashi)</div></div>
+      </div>
+      <div class="trans-tip">Book seter på forhånd — spesielt i sakurasesong. Send bagasje med TA-Q-BIN til Toshi Center kvelden FØR.</div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Kyoto+Station/Toshi+Center+Hotel+Tokyo/@35.3,136.5,9z" target="_blank" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">Åpne rute i Google Maps ↗</a>
+      <div class="trans-cost">Metro Gojo→Kyoto stasjon: <b>¥220</b> · Nozomi reservert sete: <b>¥13 850</b> · Tokyo metro: <b>¥230</b></div>
+    </div>
+  </div>
+
+  <div class="trans-section-label">Lørdag 28. mars — Tokyo sakura-dag</div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Toshi Center → Chidorigafuchi</div>
+        <div class="leg-sub">Hirakawachō → Imperial Palace</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#1B5E20;color:#fff">Til fots</span>
+        <span class="dur">~18 min</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot" style="background:#1B5E20;border-color:#1B5E20"></div></div>
+        <div class="lstep-body"><div class="lstep-station" style="color:#1B5E20">Gå nordvest langs Palace-graven</div><div class="lstep-detail">Hotellet er perfekt plassert — gå kl. 06:00 langs graven til Chidorigafuchi. Allerede vakker tur fra hotelldøren.</div></div>
+      </div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Toshi+Center+Hotel/Chidorigafuchi+Green+Way/@35.685,139.745,14z" target="_blank" style="background:#E8F5E9;color:#1B5E20;border-color:#43A047">Åpne rute i Google Maps ↗</a>
+    </div>
+  </div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Chidorigafuchi → Hamarikyu → Kiyosumi → Meguro</div>
+        <div class="leg-sub">Chiyoda → Chuo → Koto → Nakameguro</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#B5B5AC;color:#1a1a1a">Tokyo Metro</span>
+        <span class="dur">~75 min totalt</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Kudanshita → Shiodome (Yurakucho-linja, gul)</div><div class="lstep-detail">4 stopp. Hamarikyu er 8 min gange sør fra Shiodome.</div><span class="lstep-exit" style="background:#E8D44D;color:#5D4037;border-color:#C8A000">Kudanshita: inngang 2 eller 5 · Yurakucho-linja</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Shiodome → Kiyosumi Shirakawa (Oedo + Hanzomon)</div><div class="lstep-detail">Oedo-linja (burgundy/rød) 2 stopp til Morishita, bytt Hanzomon-linja (lilla) 1 stopp til Kiyosumi Shirakawa.</div><span class="lstep-exit" style="background:#9B2335;color:#fff;border-color:#7A1A28">Shiodome: Oedo-linja inngang · Kiyosumi utgang A3</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Kiyosumi Shirakawa → Nakameguro (Hanzomon + Tokyu Toyoko)</div><div class="lstep-detail">Hanzomon-linja (lilla) vest til Shibuya, bytt Tokyu Toyoko-linja 1 stopp sør til Nakameguro.</div><span class="lstep-exit" style="background:#8F76D6;color:#fff;border-color:#6A52B3">Kiyosumi: Hanzomon-linja inngang B2 · Nakameguro utgang main</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot" style="background:#1B5E20;border-color:#1B5E20"></div></div>
+        <div class="lstep-body"><div class="lstep-station" style="color:#1B5E20">Meguro River: gå sørover fra stasjonen (~5 min)</div><div class="lstep-detail" style="color:#388E3C">Ankomst ~17:00 er ideelt. Gå sør forbi den travleste delen for ro.</div></div>
+      </div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Chidorigafuchi/Hamarikyu+Gardens/Kiyosumi+Garden/Nakameguro+Station/@35.66,139.75,13z" target="_blank" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">Åpne rute i Google Maps ↗</a>
+    </div>
+  </div>
+
+  <div class="trans-section-label">Søndag 29. mars — Yanaka + Ginza + Monzen-Nakacho</div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Toshi Center → Yanaka → Ginza → Monzen-Nakacho</div>
+        <div class="leg-sub">Chiyoda → Taito → Ginza → Koto</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#B5B5AC;color:#1a1a1a">Tokyo Metro</span>
+        <span class="dur">Hele dagen</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Takebashi → Nippori (Tozai + Sobu-linje)</div><div class="lstep-detail">Tozai-linja (blå) til Nihonbashi, bytt JR Sobu-linja til Nippori. Yanaka kirkegård 5 min gange.</div><span class="lstep-exit" style="background:#0099CC;color:#fff;border-color:#0077AA">Takebashi: Tozai-linja utgang 1 · Nippori: vest-utgang</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Nippori/Nezu → Ginza (Chiyoda-linja, grønn)</div><div class="lstep-detail">Chiyoda-linja fra Nezu stasjon (5 min gange fra Yanaka) til Hibiya, bytt Hibiya-linja 1 stopp til Ginza. Higashiya Ginza i Pola Ginza Building.</div><span class="lstep-exit" style="background:#00BB85;color:#fff;border-color:#009966">Nezu inngang: rett ved Yanaka-kvarteret</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Ginza → Monzen-Nakacho (Hibiya-linja, grå)</div><div class="lstep-detail">Direkte — 3 stopp øst med Hibiya-linja. Izakaya-gatene starter rett utenfor stasjonen.</div><span class="lstep-exit" style="background:#B5B5AC;color:#1a1a1a;border-color:#888">Ginza: Hibiya-linja mot Naka-Meguro · Monzen-Nakacho utgang 1</span></div>
+      </div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Yanaka+Cemetery/HIGASHIYA+GINZA/Monzen-nakacho+Station/@35.68,139.78,13z" target="_blank" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">Åpne rute i Google Maps ↗</a>
+    </div>
+  </div>
+
+  <div class="trans-section-label">Mandag 30. mars — Tokyo → Fuji</div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Toshi Center → Kawaguchiko (Fuji)</div>
+        <div class="leg-sub">Tokyo sentrum → Yamanashi</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#FF6B00;color:#fff">Direktebuss</span>
+        <span class="dur">~1t 50 min · ¥2 100</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Toshi Center → Shinjuku (metro)</div><div class="lstep-detail">Tozai-linja fra Takebashi til Shinjuku, ca. 15 min.</div></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Busta Shinjuku (bussterminalen) etg. 4</div><div class="lstep-detail">Keio Dentetsu-buss direkte til Kawaguchiko. Avgår jevnlig. Book på forhånd på nettstedet eller Klook — fyller opp i sakurasesong.</div><span class="lstep-exit">Shinjuku stasjon: Sørøst-utgang → Busta Shinjuku er i samme bygg. Busser fra etasje 4.</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Kawaguchiko stasjon · Loop-buss dagspass her</div><div class="lstep-detail">Kjøp Fujikyuko loop-buss dagspass (¥1 700) direkte ved ankomst. Chureito Pagoda: av ved Shimo-Yoshida stopp.</div></div>
+      </div>
+      <div class="trans-tip">Send bagasje til Rakuyu Ryokan med TA-Q-BIN fra Toshi Center kvelden FØR.</div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Busta+Shinjuku/Kawaguchiko+Station/@35.5,139.2,11z" target="_blank" style="background:#FFF3E0;color:#E65100;border-color:#F9A825">Åpne rute i Google Maps ↗</a>
+      <div class="trans-cost">Buss: <b>¥2 100</b> · Loop-buss dagspass: <b>¥1 700</b></div>
+    </div>
+  </div>
+
+  <div class="trans-section-label">Tirsdag 31. mars — Fuji → Tokyo (Grand Prince)</div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Rakuyu Ryokan → Grand Prince Takanawa</div>
+        <div class="leg-sub">Kawaguchiko → Shinagawa, Tokyo</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#FF6B00;color:#fff">Buss + JR</span>
+        <span class="dur">~2t 30 min</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Kawaguchiko → Shinjuku (Keio buss)</div><div class="lstep-detail">Samme linje tilbake. Avgår fra Kawaguchiko stasjon.</div></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Shinjuku → Shinagawa (JR Yamanote-linja, grønn ring)</div><div class="lstep-detail">Ca. 30 min med Yamanote-linja sørover til Shinagawa.</div><span class="lstep-exit" style="background:#80C241;color:#1B3A00;border-color:#3B6D11">Shinjuku: JR-siden · Yamanote sørover · Shinagawa utgang Takanawa</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Shinagawa → Grand Prince (bratt bakke!)</div><div class="lstep-detail">Ta DROSJE fra Shinagawa med bagasje — 3 min og ca. ¥700. Gange er 10-15 min opp en bratt bakke.</div><span class="lstep-exit">Shinagawa: Takanawa-utgang (vest) · drosje rett utenfor</span></div>
+      </div>
+      <div class="trans-tip">Send bagasje med TA-Q-BIN fra ryokanen til Grand Prince kvelden FØR!</div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Kawaguchiko+Station/Grand+Prince+Hotel+Takanawa/@35.5,139.0,10z" target="_blank" style="background:#FFF3E0;color:#E65100;border-color:#F9A825">Åpne rute i Google Maps ↗</a>
+    </div>
+  </div>
+
+  <div class="trans-section-label">Onsdag 1. april — Vest-Tokyo</div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Grand Prince → Koganei → Nishi-Ogikubo → Koenji → Kagurazaka</div>
+        <div class="leg-sub">Shinagawa → Chuo-linjen vest og tilbake øst</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#F15A22;color:#fff">JR Chuo-linja</span>
+        <span class="dur">Hele dagen</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Shinagawa → Shinjuku (JR Yamanote)</div><div class="lstep-detail">30 min. Bytt til JR Chuo Rapid-linja vestover.</div><span class="lstep-exit" style="background:#80C241;color:#1B3A00;border-color:#3B6D11">Shinagawa: JR Yamanote nordover · Shinjuku JR sentralhall</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Shinjuku → Musashi-Koganei (JR Chuo Rapid, oransje)</div><div class="lstep-detail">Ca. 30 min. Koganei Park er 5 min gange nord fra stasjonen.</div><span class="lstep-exit" style="background:#F15A22;color:#fff;border-color:#C44010">Shinjuku: JR Chuo Rapid (oransje) vestgående · Musashi-Koganei nordutgang</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Musashi-Koganei → Nishi-Ogikubo (3 stopp øst)</div><div class="lstep-detail">Ta JR Chuo-linja tilbake øst. Nishi-Ogikubo er 10 min. Antikvitetene er rundt stasjonen.</div><span class="lstep-exit" style="background:#F15A22;color:#fff;border-color:#C44010">Nishi-Ogikubo: sørutgang · antikvitetsgate til høyre</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Nishi-Ogikubo → Koenji (1 stopp øst) · KoKoN sake-bar</div><div class="lstep-detail">1 stopp. KoKoN er i bakgatene nord for Koenji stasjon.</div><span class="lstep-exit" style="background:#F15A22;color:#fff;border-color:#C44010">Koenji: nordutgang · gå rett frem ca. 3 min</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Koenji → Iidabashi (JR Chuo til Shinjuku + Sobu)</div><div class="lstep-detail">JR Chuo til Shinjuku, bytt Sobu-linja (gul) til Iidabashi. L'Éterre er 5 min gange opp Kagurazaka-gaten.</div><span class="lstep-exit" style="background:#F15A22;color:#fff;border-color:#C44010">Iidabashi: utgang B3 → Kagurazaka-siden</span></div>
+      </div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Grand+Prince+Hotel+Takanawa/Koganei+Park/Nishi-Ogikubo+Station/Koenji+Station/Kagurazaka/@35.7,139.6,12z" target="_blank" style="background:#FFF3E0;color:#E65100;border-color:#F9A825">Åpne rute i Google Maps ↗</a>
+    </div>
+  </div>
+
+  <div class="trans-section-label">Torsdag 2. april — Siste dag + Avreise til Seoul</div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Grand Prince → Hama-Rikyu (morgen)</div>
+        <div class="leg-sub">Takanawa → Chuo-sør</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#1B5E20;color:#fff">Til fots / Metro</span>
+        <span class="dur">~20 min</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Shinagawa → Shiodome (Keikyu + Toei Asakusa-linja)</div><div class="lstep-detail">Keikyu-linja fra Shinagawa nord til Shin-Bashi, bytt Toei Asakusa-linja til Shiodome. Hamarikyu er 8 min gange sør.</div><span class="lstep-exit">Shinagawa: Keikyu-plattformen vest · Shiodome utgang 10</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot" style="background:#1B5E20;border-color:#1B5E20"></div></div>
+        <div class="lstep-body"><div class="lstep-station" style="color:#1B5E20">Hamarikyu → Shiodome og tilbake (gå)</div><div class="lstep-detail">Etter besøket: gå nord til Shiodome og ta metro tilbake til hotellet.</div></div>
+      </div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Grand+Prince+Hotel+Takanawa/Hamarikyu+Gardens/@35.65,139.74,14z" target="_blank" style="background:#E8F5E9;color:#1B5E20;border-color:#43A047">Åpne rute i Google Maps ↗</a>
+    </div>
+  </div>
+
+  <div class="leg-card">
+    <div class="leg-header" onclick="tToggle(this)">
+      <div class="leg-left">
+        <div class="leg-route">Grand Prince → Narita eller Haneda flyplass</div>
+        <div class="leg-sub">Avreise til Seoul/Incheon</div>
+      </div>
+      <div class="leg-right">
+        <span class="mode-pill" style="background:#CC0000;color:#fff">N'EX / Keikyu</span>
+        <span class="dur">15–60 min</span>
+        <span class="leg-chev">▾</span>
+      </div>
+    </div>
+    <div class="leg-body">
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot" style="background:#CC0000;border-color:#990000"></div><div class="lstep-conn"></div></div>
+        <div class="lstep-body"><div class="lstep-station" style="color:#CC0000">Til Haneda (anbefalt — enklest fra Grand Prince)</div><div class="lstep-detail">Keikyu Airport-linja fra Shinagawa — kun 15 min og ¥310. Avgår hvert 10. min. Grand Prince er ideelt plassert.</div><span class="lstep-exit">Shinagawa: Keikyu-siden (vest) · Haneda utgang: følg T2-skilt for internasjonale avganger</span></div>
+      </div>
+      <div class="lstep">
+        <div class="lstep-line"><div class="lstep-dot"></div></div>
+        <div class="lstep-body"><div class="lstep-station">Til Narita: N'EX fra Shinagawa</div><div class="lstep-detail">Narita Express fra Shinagawa, ca. 60 min. Book returbillett på forhånd — billigere og garanterer plass.</div><span class="lstep-exit">Shinagawa: JR-siden · N'EX-plattformen · Narita Terminal 1 eller 2</span></div>
+      </div>
+      <div class="trans-tip">Tax-free refund gjøres FØR sikkerhetskontroll — beregn minst 30 min ekstra. Send bagasje til flyplassen med TA-Q-BIN kvelden FØR.</div>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Grand+Prince+Hotel+Takanawa/Haneda+Airport+International+Terminal/@35.59,139.73,12z" target="_blank" style="background:#FCEBEB;color:#A32D2D;border-color:#E24B4A">Åpne rute til Haneda i Google Maps ↗</a>
+      <a class="maps-link" href="https://www.google.com/maps/dir/Shinagawa+Station/Narita+Airport/@35.7,139.9,10z" target="_blank" style="background:#FCEBEB;color:#A32D2D;border-color:#E24B4A" style="margin-left:6px">Åpne rute til Narita i Google Maps ↗</a>
+      <div class="trans-cost">Keikyu til Haneda: <b>¥310</b> · N'EX til Narita: <b>¥3 250</b></div>
+    </div>
+  </div>
+
+  <div style="margin-top:16px;padding:12px 14px;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--border);font-size:12px;color:var(--text2);line-height:1.7">
+    <b style="color:var(--text);font-size:13px">Suica-tips:</b> Last Suica på Apple Wallet eller Google Pay før avreise. Fungerer på all metro, JR lokaltog og busser i Osaka, Kyoto og Tokyo — bare hold telefonen mot leseren og gå.
+  </div>
+
 </div>
 
 <div id="v-prac" class="view">
@@ -931,6 +1409,65 @@ function renderTL(){
   });
 }
 
+
+const TPILLS = {
+  0: { // 24 mars Osaka
+    "Osaka Castle":       {mode:"walk",line:"Gå",detail:"→ Harukas 300",time:"15 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Harukas+300+Osaka"},
+    "Harukas 300":        {mode:"metro",line:"Osaka Metro Midosuji (rød)",detail:"Tennoji → Namba (2 stopp)",time:"5 min",color:"#E60012",bg:"#FFEBEE",icon:"🚇",maps:"https://www.google.com/maps/dir/Abeno+Harukas/Dotonbori/@34.67,135.50,14z"},
+    "Hozenji Yokocho":    {mode:"walk",line:"Gå",detail:"→ Dotonbori, Shinsaibashi",time:"5 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Dotonbori+Osaka"},
+    "Dotonbori":          {mode:"walk",line:"Gå",detail:"→ Shinsaibashi",time:"5 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Shinsaibashi+Osaka"},
+    "Takoyaki i Dotonbori":{mode:"walk",line:"Gå",detail:"→ Kushikatsu Daruma",time:"10 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Kushikatsu+Daruma+Osaka"},
+  },
+  1: { // 25 mars Kyoto dag 1
+    "Kinkaku-ji (Gullpaviljongen)":{mode:"bus",line:"Kyoto Buss 12/59",detail:"Kinkakuji-michi → Shijo Karasuma",time:"30 min · ¥230",color:"#00A651",bg:"#E8F5E9",icon:"🚌",maps:"https://www.google.com/maps/dir/Kinkakuji/Nishiki+Market+Kyoto/@35.03,135.76,14z"},
+    "Nishiki Market":     {mode:"walk",line:"Gå",detail:"→ Ippodo Tea (Nakagyo)",time:"8 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Ippodo+Tea+Kyoto"},
+    "Ippodo Tea":         {mode:"walk",line:"Gå",detail:"→ Pontocho (langs Kamo-elven)",time:"12 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Pontocho+Kyoto"},
+    "Pontocho":           {mode:"walk",line:"Gå",detail:"→ Shirakawa-kanalen, Gion",time:"10 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Shirakawa+Canal+Kyoto"},
+  },
+  2: { // 26 mars Kyoto dag 2
+    "Ishibe-kōji Road":   {mode:"walk",line:"Gå",detail:"→ Shirakawa-kanalen (rett ved)",time:"3 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Shirakawa+Canal+Kyoto"},
+    "Shirakawa-kanalen morgen":{mode:"walk",line:"Gå",detail:"→ Kagizen Yoshifusa, Gion",time:"5 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Kagizen+Yoshifusa+Kyoto"},
+    "Kagizen Yoshifusa — kuzukiri":{mode:"walk",line:"Gå",detail:"→ Maruyama Park",time:"8 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Maruyama+Park+Kyoto"},
+    "Maruyama Park":      {mode:"metro",line:"Karasuma-linja (lilla)",detail:"Gion-Shijo → Imadegawa (5 stopp)",time:"12 min · ¥260",color:"#764BAE",bg:"#EDE7F6",icon:"🚇",maps:"https://www.google.com/maps/dir/Gion-Shijo+Station/Tsuruya+Yoshinobu/@35.02,135.76,14z"},
+    "Tsuruya Yoshinobu — namagashi":{mode:"metro",line:"Karasuma-linja (lilla)",detail:"Imadegawa → sørover mot Fushimi Inari",time:"20 min · ¥260",color:"#764BAE",bg:"#EDE7F6",icon:"🚇",maps:"https://maps.google.com/?q=Fushimi+Inari+Kyoto"},
+  },
+  3: { // 27 mars reisedag
+    "Shinkansen Kyoto → Tokyo":{mode:"walk",line:"Gå",detail:"→ Toshi Center Hotel (8 min fra Takebashi)",time:"8 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Toshi+Center+Hotel+Tokyo"},
+    "Yanaka-kvarteret":   {mode:"walk",line:"Gå",detail:"→ Yanaka Ginza (like ved)",time:"3 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Yanaka+Ginza+Tokyo"},
+  },
+  4: { // 28 mars sakura
+    "Chidorigafuchi Green Way":{mode:"metro",line:"Tokyo Metro Yurakucho (gul)",detail:"Kudanshita → Shiodome (4 stopp) + 8 min gange",time:"20 min · ¥210",color:"#C8A000",bg:"#FFFDE7",icon:"🚇",maps:"https://www.google.com/maps/dir/Chidorigafuchi/Hamarikyu+Gardens/@35.67,139.74,14z"},
+    "Hamarikyu Gardens":  {mode:"metro",line:"Toei Oedo (burgunder) + Hanzomon (lilla)",detail:"Shiodome → Morishita → Kiyosumi Shirakawa",time:"20 min · ¥260",color:"#9B2335",bg:"#FCE4EC",icon:"🚇",maps:"https://www.google.com/maps/dir/Hamarikyu+Gardens/Kiyosumi+Garden/@35.67,139.78,13z"},
+    "Kiyosumi Shirakawa": {mode:"metro",line:"Hanzomon (lilla) + Tokyu Toyoko",detail:"Kiyosumi → Shibuya → Nakameguro (1 stopp)",time:"25 min · ¥260",color:"#8F76D6",bg:"#EDE7F6",icon:"🚇",maps:"https://www.google.com/maps/dir/Kiyosumi-shirakawa+Station/Nakameguro+Station/@35.66,139.73,13z"},
+  },
+  5: { // 29 mars Yanaka/Ginza
+    "Yanaka Cemetery":    {mode:"walk",line:"Gå",detail:"→ Hanaju Café (rett ved kirkegården)",time:"3 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/?q=Hanaju+Cafe+Yanaka+Tokyo"},
+    "Hanaju Café":        {mode:"metro",line:"Chiyoda (grønn) + Hibiya",detail:"Nezu → Hibiya → Ginza (3 stopp)",time:"20 min · ¥210",color:"#00BB85",bg:"#E1F5EE",icon:"🚇",maps:"https://www.google.com/maps/dir/Nezu+Station/Higashiya+Ginza/@35.69,139.77,13z"},
+    "Higashiya Ginza":    {mode:"metro",line:"Hibiya-linja (grå/sølv)",detail:"Ginza → Monzen-Nakacho (3 stopp øst)",time:"8 min · ¥180",color:"#999999",bg:"#F5F5F5",icon:"🚇",maps:"https://www.google.com/maps/dir/Ginza+Station/Monzen-nakacho+Station/@35.68,139.78,13z"},
+  },
+  6: { // 30 mars Fuji
+    "Chureito Pagoda":    {mode:"bus",line:"Fujikyuko Loop-buss",detail:"Shimo-Yoshida → Saiko Iyashi-no-Sato",time:"25 min · dagspass",color:"#E65100",bg:"#FFF3E0",icon:"🚌",maps:"https://maps.google.com/?q=Saiko+Iyashi+no+Sato+Fujikawaguchiko"},
+    "Saiko Iyashi-no-Sato":{mode:"bus",line:"Fujikyuko Loop-buss",detail:"→ Oshino Hakkai",time:"20 min · dagspass",color:"#E65100",bg:"#FFF3E0",icon:"🚌",maps:"https://maps.google.com/?q=Oshino+Hakkai+Yamanashi"},
+    "Oshino Hakkai":      {mode:"bus",line:"Fujikyuko Loop-buss",detail:"→ Kawaguchiko + Rakuyu Ryokan",time:"20 min · dagspass",color:"#E65100",bg:"#FFF3E0",icon:"🚌",maps:"https://maps.google.com/?q=Rakuyu+Ryokan+Fujikawaguchiko"},
+    "Hottarakashi Onsen": {mode:"taxi",line:"Drosje til Rakuyu Ryokan",detail:"~10 min",time:"¥1 500",color:"#6B21A8",bg:"#FDF4FF",icon:"🚕",maps:"https://maps.google.com/?q=Rakuyu+Ryokan+Fujikawaguchiko"},
+  },
+  7: { // 31 mars Fuji → Tokyo
+    "Morgenbad på Rakuyu":{mode:"bus",line:"Keio Dentetsu buss",detail:"Kawaguchiko → Shinjuku (Busta Shinjuku)",time:"1t 50 min · ¥2 100",color:"#E65100",bg:"#FFF3E0",icon:"🚌",maps:"https://www.google.com/maps/dir/Kawaguchiko+Station/Shinjuku+Station/@35.5,139.0,10z"},
+    "Shinkansen eller buss til Tokyo":{mode:"train",line:"JR Yamanote (grønn ring)",detail:"Shinjuku → Shinagawa (sørover)",time:"30 min · ¥210",color:"#80C241",bg:"#E8F5E9",icon:"🚃",maps:"https://www.google.com/maps/dir/Shinjuku+Station/Grand+Prince+Hotel+Takanawa/@35.64,139.70,13z"},
+    "Innsjekk: Grand Prince Hotel Takanawa":{mode:"taxi",line:"Drosje opp bakken",detail:"Shinagawa Takanawa-utgang → Grand Prince",time:"3 min · ¥700",color:"#6B21A8",bg:"#FDF4FF",icon:"🚕",maps:"https://maps.google.com/?q=Grand+Prince+Hotel+Takanawa"},
+  },
+  8: { // 1. april vest-Tokyo
+    "Koganei Park":       {mode:"train",line:"JR Chuo-linja (oransje)",detail:"Musashi-Koganei → Nishi-Ogikubo (3 stopp øst)",time:"10 min · ¥210",color:"#F15A22",bg:"#FFF3E0",icon:"🚃",maps:"https://www.google.com/maps/dir/Musashi-Koganei+Station/Nishi-Ogikubo+Station/@35.70,139.62,14z"},
+    "Nishi-Ogikubo antikviteter":{mode:"train",line:"JR Chuo-linja (oransje)",detail:"Nishi-Ogikubo → Koenji (1 stopp øst)",time:"4 min · ¥140",color:"#F15A22",bg:"#FFF3E0",icon:"🚃",maps:"https://www.google.com/maps/dir/Nishi-ogikubo+Station/Koenji+Station/@35.70,139.63,14z"},
+    "Sake Bar KoKoN":     {mode:"train",line:"JR Chuo/Sobu (gul)",detail:"Koenji → Iidabashi (bytt ved Shinjuku) → Kagurazaka",time:"25 min · ¥210",color:"#F6D31A",bg:"#FFFDE7",icon:"🚃",maps:"https://www.google.com/maps/dir/Koenji+Station/L%27Eterre+Kagurazaka/@35.70,139.67,13z"},
+  },
+  9: { // 2. april siste dag
+    "Hama-Rikyu Gardens": {mode:"metro",line:"Keikyu + Toei Asakusa",detail:"Shiodome → Shinagawa (tilbake til hotellet)",time:"15 min · ¥260",color:"#CC0000",bg:"#FFEBEE",icon:"🚇",maps:"https://www.google.com/maps/dir/Hamarikyu+Gardens/Shinagawa+Station/@35.63,139.74,13z"},
+  },
+  10: { // 3. april Seoul/Incheon
+  },
+};
+
 function pick(i){
   document.querySelectorAll('.tl-cell').forEach(c=>c.classList.remove('sel'));
   document.getElementById('c'+i).classList.add('sel');
@@ -945,15 +1482,22 @@ function pick(i){
   const catsHtml=d.cats.map(cat=>`
     <div class="cat">
       <div class="cat-hd"><span class="cat-ic">${cat.ic}</span><span class="cat-lbl">${cat.t}</span></div>
-      <div class="acts">${cat.items.map(it=>`
-        <div class="act">
+      <div class="acts">${cat.items.map((it,idx,arr)=>{
+        const tp = (TPILLS[i]||{})[it.n];
+        const pill = (tp && idx < arr.length-1) ? `<a class="trans-pill" href="${tp.maps}" target="_blank" style="background:${tp.bg};color:${tp.color};border-color:${tp.color}40">
+          <span class="trans-pill-icon">${tp.icon}</span>
+          <span class="trans-pill-text">${tp.line} <span class="trans-pill-time">· ${tp.detail} · ${tp.time}</span></span>
+        </a>` : '';
+        return `<div class="act">
           <div class="act-dot"></div>
           <div class="act-body">
             <div class="act-name">${it.n}</div>
-            ${it.a?`<div class="act-area">${it.a}</div>`:''}
+            ${it.a?`<div class="act-area">${it.a}`:''}${it.a?'</div>':''}
             ${it.tip?`<div class="tip-box"><p>💡 ${it.tip}</p></div>`:''}
+            ${pill}
           </div>
-        </div>`).join('')}
+        </div>`;
+      }).join('')}
       </div>
     </div>`).join('');
 
@@ -990,6 +1534,13 @@ function showMap(k){
     <div class="mc-addr">${d.a}</div>
     <div class="mc-note">${d.n}</div>
     <a class="mc-link" href="${d.m}" target="_blank" style="background:${d.c.bg};color:${d.c.fg};border-color:${d.c.bd}">Åpne i Google Maps ↗</a>`;
+}
+
+function tToggle(header){
+  var body=header.nextElementSibling;
+  var chev=header.querySelector('.leg-chev');
+  var open=body.classList.toggle('open');
+  if(chev) chev.classList.toggle('open',open);
 }
 
 function sw(id,btn){
