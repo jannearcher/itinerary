@@ -8,34 +8,21 @@
 <meta name="apple-mobile-web-app-title" content="Dubrovnik 2026">
 <title>🇭🇷 Dubrovnik & Korčula – Juni 2026</title>
 <style>
-/* ─── CSS Variables ─── */
 :root {
-  --text: #1a1a1a; --text2: #555; --text3: #888;
-  --border: #e0e0e0; --border2: #bbb;
-  --bg: #fff; --bg2: #f7f7f5; --bg3: #f0f0ee;
-  --radius: 10px; --radius-sm: 6px;
-  --shadow: 0 1px 4px rgba(0,0,0,0.08);
-
-  /* Dubrovnik — warm amber */
-  --city1: #C0392B; --city1-bg: #FDEDEC; --city1-bd: #E74C3C;
-  /* Korčula — teal */
-  --city2: #00695C; --city2-bg: #E0F2F1; --city2-bd: #00897B;
+  --text:#1a1a1a;--text2:#555;--text3:#888;
+  --border:#e0e0e0;--border2:#bbb;
+  --bg:#fff;--bg2:#f7f7f5;--bg3:#f0f0ee;
+  --radius:10px;--radius-sm:6px;
+  --shadow:0 1px 4px rgba(0,0,0,0.08);
+  --city1:#C0392B;--city1-bg:#FDEDEC;--city1-bd:#E74C3C;
+  --city2:#00695C;--city2-bg:#E0F2F1;--city2-bd:#00897B;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #f0f0f0; --text2: #aaa; --text3: #777;
-    --border: #333; --border2: #555;
-    --bg: #1a1a1a; --bg2: #242424; --bg3: #2e2e2e;
-    --city1-bg: #3a1a18; --city2-bg: #0a2420;
-  }
+@media(prefers-color-scheme:dark){
+  :root{--text:#f0f0f0;--text2:#aaa;--text3:#777;--border:#333;--border2:#555;--bg:#1a1a1a;--bg2:#242424;--bg3:#2e2e2e;--city1-bg:#3a1a18;--city2-bg:#0a2420;}
 }
-
-/* ─── Reset ─── */
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg2);color:var(--text);font-size:14px;line-height:1.5}
 a{text-decoration:none;color:inherit}
-
-/* ─── Header ─── */
 .header{background:var(--bg);border-bottom:1px solid var(--border);padding:14px 16px 0;position:sticky;top:0;z-index:100}
 .header-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
 .header-title{font-size:17px;font-weight:700;letter-spacing:-0.3px}
@@ -46,13 +33,9 @@ a{text-decoration:none;color:inherit}
 .tab.on{background:var(--bg);color:var(--text);font-weight:600}
 .view{display:none;padding:16px;max-width:600px;margin:0 auto}
 .view.on{display:block}
-
-/* ─── City badges ─── */
 .badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600}
 .city1{background:var(--city1-bg);color:var(--city1);border:1px solid var(--city1-bd)}
 .city2{background:var(--city2-bg);color:var(--city2);border:1px solid var(--city2-bd)}
-
-/* ─── Timeline Grid ─── */
 .tl-grid{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;margin-bottom:4px}
 .tl-grid::-webkit-scrollbar{display:none}
 .tl-cell{min-width:52px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:6px 4px;cursor:pointer;text-align:center;transition:all 0.15s;flex-shrink:0}
@@ -61,27 +44,18 @@ a{text-decoration:none;color:inherit}
 .tl-cell .wd{font-size:10px;color:var(--text3);text-transform:uppercase}
 .tl-cell .dd{font-size:15px;font-weight:700}
 .tl-cell .ci{font-size:11px;margin-top:2px}
-
-/* ─── Hotel strip ─── */
 .hotel-strip{display:flex;gap:0;overflow-x:auto;border-radius:var(--radius-sm);overflow:hidden;margin-bottom:12px;border:1px solid var(--border);scrollbar-width:none}
 .hotel-strip::-webkit-scrollbar{display:none}
 .hs-seg{padding:5px 10px;cursor:pointer;flex-shrink:0;font-size:11px;font-weight:600;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,0.2)}
 .hs-seg:last-child{border-right:none}
 .hs-seg .hs-name{font-size:12px;font-weight:700}
 .hs-seg .hs-nights{opacity:0.8;font-size:10px}
-
-/* ─── Day detail ─── */
 .day-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
 .day-title{font-size:16px;font-weight:700}
-.day-city-badge{font-size:12px}
 .checkin-badge,.checkout-badge{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600}
 .checkin-badge{background:#E8F5E9;color:#1B5E20;border:1px solid #43A047}
 .checkout-badge{background:#FFF3E0;color:#E65100;border:1px solid #F9A825}
-.book-badge{background:#FFF8E1;color:#F57F17;border:1px solid #FFCA28;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:600}
-
-/* ─── Hotel button ─── */
 .hotel-btn{display:flex;align-items:center;gap:6px;background:var(--bg);border:1.5px solid var(--border);border-radius:var(--radius);padding:8px 12px;margin-bottom:12px;cursor:pointer}
-.hotel-btn:hover{border-color:var(--border2)}
 .hotel-btn .hb-icon{font-size:20px}
 .hotel-btn .hb-body{flex:1}
 .hotel-btn .hb-name{font-size:13px;font-weight:600}
@@ -90,24 +64,16 @@ a{text-decoration:none;color:inherit}
 .hotel-btn .hb-arrow{font-size:16px;color:var(--text3)}
 .hotel-city1{border-left:4px solid var(--city1)}
 .hotel-city2{border-left:4px solid var(--city2)}
-
-/* ─── Categories ─── */
 .cat{margin-bottom:14px}
 .cat-hd{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;display:flex;align-items:center;gap:4px}
-.acts{}
 .act{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px;margin-bottom:6px}
 .act-name{font-size:14px;font-weight:600}
 .act-area{font-size:11px;color:var(--text3);margin-top:1px}
 .act-tip{font-size:12px;color:var(--text2);margin-top:5px;padding:5px 8px;background:var(--bg2);border-left:3px solid #F9A825;border-radius:0 var(--radius-sm) var(--radius-sm) 0}
 .act-res{font-size:12px;color:#1565C0;margin-top:4px;background:#E3F2FD;padding:4px 8px;border-radius:var(--radius-sm);border:1px solid #90CAF9}
-.act-book{font-size:12px;color:#B71C1C;margin-top:4px;background:#FFEBEE;padding:4px 8px;border-radius:var(--radius-sm);border:1px solid #FFCDD2}
-
-/* ─── Transport pills ─── */
 .trans-pill{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:20px;border:1px solid;font-size:12px;font-weight:500;margin:6px 0 6px 12px;cursor:pointer;transition:opacity 0.15s}
 .trans-pill:hover{opacity:0.8}
 .trans-pill span:first-child{font-size:14px}
-
-/* ─── Restaurant cards ─── */
 .rest-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:12px;box-shadow:var(--shadow)}
 .rest-card.must{border-color:#F9A825;border-width:2px}
 .rest-must-badge{font-size:11px;font-weight:700;color:#F57F17;background:#FFF8E1;border:1px solid #FFCA28;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:6px}
@@ -120,8 +86,6 @@ a{text-decoration:none;color:inherit}
 .rest-tag{font-size:11px;padding:2px 7px;border-radius:10px;background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
 .rest-res{font-size:12px;background:#E3F2FD;color:#1565C0;padding:5px 8px;border-radius:var(--radius-sm);margin-bottom:8px;border:1px solid #90CAF9}
 .section-title{font-size:15px;font-weight:700;margin:16px 0 10px;display:flex;align-items:center;gap:6px}
-
-/* ─── Flights ─── */
 .flight-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:12px;box-shadow:var(--shadow)}
 .flight-route{font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:6px}
 .flight-arrow{color:var(--text3)}
@@ -131,8 +95,6 @@ a{text-decoration:none;color:inherit}
 .flight-meta{font-size:12px;color:var(--text2);display:flex;flex-wrap:wrap;gap:8px}
 .flight-meta span{background:var(--bg2);padding:2px 7px;border-radius:8px;border:1px solid var(--border)}
 .flight-tip{font-size:12px;margin-top:8px;padding:6px 10px;background:var(--bg2);border-left:3px solid #F9A825;border-radius:0 6px 6px 0}
-
-/* ─── Transport legs ─── */
 .leg-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow)}
 .leg-header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;cursor:pointer}
 .leg-route{font-size:14px;font-weight:600}
@@ -154,8 +116,6 @@ a{text-decoration:none;color:inherit}
 .lstep-exit{display:inline-block;font-size:11px;background:var(--bg2);color:var(--text2);padding:1px 6px;border-radius:6px;margin-top:3px;border:1px solid var(--border)}
 .maps-link{display:block;text-align:center;padding:8px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;border:1px solid;margin-top:12px}
 .trans-cost{font-size:12px;color:var(--text3);text-align:center;margin-top:6px}
-
-/* ─── Map ─── */
 .map-outer{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:12px}
 .map-svg{width:100%;height:auto;display:block}
 .map-legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
@@ -167,15 +127,24 @@ a{text-decoration:none;color:inherit}
 .mc-dates{font-size:12px;color:var(--text3);margin-bottom:6px}
 .mc-note{font-size:12px;color:var(--text2);margin-bottom:10px}
 .mc-btn{display:block;text-align:center;padding:8px;border-radius:var(--radius-sm);font-size:13px;font-weight:600}
-
-/* ─── Specialities ─── */
 .spec-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:10px;box-shadow:var(--shadow)}
 .spec-name{font-size:15px;font-weight:700;margin-bottom:4px}
 .spec-city{font-size:11px;margin-bottom:6px;display:inline-block}
 .spec-desc{font-size:13px;color:var(--text2);margin-bottom:6px}
 .spec-tip{font-size:12px;background:var(--bg2);border-left:3px solid #00897B;padding:6px 10px;border-radius:0 6px 6px 0}
-
-/* ─── Practical ─── */
+/* Reservation cards */
+.res-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:12px;box-shadow:var(--shadow);border-left:4px solid #43A047}
+.res-status{font-size:11px;font-weight:700;margin-bottom:4px;color:#2E7D32}
+.res-title{font-size:15px;font-weight:700;margin-bottom:2px}
+.res-date{font-size:12px;color:var(--text3);margin-bottom:8px}
+.res-rows{display:flex;flex-direction:column;gap:4px}
+.res-row{display:flex;gap:8px;font-size:12px;padding:3px 0;border-bottom:1px solid var(--border)}
+.res-row:last-child{border-bottom:none}
+.res-label{color:var(--text3);min-width:80px;flex-shrink:0;font-weight:500}
+.res-val{color:var(--text);flex:1}
+.res-row.res-warn .res-val{color:#E65100;font-weight:600}
+.res-row.res-warn .res-label{color:#E65100}
+/* Practical */
 .prac-section{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:12px}
 .prac-section h3{font-size:14px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .prac-item{font-size:13px;color:var(--text2);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:6px}
@@ -183,10 +152,10 @@ a{text-decoration:none;color:inherit}
 .prac-item .pi-icon{flex-shrink:0;font-size:14px}
 .warn-box{background:#FFF8E1;border:1px solid #FFCA28;border-radius:var(--radius-sm);padding:8px 12px;margin-bottom:10px;font-size:12px;color:#5D4037}
 .info-box{background:#E3F2FD;border:1px solid #90CAF9;border-radius:var(--radius-sm);padding:8px 12px;margin-bottom:10px;font-size:12px;color:#1A237E}
+.success-box{background:#E8F5E9;border:1px solid #A5D6A7;border-radius:var(--radius-sm);padding:8px 12px;margin-bottom:10px;font-size:12px;color:#1B5E20}
 </style>
 </head>
 <body>
-
 <div class="header">
   <div class="header-top">
     <div>
@@ -202,53 +171,43 @@ a{text-decoration:none;color:inherit}
     <div class="tab" onclick="sw('trans',this)">🚢 Transport</div>
     <div class="tab" onclick="sw('spec',this)">🍷 Mat & drikke</div>
     <div class="tab" onclick="sw('prac',this)">📋 Praktisk</div>
+    <div class="tab" onclick="sw('res',this)">🎫 Reservasjoner</div>
   </div>
 </div>
 
-<!-- ═══════════════ TIMELINE ═══════════════ -->
+<!-- TIMELINE -->
 <div id="v-tl" class="view on">
   <div class="tl-grid" id="tl-grid"></div>
   <div class="hotel-strip" id="hotel-strip"></div>
   <div id="day-detail"></div>
 </div>
 
-<!-- ═══════════════ MAP ═══════════════ -->
+<!-- KART -->
 <div id="v-map" class="view">
   <div class="map-outer">
     <svg class="map-svg" viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
-      <!-- Croatia coast simplified outline -->
       <rect width="400" height="480" fill="#D6EAF8" rx="8"/>
-      <!-- Adriatic sea label -->
       <text x="90" y="420" font-size="11" fill="#7FB3D3" opacity="0.8" font-style="italic">Adriaterhav</text>
-      <!-- Croatia mainland outline -->
-      <path d="M 80 30 L 140 25 L 200 35 L 250 30 L 310 50 L 360 80 L 370 120 L 340 150 L 300 160 L 260 140 L 230 120 L 210 100 L 180 110 L 160 130 L 150 160 L 140 200 L 130 240 L 120 270 L 100 300 L 90 330 L 85 370 L 90 400 L 110 430 L 140 450 L 170 460 L 200 455 L 210 440 L 200 420 L 190 400 L 195 380 L 215 370 L 230 360 L 250 350 L 270 340 L 290 330 L 310 310 L 320 280 L 310 260 L 290 250 L 270 255 L 250 270 L 240 290 L 220 300 L 200 310 L 180 315 L 160 310 L 150 290 L 160 270 L 175 255 L 190 240 L 200 220 L 205 200 L 200 180 L 195 160 L 200 140 L 220 130 L 240 140 L 250 165 L 255 185 L 260 200 L 275 210 L 295 200 L 310 185 L 315 165 L 305 145 L 285 135 L 265 120"
+      <path d="M 80 30 L 140 25 L 200 35 L 250 30 L 310 50 L 360 80 L 370 120 L 340 150 L 300 160 L 260 140 L 230 120 L 210 100 L 180 110 L 160 130 L 150 160 L 140 200 L 130 240 L 120 270 L 100 300 L 90 330 L 85 370 L 90 400 L 110 430 L 140 450 L 170 460 L 200 455 L 210 440 L 200 420 L 190 400 L 195 380 L 215 370 L 230 360 L 250 350 L 270 340 L 290 330 L 310 310 L 320 280 L 310 260 L 290 250 L 270 255 L 250 270 L 240 290 L 220 300 L 200 310 L 180 315 L 160 310 L 150 290 L 160 270 L 175 255 L 190 240 L 200 220 L 205 200 L 200 180 L 195 160"
             stroke="#AEB6BF" stroke-width="1.5" fill="#EAECEE" opacity="0.7"/>
-      <!-- Pelješac peninsula hint -->
-      <path d="M 190 360 L 230 340 L 270 330 L 280 345 L 260 355 L 230 360 L 200 370 Z"
-            fill="#D5D8DC" stroke="#AEB6BF" stroke-width="1" opacity="0.7"/>
-      <!-- Korcula island -->
+      <path d="M 190 360 L 230 340 L 270 330 L 280 345 L 260 355 L 230 360 L 200 370 Z" fill="#D5D8DC" stroke="#AEB6BF" stroke-width="1" opacity="0.7"/>
       <ellipse cx="165" cy="310" rx="35" ry="14" fill="#C8E6C9" stroke="#81C784" stroke-width="1.5"/>
       <text x="165" y="314" text-anchor="middle" font-size="9" fill="#2E7D32" font-weight="600">KORČULA</text>
-      <!-- Lokrum island (tiny) -->
       <ellipse cx="288" cy="405" rx="10" ry="7" fill="#C8E6C9" stroke="#81C784" stroke-width="1"/>
       <text x="288" y="418" text-anchor="middle" font-size="8" fill="#2E7D32">Lokrum</text>
-      <!-- Route line -->
       <path d="M 165 300 Q 200 340 280 390" stroke="#E879A0" stroke-width="2" stroke-dasharray="6,4" fill="none" opacity="0.8"/>
-      <!-- Dubrovnik pin -->
       <g onclick="showMap('rustico')" style="cursor:pointer">
         <circle cx="280" cy="390" r="26" fill="var(--city1-bg)" stroke="var(--city1-bd)" stroke-width="2"/>
         <text x="280" y="384" text-anchor="middle" font-size="16">🏰</text>
         <text x="280" y="397" font-size="10" fill="var(--city1)" font-weight="700" text-anchor="middle">DUBROVNIK</text>
-        <text x="280" y="408" font-size="9" fill="var(--city1-bd)" text-anchor="middle">25–28 jun & 28 jun–1 jul</text>
+        <text x="280" y="408" font-size="9" fill="var(--city1-bd)" text-anchor="middle">25–28 jun & 28–1 jul</text>
       </g>
-      <!-- Korcula pin -->
       <g onclick="showMap('romano')" style="cursor:pointer">
         <circle cx="165" cy="285" r="24" fill="var(--city2-bg)" stroke="var(--city2-bd)" stroke-width="2"/>
         <text x="165" y="279" text-anchor="middle" font-size="16">🏝</text>
         <text x="165" y="292" font-size="10" fill="var(--city2)" font-weight="700" text-anchor="middle">KORČULA</text>
         <text x="165" y="303" font-size="9" fill="var(--city2-bd)" text-anchor="middle">26–28 juni</text>
       </g>
-      <!-- North indicator -->
       <text x="370" y="30" font-size="14" text-anchor="middle">N</text>
       <line x1="370" y1="33" x2="370" y2="45" stroke="#888" stroke-width="1.5"/>
     </svg>
@@ -256,988 +215,637 @@ a{text-decoration:none;color:inherit}
   <div class="map-legend">
     <div class="map-legend-item"><div class="map-legend-dot" style="background:var(--city1)"></div><span>Dubrovnik</span></div>
     <div class="map-legend-item"><div class="map-legend-dot" style="background:var(--city2)"></div><span>Korčula</span></div>
-    <div class="map-legend-item"><div style="width:20px;height:2px;background:#E879A0;border-top:2px dashed #E879A0"></div><span>Rutelinje</span></div>
   </div>
-  <p style="font-size:12px;color:var(--text3);margin-bottom:12px">👆 Trykk på en pin for å se hotellinfo</p>
+  <p style="font-size:12px;color:var(--text3);margin-bottom:12px">👆 Trykk på en pin for hotellinfo</p>
   <div id="map-card"></div>
 </div>
 
-<!-- ═══════════════ RESTAURANTER ═══════════════ -->
+<!-- RESTAURANTER -->
 <div id="v-food" class="view">
-
   <div class="section-title">🏰 Dubrovnik</div>
-
   <div class="rest-card must">
     <div class="rest-must-badge">⭐ Reservert</div>
     <div class="rest-name">Gradska Kavana Arsenal</div>
-    <span class="rest-city city1 badge">Dubrovnik — Old Town</span>
+    <span class="rest-city city1 badge">Dubrovnik — Old Town havn</span>
     <div class="rest-type">🍽 Kroatisk fine dining · Havneutsikt</div>
-    <div class="rest-desc">En av byens aller beste restauranter, med plass inne i det historiske arsenalet fra middelalderen og en uteterasse mot havnen. Eid av Nautika-gruppen. Et grenseland mellom fin dining og avslappet eleganse.</div>
+    <div class="rest-desc">En av byens aller beste restauranter inne i det historiske arsenalet fra middelalderen. Eid av Nautika-gruppen. Grenseland mellom fin dining og avslappet eleganse.</div>
     <div class="rest-res">📅 Reservert kl. 17:00 · Spør etter <strong>Mario Vrzic</strong></div>
-    <div class="rest-order">💡 Best å prøve: Adriatisk sjømat, risotto med hvitvin og skalldyr, lokale Dalmatiske viner.</div>
-    <div class="rest-tags">
-      <span class="rest-tag">📍 Stara Luka, Old Town</span>
-      <span class="rest-tag">Reservert</span>
-    </div>
+    <div class="rest-order">💡 Prøv: Adriatisk sjømat, risotto med hvitvin og skalldyr, lokale dalmatinske viner.</div>
+    <div class="rest-tags"><span class="rest-tag">Reservert</span><span class="rest-tag">Ankomstkveld</span></div>
   </div>
-
+  <div class="rest-card">
+    <div class="rest-name">Lokanda Peskarija</div>
+    <span class="rest-city city1 badge">Dubrovnik — Old Port</span>
+    <div class="rest-type">🐟 Fersk sjømat · Lokale priser</div>
+    <div class="rest-desc">Skjult perle rett ved den lille havnen. Lokale priser og fersk fisk – ingen turistfelle. Utekafe med utsikt til fiskebåtene. Ingen reservasjon mulig.</div>
+    <div class="rest-order">💡 Prøv: Blåskjell, grillet fisk og fritert calamari. Kom tidlig – fylles fort!</div>
+    <div class="rest-tags"><span class="rest-tag">Ingen reservasjon</span><span class="rest-tag">Lunsj/middag</span><span class="rest-tag">🔍 Skjult skatt</span></div>
+  </div>
   <div class="rest-card">
     <div class="rest-name">Buza Bar</div>
     <span class="rest-city city1 badge">Dubrovnik — Bymuren</span>
-    <div class="rest-type">🍻 Bar · Klippe-bar med bading</div>
-    <div class="rest-desc">Berømt bar hogd rett inn i klippen utenfor bymuren. Tilgang gjennom et hull i muren. Bestil en kald Karlovačko-øl og hopp i havet fra klippene. Solnedgangsdrink eller bad – uansett magisk.</div>
-    <div class="rest-order">💡 Kom tidlig for plass i høysesong. Ha med kontanter. Ikke alkohol nødvendig – selve stedet er opplevelsen!</div>
-    <div class="rest-tags">
-      <span class="rest-tag">Ingen res. nødvendig</span>
-      <span class="rest-tag">Ettermiddag/kveld</span>
-      <span class="rest-tag">Bading mulig</span>
-    </div>
+    <div class="rest-type">🍻 Klippe-bar · Bading</div>
+    <div class="rest-desc">Berømt bar hogd rett inn i klippen utenfor bymuren. Tilgang gjennom et hull i muren. Bestil en kald Karlovačko-øl og hopp i havet fra klippene.</div>
+    <div class="rest-order">💡 Se etter skiltet "Cold Drinks" inne i gamlebyen langs bymuren. Ha med kontanter!</div>
+    <div class="rest-tags"><span class="rest-tag">Ingen reservasjon</span><span class="rest-tag">Ettermiddag</span><span class="rest-tag">Bading</span></div>
   </div>
-
+  <div class="rest-card">
+    <div class="rest-name">D'Vino Wine Bar</div>
+    <span class="rest-city city1 badge">Dubrovnik — Palmotićeva 4a</span>
+    <div class="rest-type">🍷 Kroatiske viner · Avslappet</div>
+    <div class="rest-desc">Dubrovniks beste vinbar for kroatiske viner, gjemt i et smalt sidestrette. Ikke turistete. Perfekt for en ettermiddagsvin med ostebrett.</div>
+    <div class="rest-order">💡 Be om et glass Plavac Mali (rød) eller Pošip (hvit) fra Dalmatia. Lokalt og autentisk.</div>
+    <div class="rest-tags"><span class="rest-tag">Ingen reservasjon</span><span class="rest-tag">Ettermiddag</span><span class="rest-tag">🔍 Skjult skatt</span></div>
+  </div>
   <div class="rest-card must">
     <div class="rest-must-badge">⭐ Siste kveld – Reservert</div>
     <div class="rest-name">Panorama Restaurant</div>
     <span class="rest-city city1 badge">Dubrovnik — Srđ-fjellet</span>
     <div class="rest-type">🌅 Panoramautsikt · Kroatisk mat</div>
-    <div class="rest-desc">Øverst på Srđ-fjellet (nås med linbane fra Old Town). Fantastisk panoramautsikt over Dubrovnik, øyene og Adriaterhavet. Perfekt for siste kveld.</div>
-    <div class="rest-res">📅 Bord reservert kl. 18:30 · Husk å dobbeltsjekke reservasjonen! · Ta linbanen opp</div>
-    <div class="rest-order">💡 Linbanen kjører regelmessig. Kom 15 min tidlig for en drink ved baren med utsikt før middagen.</div>
-    <div class="rest-tags">
-      <span class="rest-tag">📍 Srđ-fjellet (linbane)</span>
-      <span class="rest-tag">Reservert</span>
-    </div>
+    <div class="rest-desc">Øverst på Srđ-fjellet nådd med linbane. Fantastisk panoramautsikt over Dubrovnik og Adriaterhavet. Perfekt avslutning på turen.</div>
+    <div class="rest-res">📅 Reservert kl. 18:30 · <strong>Husk å dobbeltsjekke reservasjonen!</strong></div>
+    <div class="rest-order">💡 Ta linbanen opp (~€10-12 tur/retur). Kom 15 min tidlig for en drink ved baren.</div>
+    <div class="rest-tags"><span class="rest-tag">Reservert</span><span class="rest-tag">Siste kveld</span></div>
   </div>
-
   <div class="rest-card">
     <div class="rest-name">Restaurant Kopun</div>
     <span class="rest-city city1 badge">Dubrovnik — Old Town</span>
     <div class="rest-type">🍗 Tradisjonell kroatisk mat</div>
-    <div class="rest-desc">Sjarmerende restaurant på torget rett overfor St. Ignatius-kirken. Stor porsjonene, fantastisk lokal mat. Spesialisert på "kopun" – kastrert hane – en gammel Dubrovnik-tradisjon.</div>
-    <div class="rest-order">💡 Prøv kopunen (den tradisjonelle retten), pašticada (dalmatinsk gryte) og svart risotto.</div>
-    <div class="rest-tags">
-      <span class="rest-tag">Book på forhånd</span>
-      <span class="rest-tag">Middag</span>
-    </div>
+    <div class="rest-desc">Sjarmerende restaurant på torget overfor St. Ignatius-kirken. Store porsjoner og fantastisk lokal mat. Spesialisert på "kopun" – kastrert hane, en gammel Dubrovnik-tradisjon.</div>
+    <div class="rest-order">💡 Prøv kopunen, pašticada (dalmatinsk gryte) og svart risotto.</div>
+    <div class="rest-tags"><span class="rest-tag">Book på forhånd</span><span class="rest-tag">Middag</span></div>
   </div>
-
-  <div class="rest-card">
-    <div class="rest-name">Stradun – kaffe og is</div>
-    <span class="rest-city city1 badge">Dubrovnik — Stradun</span>
-    <div class="rest-type">☕ Kafe · Isbar</div>
-    <div class="rest-desc">Stradun (Placa) er en bred marmorpromenade – den beste plassen å oppleve bylivet. Stopp på en kafe for espresso, eller finn et av de mange isutsal­gene for gelato.</div>
-    <div class="rest-order">💡 Ikke sitt på de dyreste kaffebarene rett på Stradun – gå noen meter inn i sidesgatene for halv pris og lokal atmosfære.</div>
-    <div class="rest-tags">
-      <span class="rest-tag">Uformelt</span>
-      <span class="rest-tag">Formiddag</span>
-    </div>
-  </div>
-
   <div class="section-title">🏝 Korčula</div>
-
   <div class="rest-card must">
     <div class="rest-must-badge">⭐ Reservert</div>
     <div class="rest-name">Audio Mare</div>
     <span class="rest-city city2 badge">Korčula — Korčula Town</span>
     <div class="rest-type">🦞 Dalmatinsk sjømat</div>
-    <div class="rest-desc">En av de bedre restaurantene i Korčula Town, kjent for fersk adriatisk sjømat tilberedt på tradisjonell dalmatinsk vis. Flott atmosfære i den gamle bykjernen.</div>
+    <div class="rest-desc">En av de bedre restaurantene i Korčula Town, kjent for fersk adriatisk sjømat tilberedt på tradisjonell dalmatinsk vis.</div>
     <div class="rest-res">📅 Reservert kl. 18:00 · Reservasjonsnummer: <strong>21825</strong></div>
-    <div class="rest-order">💡 Prøv reker, blåskjell eller lokalt fanget fisk. Bestil en flaske Pošip – Korčulas hvite lokale vin!</div>
-    <div class="rest-tags">
-      <span class="rest-tag">Reservert</span>
-      <span class="rest-tag">Sjømat</span>
-    </div>
+    <div class="rest-order">💡 Bestill Pošip-vinen (lokal hvitvin fra Korčula) og fersk grillet fisk.</div>
+    <div class="rest-tags"><span class="rest-tag">Reservert</span><span class="rest-tag">Sjømat</span></div>
   </div>
-
   <div class="rest-card">
-    <div class="rest-name">Lokal Konoba på Lumbarda</div>
+    <div class="rest-name">Lokal Konoba i Lumbarda</div>
     <span class="rest-city city2 badge">Korčula — Lumbarda</span>
     <div class="rest-type">🍷 Konoba · Vin · Grillet kjøtt</div>
-    <div class="rest-desc">Kjør scooter til Lumbarda-landsbyen og finn en lokal konoba (tradisjonell taverna). Perfekt for lunsj under scooterturen. Lumbarda er kjent for Grk-vinen, en sjelden lokal druesort.</div>
-    <div class="rest-order">💡 Prøv Grk-vinen (hvit, tørr, lokal) og lokale oliven og oster. Enkle, gode retter.</div>
-    <div class="rest-tags">
-      <span class="rest-tag">Ingen res. nødvendig</span>
-      <span class="rest-tag">Lunsj</span>
-      <span class="rest-tag">Scooterturen</span>
-    </div>
+    <div class="rest-desc">Kjør scooter til Lumbarda og finn en lokal konoba for lunsj. Lumbarda er kjent for Grk-vinen – en sjelden lokal druesort som kun dyrkes her.</div>
+    <div class="rest-order">💡 Prøv Grk-vinen (hvit, tørr, lokal) og lokale oliven og oster.</div>
+    <div class="rest-tags"><span class="rest-tag">Ingen reservasjon</span><span class="rest-tag">Lunsj · Scooterturen</span></div>
   </div>
 </div>
 
-<!-- ═══════════════ FLY ═══════════════ -->
+<!-- FLY -->
 <div id="v-fly" class="view">
-
   <div class="flight-card">
-    <div class="flight-route">
-      <span>Oslo Gardermoen</span>
-      <span class="flight-arrow">✈️ →</span>
-      <span>Dubrovnik</span>
-    </div>
+    <div class="flight-route"><span>Oslo Gardermoen</span><span class="flight-arrow">✈️ →</span><span>Dubrovnik</span></div>
     <div class="flight-times">
-      <div class="flight-time-block">
-        <div class="flt">06:00</div>
-        <div class="fap">OSL · Avgang</div>
-      </div>
+      <div class="flight-time-block"><div class="flt">06:00</div><div class="fap">OSL · Avgang</div></div>
       <div style="display:flex;align-items:center;color:var(--text3);font-size:12px;padding:0 6px">→</div>
-      <div class="flight-time-block">
-        <div class="flt">08:55</div>
-        <div class="fap">DBV · Ankomst</div>
-      </div>
+      <div class="flight-time-block"><div class="flt">08:55</div><div class="fap">DBV · Ankomst</div></div>
     </div>
     <div class="flight-meta">
-      <span>📅 25. juni 2026</span>
-      <span>✈️ Norwegian DY1922</span>
-      <span>💺 LowFare · Seter ikke reservert</span>
+      <span>📅 25. juni 2026</span><span>✈️ Norwegian DY1922</span><span>💺 LowFare</span>
     </div>
-    <div class="flight-tip">⚠️ Avgang 06:00 – vær på Gardermoen senest kl. 04:30! Sjekk inn online. Vurder å reservere seter på forhånd (DY1922).<br><br>🚌 Fra DBV: Buss linje 11 til Pile Gate (~35 min, €2) eller taxi (~€35-45).</div>
+    <div class="flight-tip">⚠️ Avgang 06:00 – vær på Gardermoen senest 04:30! Sjekk inn online og reserver seter.<br><br>🚌 Fra DBV: Buss linje 11 → Pile Gate (~35 min, €2) eller taxi (~€35-45).</div>
   </div>
-
   <div class="flight-card">
-    <div class="flight-route">
-      <span>Dubrovnik</span>
-      <span class="flight-arrow">✈️ →</span>
-      <span>Oslo Gardermoen</span>
-    </div>
+    <div class="flight-route"><span>Dubrovnik</span><span class="flight-arrow">✈️ →</span><span>Oslo Gardermoen</span></div>
     <div class="flight-times">
-      <div class="flight-time-block">
-        <div class="flt">10:25</div>
-        <div class="fap">DBV · Avgang</div>
-      </div>
+      <div class="flight-time-block"><div class="flt">10:25</div><div class="fap">DBV · Avgang</div></div>
       <div style="display:flex;align-items:center;color:var(--text3);font-size:12px;padding:0 6px">→</div>
-      <div class="flight-time-block">
-        <div class="flt">13:30</div>
-        <div class="fap">OSL · Ankomst</div>
-      </div>
+      <div class="flight-time-block"><div class="flt">13:30</div><div class="fap">OSL · Ankomst</div></div>
     </div>
     <div class="flight-meta">
-      <span>📅 1. juli 2026</span>
-      <span>✈️ Norwegian DY1923</span>
-      <span>💺 LowFare · Seter ikke reservert</span>
+      <span>📅 1. juli 2026</span><span>✈️ Norwegian DY1923</span><span>💺 LowFare</span>
     </div>
-    <div class="flight-tip">💡 Avgang 10:25 – vær på flyplassen senest kl. 08:25. Dra fra Royal Neptun Hotel/Old Town ca. kl. 07:30 (buss linje 11 fra Pile Gate). Sjekk inn online og dobbeltsjekk bussruter kvelden før.</div>
+    <div class="flight-tip">💡 Avgang 10:25 – vær på flyplassen senest 08:25. Dra fra Royal Neptun ca. 07:30 (buss 50m fra hotellet). Sjekk inn online!</div>
   </div>
-
-  <div class="info-box">ℹ️ Begge flygninger med Norwegian (LowFare). Seter ikke reservert enda – vurder å reservere seter på forhånd, spesielt for 06:00-avgangen 25. juni!</div>
+  <div class="warn-box">⚠️ Seter ikke reservert enda på DY1922 eller DY1923. Spesielt viktig for 06:00-avgangen!</div>
 </div>
 
-<!-- ═══════════════ TRANSPORT ═══════════════ -->
+<!-- TRANSPORT -->
 <div id="v-trans" class="view">
-
-  <div class="warn-box">⚠️ Husk å booke katamaranenen til Korčula på forhånd! Kapasiteten er begrenset i høysesong (juni/juli). Sjekk <strong>Krilo (Kapetan Luka)</strong>, <strong>Jadrolinija</strong> eller <strong>TP Line</strong>.</div>
-
+  <div class="success-box">✅ Katamaranene er booket med TP Line! Alle billetter bekreftet.</div>
   <div class="leg-card">
     <div class="leg-header" onclick="tToggle(this)">
-      <div class="leg-left">
-        <div class="leg-route">Dubrovnik flyplass → Old Town</div>
-        <div class="leg-sub">Ankomstdag · 25. juni</div>
-      </div>
-      <div class="leg-right">
-        <span class="mode-pill" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">🚌 Buss linje 11</span>
-        <span class="dur">~35 min · €2</span>
-        <span class="leg-chev">▾</span>
-      </div>
+      <div class="leg-left"><div class="leg-route">Dubrovnik flyplass → Old Town</div><div class="leg-sub">Ankomst 25. juni · kl. 08:55</div></div>
+      <div class="leg-right"><span class="mode-pill" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">🚌 Buss 11</span><span class="dur">35 min · €2</span><span class="leg-chev">▾</span></div>
     </div>
     <div class="leg-body">
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Dubrovnik flyplass (DBV)</div>
-          <div class="lstep-detail">Bussholdeplass utenfor ankomstterminalen</div>
-        </div>
-      </div>
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Pile Gate / Old Town</div>
-          <div class="lstep-detail">Buss linje 11 · Dubrovnik Flyplass → Dubrovnik · ~35 minutter</div>
-          <span class="lstep-exit">Gå av ved Pile Gate – inngangen til gamlebyen</span>
-        </div>
-      </div>
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Guesthouse Rustico</div>
-          <div class="lstep-detail">Kort gange fra Pile Gate inn i gamlebyen</div>
-        </div>
-      </div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div><div class="lstep-body"><div class="lstep-station">Dubrovnik flyplass (DBV)</div><div class="lstep-detail">Busstopp utenfor ankomst</div></div></div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div></div><div class="lstep-body"><div class="lstep-station">Pile Gate / Old Town</div><div class="lstep-detail">Buss linje 11 · ~35 min</div><span class="lstep-exit">Gå av ved Pile Gate – inngang til gamlebyen</span></div></div>
       <a class="maps-link" href="https://maps.google.com/maps/dir/Dubrovnik+Airport/Pile+Gate+Dubrovnik/" target="_blank" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">Åpne i Google Maps ↗</a>
-      <div class="trans-cost">Kostnad: <b>ca. €2</b> per person (kontant/kort på bussen)</div>
+      <div class="trans-cost">Kostnad: <b>~€2</b> per person</div>
     </div>
   </div>
-
   <div class="leg-card">
     <div class="leg-header" onclick="tToggle(this)">
-      <div class="leg-left">
-        <div class="leg-route">Dubrovnik → Korčula</div>
-        <div class="leg-sub">Katamaran fra Gruž Havn · 26. juni</div>
-      </div>
-      <div class="leg-right">
-        <span class="mode-pill" style="background:#E0F2F1;color:#00695C;border-color:#00897B">🚢 Katamaran</span>
-        <span class="dur">~2 t · €10-25</span>
-        <span class="leg-chev">▾</span>
-      </div>
+      <div class="leg-left"><div class="leg-route">Dubrovnik → Korčula</div><div class="leg-sub">TP Line · 26. juni · 14:00 → 16:25</div></div>
+      <div class="leg-right"><span class="mode-pill" style="background:#E0F2F1;color:#00695C;border-color:#00897B">🚢 TP Line ✅</span><span class="dur">2 t 25 min · Booket</span><span class="leg-chev">▾</span></div>
     </div>
     <div class="leg-body">
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Gruž havn (Dubrovnik)</div>
-          <div class="lstep-detail">Passasjerterminalen i Gruž, ca. 3 km fra Old Town · Ta buss linje 1A/1B fra Pile Gate (10 min)</div>
-          <span class="lstep-exit">Operatører: Krilo, Jadrolinija eller TP Line</span>
-        </div>
-      </div>
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Korčula Town havn</div>
-          <div class="lstep-detail">Ankomst Korčula Town · ca. 2 timers tur · Sjekk om båten ankommer øst- eller vestport</div>
-          <span class="lstep-exit">Gangavstand til Apartment Romano</span>
-        </div>
-      </div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div><div class="lstep-body"><div class="lstep-station">Gruž havn (Dubrovnik) · 14:00</div><div class="lstep-detail">Dra fra Old Town ca. 13:15 · Buss 1A/1B fra Pile Gate</div><span class="lstep-exit">Billett: 2DL8015R00C & 2DL8015R00D · Linje 9808</span></div></div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div></div><div class="lstep-body"><div class="lstep-station">Korčula Town havn · 16:25</div><div class="lstep-detail">Sjekk øst- eller vestport · Apartment Romano er i gangavstand</div><span class="lstep-exit">Maks 20 kg bagasje per person</span></div></div>
       <a class="maps-link" href="https://maps.google.com/maps/dir/Gruz+Ferry+Terminal+Dubrovnik/Korcula+Town+Ferry+Port/" target="_blank" style="background:#E0F2F1;color:#00695C;border-color:#00897B">Åpne i Google Maps ↗</a>
-      <div class="trans-cost">Kostnad: <b>€10-25</b> per person · Book på forhånd!</div>
+      <div class="trans-cost">Betalt: <b>€27,10 per person</b> (inkl. havneavgift)</div>
     </div>
   </div>
-
   <div class="leg-card">
     <div class="leg-header" onclick="tToggle(this)">
-      <div class="leg-left">
-        <div class="leg-route">Korčula → Dubrovnik</div>
-        <div class="leg-sub">Tidlig morgen · 28. juni</div>
-      </div>
-      <div class="leg-right">
-        <span class="mode-pill" style="background:#E0F2F1;color:#00695C;border-color:#00897B">🚢 Katamaran</span>
-        <span class="dur">~2 t · €10-25</span>
-        <span class="leg-chev">▾</span>
-      </div>
+      <div class="leg-left"><div class="leg-route">Korčula → Dubrovnik</div><div class="leg-sub">TP Line · 28. juni · 08:35 → 10:45</div></div>
+      <div class="leg-right"><span class="mode-pill" style="background:#E0F2F1;color:#00695C;border-color:#00897B">🚢 TP Line ✅</span><span class="dur">2 t 10 min · Booket</span><span class="leg-chev">▾</span></div>
     </div>
     <div class="leg-body">
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Korčula Town havn</div>
-          <div class="lstep-detail">Sjekk avgangstid. Tidlig morgen. Sjekk om avgang fra øst- eller vestport.</div>
-        </div>
-      </div>
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Gruž havn (Dubrovnik)</div>
-          <div class="lstep-detail">Ta buss tilbake til Old Town/hotellet. Lever bagasje hvis tidlig innsjekk.</div>
-        </div>
-      </div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div><div class="lstep-body"><div class="lstep-station">Korčula Town havn · 08:35</div><div class="lstep-detail">Vær ved havnen senest 08:10 · Sjekk øst- eller vestport kvelden før</div><span class="lstep-exit">Billett: 2DLQ012R007 & 2DLQ012R008 · Linje 9808 (retur)</span></div></div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div></div><div class="lstep-body"><div class="lstep-station">Gruž havn (Dubrovnik) · 10:45</div><div class="lstep-detail">Buss 1A/1B → Old Town / Royal Neptun Hotel</div></div></div>
       <a class="maps-link" href="https://maps.google.com/maps/dir/Korcula+Town+Ferry+Port/Gruz+Ferry+Terminal+Dubrovnik/" target="_blank" style="background:#E0F2F1;color:#00695C;border-color:#00897B">Åpne i Google Maps ↗</a>
-      <div class="trans-cost">Kostnad: <b>€10-25</b> per person · Book på forhånd!</div>
+      <div class="trans-cost">Betalt: <b>€13,55 per person</b> (returbillett)</div>
     </div>
   </div>
-
   <div class="leg-card">
     <div class="leg-header" onclick="tToggle(this)">
-      <div class="leg-left">
-        <div class="leg-route">Dubrovnik Old Town → Lokrum</div>
-        <div class="leg-sub">Lokal båt · 30. juni (morgentid)</div>
-      </div>
-      <div class="leg-right">
-        <span class="mode-pill" style="background:#E8F5E9;color:#1B5E20;border-color:#43A047">⛵ Ferge</span>
-        <span class="dur">~15 min · ~€3-4</span>
-        <span class="leg-chev">▾</span>
-      </div>
+      <div class="leg-left"><div class="leg-route">Old Town → Lokrum øy</div><div class="leg-sub">Lokalbåt · 30. juni morgentid</div></div>
+      <div class="leg-right"><span class="mode-pill" style="background:#E8F5E9;color:#1B5E20;border-color:#43A047">⛵ Lokalbåt</span><span class="dur">15 min · ~€4</span><span class="leg-chev">▾</span></div>
     </div>
     <div class="leg-body">
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Stara Luka (Old Port) · Dubrovnik</div>
-          <div class="lstep-detail">Lokalbåt til Lokrum avgår fra den lille havnen inne i gamlebyen. Se etter Lokrum-skilting.</div>
-          <span class="lstep-exit">⚠️ Dra tidlig – båtene slutter å kjøre på kveldene!</span>
-        </div>
-      </div>
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Lokrum øy</div>
-          <div class="lstep-detail">Bilfritt naturreservat · Badestrender, skog, påfugler, Game of Thrones-lokasjon</div>
-        </div>
-      </div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div><div class="lstep-body"><div class="lstep-station">Stara Luka (Old Port)</div><div class="lstep-detail">Lokalbåt avgår fra den lille havnen inne i gamlebyen</div><span class="lstep-exit">⚠️ Dra tidlig – siste båt slutter å gå på kveldene!</span></div></div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div></div><div class="lstep-body"><div class="lstep-station">Lokrum øy</div><div class="lstep-detail">Bilfritt naturreservat · Strender, skog, påfugler, GoT-lokasjon</div></div></div>
       <a class="maps-link" href="https://maps.google.com/maps/dir/Old+Port+Dubrovnik/Lokrum+Island/" target="_blank" style="background:#E8F5E9;color:#1B5E20;border-color:#43A047">Åpne i Google Maps ↗</a>
-      <div class="trans-cost">Kostnad: <b>~€3-4 tur/retur</b> · Betales om bord</div>
+      <div class="trans-cost">Kostnad: <b>~€4 tur/retur</b></div>
     </div>
   </div>
-
   <div class="leg-card">
     <div class="leg-header" onclick="tToggle(this)">
-      <div class="leg-left">
-        <div class="leg-route">Old Town → Srđ-fjellet (Linbane)</div>
-        <div class="leg-sub">Panorama Restaurant · 30. juni kveld</div>
-      </div>
-      <div class="leg-right">
-        <span class="mode-pill" style="background:#FDE7F0;color:#B91C4A;border-color:#E879A0">🚡 Linbane</span>
-        <span class="dur">~4 min · €10-12</span>
-        <span class="leg-chev">▾</span>
-      </div>
+      <div class="leg-left"><div class="leg-route">Old Town → Srđ (Linbane)</div><div class="leg-sub">Panorama Restaurant · 30. juni kveld</div></div>
+      <div class="leg-right"><span class="mode-pill" style="background:#FDE7F0;color:#B91C4A;border-color:#E879A0">🚡 Linbane</span><span class="dur">4 min · €10-12</span><span class="leg-chev">▾</span></div>
     </div>
     <div class="leg-body">
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Dubrovnik Cable Car (nedre stasjon)</div>
-          <div class="lstep-detail">Rett bak Pile Gate · Åpningstid: til ca. 22:00 i sommerhalvåret</div>
-          <span class="lstep-exit">Kjøp returbillett</span>
-        </div>
-      </div>
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Srđ-fjellet (øvre stasjon)</div>
-          <div class="lstep-detail">Panorama Restaurant er rett ved toppen</div>
-        </div>
-      </div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div><div class="lstep-body"><div class="lstep-station">Cable Car (nedre stasjon)</div><div class="lstep-detail">Rett bak Pile Gate · Åpner til ~22:00 om sommeren</div><span class="lstep-exit">Kjøp returbillett</span></div></div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div></div><div class="lstep-body"><div class="lstep-station">Srđ-fjellet (øvre stasjon)</div><div class="lstep-detail">Panorama Restaurant rett ved toppen</div></div></div>
       <a class="maps-link" href="https://maps.google.com/maps/dir/Dubrovnik+Cable+Car/Panorama+Restaurant+Dubrovnik/" target="_blank" style="background:#FDE7F0;color:#B91C4A;border-color:#E879A0">Åpne i Google Maps ↗</a>
-      <div class="trans-cost">Kostnad: <b>ca. €10-12 tur/retur</b></div>
+      <div class="trans-cost">Kostnad: <b>~€10-12 tur/retur</b></div>
     </div>
   </div>
-
   <div class="leg-card">
     <div class="leg-header" onclick="tToggle(this)">
-      <div class="leg-left">
-        <div class="leg-route">Old Town → Dubrovnik flyplass</div>
-        <div class="leg-sub">Avreisedag · 1. juli · Fly 10:25</div>
-      </div>
-      <div class="leg-right">
-        <span class="mode-pill" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">🚌 Buss linje 11</span>
-        <span class="dur">~35 min · €2</span>
-        <span class="leg-chev">▾</span>
-      </div>
+      <div class="leg-left"><div class="leg-route">Royal Neptun → Flyplass</div><div class="leg-sub">Avreise · 1. juli · Fly 10:25</div></div>
+      <div class="leg-right"><span class="mode-pill" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">🚌 Buss</span><span class="dur">~35 min · €2</span><span class="leg-chev">▾</span></div>
     </div>
     <div class="leg-body">
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Pile Gate (bussholdeplass)</div>
-          <div class="lstep-detail">Buss linje 11 mot flyplassen. Fly 10:25 → dra fra hotellet senest 07:30</div>
-          <span class="lstep-exit">Sjekk rutetabell kvelden før</span>
-        </div>
-      </div>
-      <div class="lstep">
-        <div class="lstep-line"><div class="lstep-dot"></div></div>
-        <div class="lstep-body">
-          <div class="lstep-station">Dubrovnik flyplass (DBV)</div>
-          <div class="lstep-detail">Vær der senest 2 timer før avgang = 08:25</div>
-        </div>
-      </div>
-      <a class="maps-link" href="https://maps.google.com/maps/dir/Pile+Gate+Dubrovnik/Dubrovnik+Airport/" target="_blank" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">Åpne i Google Maps ↗</a>
-      <div class="trans-cost">Kostnad: <b>ca. €2</b> (buss) · Taxi ca. €35-45</div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div><div class="lstep-conn"></div></div><div class="lstep-body"><div class="lstep-station">Royal Neptun Hotel (bussholdeplass 50m)</div><div class="lstep-detail">Fly 10:25 → dra fra hotellet ca. 07:30 · Buss hvert 10. min</div></div></div>
+      <div class="lstep"><div class="lstep-line"><div class="lstep-dot"></div></div><div class="lstep-body"><div class="lstep-station">Dubrovnik flyplass (DBV)</div><div class="lstep-detail">Vær der senest 08:25 (2 t før avgang)</div></div></div>
+      <a class="maps-link" href="https://maps.google.com/maps/dir/Royal+Neptun+Hotel+Dubrovnik/Dubrovnik+Airport/" target="_blank" style="background:#E3F2FD;color:#0D47A1;border-color:#1E88E5">Åpne i Google Maps ↗</a>
+      <div class="trans-cost">Kostnad: <b>~€2</b> (buss) · Taxi: ~€35-45</div>
     </div>
   </div>
-
 </div>
 
-<!-- ═══════════════ MAT & DRIKKE ═══════════════ -->
+<!-- MAT & DRIKKE -->
 <div id="v-spec" class="view">
-
   <div class="section-title">🍷 Dalmatinsk mat og drikke</div>
-
-  <div class="spec-card">
-    <div class="spec-name">Pošip & Grk (hvitvin)</div>
-    <span class="spec-city city2 badge">Korčula</span>
-    <div class="spec-desc">Pošip er Korčulas viktigste hvite drue – en tørr, elegant hvitvin med mineraler og sitrusnyanser. Grk er en sjelden sort kun dyrket i Lumbarda på Korčula.</div>
-    <div class="spec-tip">🍇 Smak begge! Be konoba-verten anbefale et lokalt vingods.</div>
-  </div>
-
-  <div class="spec-card">
-    <div class="spec-name">Dingač & Plavac Mali (rødvin)</div>
-    <span class="spec-city city1 badge">Dalmatia</span>
-    <div class="spec-desc">Dingač er Kroatias første vinkontrollerte vin (DOC), produsert på Pelješac-halvøyen like ved Korčula. Kraftig, mørk rødvin med tanniner. Plavac Mali er druen.</div>
-    <div class="spec-tip">🍷 Prøv et glass Dingač til sjømat eller grillet kjøtt. Dyrere enn andre kroatiske viner – men verdt det.</div>
-  </div>
-
-  <div class="spec-card">
-    <div class="spec-name">Crni rižot (svart risotto)</div>
-    <span class="spec-city city1 badge">Dubrovnik / Dalmatia</span>
-    <div class="spec-desc">Risotto laget med blekksprutblekk, fersk sjømat og olivenolje. En Dalmatinsk klassiker med intens havsmak. Svart som natten – og nydelig.</div>
-    <div class="spec-tip">🦑 Bestill dette! Nesten alle sjømatrestauranter langs kysten lager det.</div>
-  </div>
-
-  <div class="spec-card">
-    <div class="spec-name">Pašticada</div>
-    <span class="spec-city city1 badge">Dubrovnik</span>
-    <div class="spec-desc">Dubrovniks signaturrett – langstekt okse­kjøtt marinert i eddik og krydder, servert med gnocchi. En typisk søndagsrett og festmat i Dubrovnik-regionen.</div>
-    <div class="spec-tip">🥩 Prøv det på Restaurant Kopun eller tilsvarende lokal restaurant.</div>
-  </div>
-
-  <div class="spec-card">
-    <div class="spec-name">Brodet (fiskesuppe/gryte)</div>
-    <span class="spec-city city1 badge">Dalmatia</span>
-    <div class="spec-desc">Rik gryte med ulike typer fisk, tomater, hvitvin og urter. Serveres alltid med polenta. Typisk fisker-mat som er blitt lokal comfort food.</div>
-    <div class="spec-tip">🍲 Enkelt men nydelig. Spesielt godt i konoba med havutsikt.</div>
-  </div>
-
-  <div class="spec-card">
-    <div class="spec-name">Karlovačko & Ozujsko (øl)</div>
-    <span class="spec-city city1 badge">Kroatia</span>
-    <div class="spec-desc">Kroatias to store ølmerker. Karlovačko (fra Karlovac) og Ožujsko (fra Zagreb). Begge er lette lagere – perfekte til sommervarme og skalldyr.</div>
-    <div class="spec-tip">🍺 Buza Bar serverer iskald Karlovačko mens du bader fra klippene – en av Dalmatias beste opplevelser.</div>
-  </div>
-
-  <div class="spec-card">
-    <div class="spec-name">Sladoled (gelato)</div>
-    <span class="spec-city city1 badge">Dubrovnik — Stradun</span>
-    <div class="spec-desc">Isutsal­gene langs Stradun er et must. Lokal gelato med friske adriatiske smaker som lemon (limun), vanilje og fiken.</div>
-    <div class="spec-tip">🍦 Velg et isutsal litt utenfor Stradun for bedre pris og kortere kø.</div>
-  </div>
-
-  <div class="spec-card">
-    <div class="spec-name">Espresso / Kava</div>
-    <span class="spec-city city1 badge">Kroatia</span>
-    <div class="spec-desc">Kroatene elsker espresso – og kaffekulturen er sterk. Sett deg ned på en kafé langs Stradun og nyt morgenespressoen. "Kava" betyr kaffe.</div>
-    <div class="spec-tip">☕ Kaffe drikkes alltid sittende – aldri i farta. Del en kafé­stund med samtale og sol.</div>
-  </div>
-
+  <div class="spec-card"><div class="spec-name">Pošip & Grk (hvitvin)</div><span class="spec-city city2 badge">Korčula</span><div class="spec-desc">Pošip er Korčulas viktigste hvite drue – tørr, elegant med mineraler. Grk er en sjelden sort kun dyrket i Lumbarda.</div><div class="spec-tip">🍇 Smak begge! Be konoba-verten anbefale et lokalt vingods.</div></div>
+  <div class="spec-card"><div class="spec-name">Dingač & Plavac Mali (rødvin)</div><span class="spec-city city1 badge">Dalmatia</span><div class="spec-desc">Dingač er Kroatias første DOC-vin, fra Pelješac-halvøyen like ved Korčula. Kraftig mørk rødvin.</div><div class="spec-tip">🍷 Prøv et glass Dingač til sjømat eller grillet kjøtt.</div></div>
+  <div class="spec-card"><div class="spec-name">Crni rižot (svart risotto)</div><span class="spec-city city1 badge">Dubrovnik / Dalmatia</span><div class="spec-desc">Risotto med blekksprutblekk, fersk sjømat og olivenolje. En Dalmatinsk klassiker med intens havsmak.</div><div class="spec-tip">🦑 Bestill dette! Svart som natten – og nydelig.</div></div>
+  <div class="spec-card"><div class="spec-name">Pašticada</div><span class="spec-city city1 badge">Dubrovnik</span><div class="spec-desc">Dubrovniks signaturrett – langstekt oksekjøtt marinert i eddik og krydder, servert med gnocchi.</div><div class="spec-tip">🥩 Prøv det på Restaurant Kopun eller tilsvarende lokal restaurant.</div></div>
+  <div class="spec-card"><div class="spec-name">Karlovačko & Ožujsko (øl)</div><span class="spec-city city1 badge">Kroatia</span><div class="spec-desc">Kroatias to store ølmerker. Begge er lette lagere – perfekte til sommervarme og skalldyr.</div><div class="spec-tip">🍺 Buza Bar serverer iskald Karlovačko mens du bader fra klippene.</div></div>
+  <div class="spec-card"><div class="spec-name">Sladoled (gelato)</div><span class="spec-city city1 badge">Dubrovnik — Stradun</span><div class="spec-desc">Isutsal langs Stradun er et must. Lokal gelato med friske adriatiske smaker.</div><div class="spec-tip">🍦 Velg et isutsal litt utenfor Stradun for bedre pris og kortere kø.</div></div>
+  <div class="spec-card"><div class="spec-name">Espresso / Kava</div><span class="spec-city city1 badge">Kroatia</span><div class="spec-desc">Kroatene elsker espresso. Sett deg ned på en kafé langs Stradun. "Kava" betyr kaffe.</div><div class="spec-tip">☕ Kaffe drikkes alltid sittende – aldri i farta. Del en kafésitting med sol og samtale.</div></div>
 </div>
 
-<!-- ═══════════════ PRAKTISK ═══════════════ -->
+<!-- PRAKTISK -->
 <div id="v-prac" class="view">
-
-  <div class="warn-box">⚠️ <strong>Gjenstår å booke:</strong> Katamaran (tur/retur), bymuren, og scootere på Korčula. Husk å reservere seter på flyene!</div>
-
+  <div class="success-box">✅ <strong>Nesten alt booket!</strong> Gjenstår: Seter på flyene + scootere på Korčula.</div>
   <div class="prac-section">
-    <h3>📋 Før avreise</h3>
-    <div class="prac-item"><span class="pi-icon">✅</span><span><strong>Apartment Romano</strong> (26–28 juni, Korčula) – Bekreftet! NOK 3 733. Gratis avbestilling.</span></div>
-    <div class="prac-item"><span class="pi-icon">✅</span><span><strong>Royal Neptun Hotel</strong> (28 jun–1 jul, Dubrovnik) – Bekreftet! NOK 8 899. Kan ikke refunderes.</span></div>
-    <div class="prac-item"><span class="pi-icon">✅</span><span><strong>Norwegian DY1922</strong> (25 jun, 06:00 OSL → 08:55 DBV) – Bekreftet. Seter ikke reservert enda.</span></div>
-    <div class="prac-item"><span class="pi-icon">✅</span><span><strong>Norwegian DY1923</strong> (1 jul, 10:25 DBV → 13:30 OSL) – Bekreftet. Seter ikke reservert enda.</span></div>
-    <div class="prac-item"><span class="pi-icon">💺</span><span><strong>Reserver seter</strong> på DY1922 og DY1923 – spesielt viktig for 06:00-avgangen!</span></div>
-    <div class="prac-item"><span class="pi-icon">🚢</span><span><strong>Book katamaran Dubrovnik → Korčula</strong> (26. juni morgen) på krilo.hr, jadrolinija.hr eller tp-line.hr</span></div>
-    <div class="prac-item"><span class="pi-icon">🚢</span><span><strong>Book katamaran tilbake</strong> Korčula → Dubrovnik (28. juni tidlig morgen)</span></div>
-    <div class="prac-item"><span class="pi-icon">🏰</span><span><strong>Book bymuren</strong> på shop.citywallsdubrovnik.hr – €40/person. Gå tidlig morgen (åpner 08:00) eller solnedgang</span></div>
-    <div class="prac-item"><span class="pi-icon">🛵</span><span>Scooter på Korčula: Kaleta Travel, Korkyra.info eller Titan Rent. Ca. €30/dag. Ta med førerkort.</span></div>
-    <div class="prac-item"><span class="pi-icon">🌅</span><span>Panorama Restaurant: Dobbeltsjekk reservasjonen for 30. juni kl. 18:30</span></div>
-    <div class="prac-item"><span class="pi-icon">💳</span><span>Euro (€) er valuta i Kroatia. Kort aksepteres de fleste steder, men ha litt kontanter</span></div>
+    <h3>📋 Sjekkliste</h3>
+    <div class="prac-item"><span class="pi-icon">✅</span><span>DY1922 – 25 jun, 06:00 OSL → 08:55 DBV · Norwegian</span></div>
+    <div class="prac-item"><span class="pi-icon">✅</span><span>DY1923 – 1 jul, 10:25 DBV → 13:30 OSL · Norwegian</span></div>
+    <div class="prac-item"><span class="pi-icon">💺</span><span><strong>Reserver seter</strong> på DY1922 og DY1923 – viktig for 06:00-avgangen!</span></div>
+    <div class="prac-item"><span class="pi-icon">✅</span><span>Katamaran DBV→KOR 26. juni 14:00 · TP Line · 2DL8015R00C & 00D</span></div>
+    <div class="prac-item"><span class="pi-icon">✅</span><span>Katamaran KOR→DBV 28. juni 08:35 · TP Line · 2DLQ012R007 & 008</span></div>
+    <div class="prac-item"><span class="pi-icon">✅</span><span>Bymuren + Lovrijenac 25. juni · Nr. 35731167900 & 35044985422</span></div>
+    <div class="prac-item"><span class="pi-icon">✅</span><span>Apartment Romano (26–28 jun) · NOK 3 733</span></div>
+    <div class="prac-item"><span class="pi-icon">✅</span><span>Royal Neptun Hotel (28 jun–1 jul) · NOK 8 899 · Kan ikke refunderes</span></div>
+    <div class="prac-item"><span class="pi-icon">✅</span><span>Gradska Kavana Arsenal – 25. jun kl. 17:00 · Mario Vrzic</span></div>
+    <div class="prac-item"><span class="pi-icon">✅</span><span>Audio Mare – 26. jun kl. 18:00 · Res.nr. 21825</span></div>
+    <div class="prac-item"><span class="pi-icon">✅</span><span>Panorama Restaurant – 30. jun kl. 18:30 · Dobbeltsjekk!</span></div>
+    <div class="prac-item"><span class="pi-icon">🛵</span><span><strong>Book scootere</strong> på Korčula – Kaleta Travel / Korkyra.info · Ca. €30/dag</span></div>
+    <div class="prac-item"><span class="pi-icon">💳</span><span>Euro (€). Kort aksepteres de fleste steder, men ha litt kontanter.</span></div>
   </div>
-
   <div class="prac-section">
-    <h3>🌡 Været i juni/juli</h3>
-    <div class="prac-item"><span class="pi-icon">☀️</span><span>Svært varmt og solrikt – dagtemperatur 28–34°C. Solen er sterk, spesielt 11:00–15:00</span></div>
-    <div class="prac-item"><span class="pi-icon">🧴</span><span>Ta med høy solkrem (SPF 50+), solhatt og solbriller. Lett bomullsklær anbefales</span></div>
-    <div class="prac-item"><span class="pi-icon">💧</span><span>Drikk mye vann! Det er gratis drikkevann i Staro Springvann på Stradun (berømt gammelt fontene)</span></div>
-    <div class="prac-item"><span class="pi-icon">🕗</span><span>Bymuren: Gå aller tidligst (08:00 åpning) eller etter 17:00 – unngå middagssolen på murene</span></div>
+    <h3>🌡 Været i juni</h3>
+    <div class="prac-item"><span class="pi-icon">☀️</span><span>28–34°C, svært sterkt sol spesielt 11:00–15:00</span></div>
+    <div class="prac-item"><span class="pi-icon">🧴</span><span>Ta med SPF 50+, solhatt og solbriller. Lett bomullsklær.</span></div>
+    <div class="prac-item"><span class="pi-icon">💧</span><span>Drikk mye vann! Onofrio-fontenen på Stradun gir gratis friskt vann (siden 1438).</span></div>
+    <div class="prac-item"><span class="pi-icon">🕗</span><span>Bymuren: Gå ved 08:00 åpning eller etter 17:00 – unngå middagssolen.</span></div>
   </div>
-
   <div class="prac-section">
-    <h3>🏰 Dubrovnik-tips</h3>
-    <div class="prac-item"><span class="pi-icon">🚶</span><span>Old Town er bilfritt. Parkeringen er utenfor murene. Alt innenfor nås til fots.</span></div>
-    <div class="prac-item"><span class="pi-icon">👥</span><span>Høysesong = mange cruiseturister kl. 10:00–17:00. Sightseeing er best tidlig morgen eller sent ettermiddag</span></div>
-    <div class="prac-item"><span class="pi-icon">🌊</span><span>Lokrum: Ta morgenbåten og kom tilbake tidlig – siste båt er typisk rundt 20:00</span></div>
-    <div class="prac-item"><span class="pi-icon">📍</span><span>Buza Bar: Gå langs bymuren innvendig og se etter den ikoniske skiltet "Cold Drinks" på muren</span></div>
-    <div class="prac-item"><span class="pi-icon">📸</span><span>Best utsikt: Bymuren, linbanen til Srđ-fjellet, og Buza Bar-klippen</span></div>
+    <h3>🔍 Skjulte skatter i Dubrovnik</h3>
+    <div class="prac-item"><span class="pi-icon">☕</span><span><strong>Café Mala Braća</strong> – kaffe i det gotiske klosterhagen fra 1317 inne i Franciskanerklosteret. En av Dubrovniks vakreste og minst kjente kafeer.</span></div>
+    <div class="prac-item"><span class="pi-icon">💊</span><span><strong>Franciskanerklosterets apotek</strong> (Stradun 2) – grunnlagt 1317, ett av verdens eldste apotek, FORTSATT i drift. ~€5 klosterinngang.</span></div>
+    <div class="prac-item"><span class="pi-icon">🎭</span><span><strong>Jesuit-trappen</strong> – barokk trapp bak Gundulić-torget. Cerseis skamgang i Game of Thrones. Gratis, alltid åpen.</span></div>
+    <div class="prac-item"><span class="pi-icon">📷</span><span><strong>War Photo Limited</strong> (Antuninska 6) – internasjonalt prisbelønnet krigsfotagalleri. ~€7. Kraftfullt og oversett.</span></div>
+    <div class="prac-item"><span class="pi-icon">🏛</span><span><strong>Sponza-palasset</strong> – gratis inngang til indre gårdsrom. Gotisk-renessanse fra 1520, perfekt ro.</span></div>
+    <div class="prac-item"><span class="pi-icon">🍷</span><span><strong>D'Vino Wine Bar</strong> (Palmotićeva 4a) – beste kroatiske viner i sidestredet. Ikke turistete.</span></div>
+    <div class="prac-item"><span class="pi-icon">🐟</span><span><strong>Lokanda Peskarija</strong> – sjømat ved Old Port med lokale priser. Ingen reservasjon, kom tidlig.</span></div>
+    <div class="prac-item"><span class="pi-icon">🎵</span><span><strong>Café Troubadur</strong> – jazzkafé i middelaldersk bakgård. Livemusikk om kveldene. Magisk.</span></div>
+    <div class="prac-item"><span class="pi-icon">💧</span><span><strong>Onofrio-fontenen</strong> (1438) – 16 middelalderlige ansikter på Stradun. Drikk fra den!</span></div>
   </div>
-
+  <div class="prac-section">
+    <h3>🏨 Rundt Royal Neptun Hotel (Babin Kuk)</h3>
+    <div class="prac-item"><span class="pi-icon">🚌</span><span>Buss til Old Town stopper 50 m fra hotellet – hvert 10. min, ~€2. Veldig praktisk!</span></div>
+    <div class="prac-item"><span class="pi-icon">🏖</span><span><strong>Copacabana Beach</strong> – 900 m fra hotellet. Blåflagg-strand med kajakk og paddleboard-utleie.</span></div>
+    <div class="prac-item"><span class="pi-icon">🚶</span><span><strong>Lapad-promenaden</strong> – vakker sjøpromenade med lokale restauranter. Mye roligere enn Old Town.</span></div>
+    <div class="prac-item"><span class="pi-icon">🌊</span><span><strong>Elaphiti-øyene</strong> – dagsturer fra Gruž havn (nærme hotellet). Sipan, Lopud og Koločep er bilfrie paradiser.</span></div>
+    <div class="prac-item"><span class="pi-icon">🌅</span><span>Babin Kuk-halvøya er naturreservat – fin å gå i solnedgang langs klippekysten (30–45 min).</span></div>
+  </div>
+  <div class="prac-section">
+    <h3>🤩 Fun facts om Dubrovnik</h3>
+    <div class="prac-item"><span class="pi-icon">🐉</span><span>Dubrovnik er "King's Landing" i Game of Thrones – over 100 scener filmet her. Fort Lovrijenac = "Røde Borgen"!</span></div>
+    <div class="prac-item"><span class="pi-icon">🏛</span><span>Byen var en uavhengig republikk ("Ragusa") i 450+ år – 1358 til 1808. Rikere enn mange kongeriker.</span></div>
+    <div class="prac-item"><span class="pi-icon">🌍</span><span>Første land i verden til å forby slaveri – i 1416, nesten 450 år før USA!</span></div>
+    <div class="prac-item"><span class="pi-icon">🔴</span><span>De oransje takteglene: mange er nye etter krigsødeleggelsene 1991–92. Lysere tegl = nyere reparasjon.</span></div>
+    <div class="prac-item"><span class="pi-icon">⚓</span><span>"Dubrovnik" betyr "eikeskogen". Byens latinske navn "Ragusa" ble brukt i 800 år.</span></div>
+    <div class="prac-item"><span class="pi-icon">🦁</span><span>Richard Løvehjertet ble vraket på Lokrum i 1192. Han donerte penger til Dubrovniks katedral som takk.</span></div>
+    <div class="prac-item"><span class="pi-icon">🏗</span><span>Gamlebyen ble nesten ødelagt i jordskjelvet 1667 – det du ser er nesten fullstendig gjenoppbygd!</span></div>
+  </div>
   <div class="prac-section">
     <h3>🏝 Korčula-tips</h3>
-    <div class="prac-item"><span class="pi-icon">🛵</span><span>Scooter: God måte å utforske øya. Kjør til Lumbarda (8 km), Vela Luka, og langs kysten. Ta med/kjøp solkrem.</span></div>
-    <div class="prac-item"><span class="pi-icon">🦅</span><span>Hjelm er påbudt på scooter i Kroatia. Utleier gir deg hjelm.</span></div>
-    <div class="prac-item"><span class="pi-icon">🍷</span><span>Vinrunde: Stopp på et lokalt vingods i Lumbarda for gratis smaksprøver av Grk og Pošip-viner</span></div>
-    <div class="prac-item"><span class="pi-icon">⚓</span><span>Korčula havn: Sjekk om katamaranen ankommer øst- eller vestporten (5 min å gå mellom dem)</span></div>
+    <div class="prac-item"><span class="pi-icon">🛵</span><span>Scooter: Kjør til Lumbarda (8 km), Vela Luka og langs kysten. Ta med solkrem!</span></div>
+    <div class="prac-item"><span class="pi-icon">🦅</span><span>Hjelm er påbudt i Kroatia. Utleier gir deg hjelm.</span></div>
+    <div class="prac-item"><span class="pi-icon">🍷</span><span>Stopp på vingods i Lumbarda for smaksprøver av Grk og Pošip-viner.</span></div>
+    <div class="prac-item"><span class="pi-icon">⚓</span><span>Sjekk om katamaranen ankommer øst- eller vestporten (5 min gangavstand).</span></div>
   </div>
-
   <div class="prac-section">
     <h3>📱 Nyttige apper</h3>
-    <div class="prac-item"><span class="pi-icon">🗺</span><span><strong>Google Maps</strong> – fungerer offline, last ned Kroatia-kart på forhånd</span></div>
-    <div class="prac-item"><span class="pi-icon">🚢</span><span><strong>Jadrolinija-appen</strong> – sjekk fergetider og kjøp billett</span></div>
-    <div class="prac-item"><span class="pi-icon">🌤</span><span><strong>Windy</strong> eller yr.no – check vær og bølgehøyde (viktig for katamaranreisen!)</span></div>
-    <div class="prac-item"><span class="pi-icon">💱</span><span><strong>Revolut / Wise</strong> – spare penger på valutaveksling</span></div>
+    <div class="prac-item"><span class="pi-icon">🗺</span><span><strong>Google Maps</strong> – last ned Kroatia offline på forhånd</span></div>
+    <div class="prac-item"><span class="pi-icon">🌤</span><span><strong>yr.no / Windy</strong> – sjekk vær og bølgehøyde (viktig for katamaran!)</span></div>
+    <div class="prac-item"><span class="pi-icon">💱</span><span><strong>Revolut / Wise</strong> – spar penger på valutaveksling</span></div>
   </div>
-
   <div class="prac-section">
     <h3>🆘 Nødnumre</h3>
-    <div class="prac-item"><span class="pi-icon">🚑</span><span>Nødnummer (alle): <strong>112</strong></span></div>
-    <div class="prac-item"><span class="pi-icon">🚓</span><span>Politi: <strong>192</strong></span></div>
-    <div class="prac-item"><span class="pi-icon">🏥</span><span>Dubrovnik sykehus: Roka Mišetića 2 (ta taxi)</span></div>
-    <div class="prac-item"><span class="pi-icon">🇳🇴</span><span>Norsk ambassade i Zagreb: +385 1 4897 200</span></div>
+    <div class="prac-item"><span class="pi-icon">🚑</span><span>Nødnummer: <strong>112</strong></span></div>
+    <div class="prac-item"><span class="pi-icon">🛡</span><span>If Forsikring: <strong>+47 21 49 24 00</strong> · Polise SP0007071519.1.3</span></div>
+    <div class="prac-item"><span class="pi-icon">🏥</span><span>Dubrovnik sykehus: Roka Mišetića 2</span></div>
+    <div class="prac-item"><span class="pi-icon">🇳🇴</span><span>Norsk ambassade Zagreb: +385 1 4897 200</span></div>
+  </div>
+</div>
+
+<!-- RESERVASJONER -->
+<div id="v-res" class="view">
+  <div class="success-box">✅ Oversikt over alle bekreftede reservasjoner og billetter.</div>
+
+  <div class="section-title">✈️ Fly – Norwegian</div>
+  <div class="res-card">
+    <div class="res-status">✅ Bekreftet</div>
+    <div class="res-title">DY1922 · Oslo → Dubrovnik</div>
+    <div class="res-date">📅 25. juni 2026</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Avgang</span><span class="res-val">06:00 Oslo Gardermoen (OSL)</span></div>
+      <div class="res-row"><span class="res-label">Ankomst</span><span class="res-val">08:55 Dubrovnik (DBV)</span></div>
+      <div class="res-row"><span class="res-label">Klasse</span><span class="res-val">LowFare · 2 passasjerer</span></div>
+      <div class="res-row res-warn"><span class="res-label">⚠️ Seter</span><span class="res-val">Ikke reservert enda!</span></div>
+    </div>
+  </div>
+  <div class="res-card">
+    <div class="res-status">✅ Bekreftet</div>
+    <div class="res-title">DY1923 · Dubrovnik → Oslo</div>
+    <div class="res-date">📅 1. juli 2026</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Avgang</span><span class="res-val">10:25 Dubrovnik (DBV)</span></div>
+      <div class="res-row"><span class="res-label">Ankomst</span><span class="res-val">13:30 Oslo Gardermoen (OSL)</span></div>
+      <div class="res-row"><span class="res-label">Klasse</span><span class="res-val">LowFare · 2 passasjerer</span></div>
+      <div class="res-row res-warn"><span class="res-label">⚠️ Seter</span><span class="res-val">Ikke reservert enda!</span></div>
+    </div>
   </div>
 
+  <div class="section-title">🚢 Katamaran – TP Line</div>
+  <div class="res-card">
+    <div class="res-status">✅ Bekreftet · Betalt</div>
+    <div class="res-title">Dubrovnik → Korčula</div>
+    <div class="res-date">📅 26. juni 2026 · 14:00 – 16:25</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Operatør</span><span class="res-val">TP Line · Linje 9808</span></div>
+      <div class="res-row"><span class="res-label">Billett 1</span><span class="res-val">2DL8015R00C · €13,55</span></div>
+      <div class="res-row"><span class="res-label">Billett 2</span><span class="res-val">2DL8015R00D · €13,55</span></div>
+      <div class="res-row"><span class="res-label">Bagasje</span><span class="res-val">Maks 20 kg per person</span></div>
+    </div>
+  </div>
+  <div class="res-card">
+    <div class="res-status">✅ Bekreftet · Betalt</div>
+    <div class="res-title">Korčula → Dubrovnik</div>
+    <div class="res-date">📅 28. juni 2026 · 08:35 – 10:45</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Operatør</span><span class="res-val">TP Line · Linje 9808 (retur)</span></div>
+      <div class="res-row"><span class="res-label">Billett 1</span><span class="res-val">2DLQ012R007 · €13,55</span></div>
+      <div class="res-row"><span class="res-label">Billett 2</span><span class="res-val">2DLQ012R008 · €13,55</span></div>
+      <div class="res-row"><span class="res-label">Bagasje</span><span class="res-val">Maks 20 kg per person</span></div>
+    </div>
+  </div>
+
+  <div class="section-title">🏨 Overnatting</div>
+  <div class="res-card">
+    <div class="res-status">✅ Bekreftet</div>
+    <div class="res-title">Guesthouse Rustico</div>
+    <div class="res-date">📅 25–26 juni · 1 natt · Dubrovnik Old Town</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Innsjekk</span><span class="res-val">25. juni (ankomst 08:55 – lever bagasje tidlig)</span></div>
+    </div>
+  </div>
+  <div class="res-card">
+    <div class="res-status">✅ Bekreftet · Gratis avbestilling</div>
+    <div class="res-title">Apartment Romano</div>
+    <div class="res-date">📅 26–28 juni · 2 netter · Korčula Town</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Pris</span><span class="res-val">NOK 3 733</span></div>
+    </div>
+  </div>
+  <div class="res-card">
+    <div class="res-status">✅ Bekreftet</div>
+    <div class="res-title">Royal Neptun Hotel</div>
+    <div class="res-date">📅 28 juni – 1. juli · 3 netter · Dubrovnik (Babin Kuk)</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Pris</span><span class="res-val">NOK 8 899</span></div>
+      <div class="res-row res-warn"><span class="res-label">⚠️ NB</span><span class="res-val">Kan ikke refunderes!</span></div>
+    </div>
+  </div>
+
+  <div class="section-title">🎟 Billetter</div>
+  <div class="res-card">
+    <div class="res-status">✅ Bekreftet · Betalt · Kan ikke kanselleres</div>
+    <div class="res-title">Dubrovnik Bymur + Lovrijenac</div>
+    <div class="res-date">📅 25. juni 2026 · Gyldig hele sesongen</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Billett 1</span><span class="res-val">Nr. 35731167900 · €40</span></div>
+      <div class="res-row"><span class="res-label">Billett 2</span><span class="res-val">Nr. 35044985422 · €40</span></div>
+      <div class="res-row"><span class="res-label">Utsteder</span><span class="res-val">citywallsdubrovnik.hr</span></div>
+      <div class="res-row res-warn"><span class="res-label">⚠️ Husk</span><span class="res-val">Ta med billett (mobil eller print)</span></div>
+    </div>
+  </div>
+
+  <div class="section-title">🍽 Restaurantreservasjoner</div>
+  <div class="res-card">
+    <div class="res-status">✅ Reservert</div>
+    <div class="res-title">Gradska Kavana Arsenal</div>
+    <div class="res-date">📅 25. juni · kl. 17:00 · Dubrovnik Old Town havn</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Tips</span><span class="res-val">Spør etter <strong>Mario Vrzic</strong></span></div>
+    </div>
+  </div>
+  <div class="res-card">
+    <div class="res-status">✅ Reservert</div>
+    <div class="res-title">Audio Mare</div>
+    <div class="res-date">📅 26. juni · kl. 18:00 · Korčula Town</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Res.nr.</span><span class="res-val"><strong>21825</strong></span></div>
+    </div>
+  </div>
+  <div class="res-card">
+    <div class="res-status">✅ Reservert</div>
+    <div class="res-title">Panorama Restaurant</div>
+    <div class="res-date">📅 30. juni · kl. 18:30 · Srđ-fjellet (linbane)</div>
+    <div class="res-rows">
+      <div class="res-row res-warn"><span class="res-label">⚠️ Husk</span><span class="res-val">Dobbeltsjekk reservasjonen!</span></div>
+    </div>
+  </div>
+
+  <div class="section-title">🛡 Reiseforsikring</div>
+  <div class="res-card" style="border-left-color:#1565C0">
+    <div class="res-status" style="color:#1565C0">✅ Aktiv – dekker hele turen</div>
+    <div class="res-title">If Reiseforsikring – GTURE AS</div>
+    <div class="res-date">Gyldig til 25.09.2026</div>
+    <div class="res-rows">
+      <div class="res-row"><span class="res-label">Polisenr.</span><span class="res-val">SP0007071519.1.3</span></div>
+      <div class="res-row"><span class="res-label">Dekning</span><span class="res-val">Medical expenses & repatriation</span></div>
+      <div class="res-row"><span class="res-label">Assistent</span><span class="res-val">Euro-Center Worldwide</span></div>
+      <div class="res-row"><span class="res-label">Tlf (24t)</span><span class="res-val"><a href="tel:+4721492400" style="color:#1565C0;font-weight:600">+47 21 49 24 00</a></span></div>
+      <div class="res-row"><span class="res-label">Web</span><span class="res-val"><a href="https://if.no" target="_blank" style="color:#1565C0">if.no</a></span></div>
+    </div>
+  </div>
 </div>
 
 <script>
-/* ─── Data ─── */
 const HOTELS = {
-  rustico: {
-    name: "Guesthouse Rustico",
-    addr: "Dubrovnik Old Town",
-    dates: "25–26 juni",
-    note: "Innsjekk ankomsdag. Lever bagasje ved tidlig ankomst om rommet ikke er klart.",
-    maps: "https://maps.google.com/?q=Guesthouse+Rustico+Dubrovnik",
-    city: "city1"
-  },
-  romano: {
-    name: "Apartment Romano",
-    addr: "Korčula Town",
-    dates: "26–28 juni · 2 netter · NOK 3 733",
-    note: "✅ Bekreftet! Gratis avbestilling.",
-    maps: "https://maps.google.com/?q=Apartment+Romano+Korcula",
-    city: "city2"
-  },
-  dubrovnik2: {
-    name: "Royal Neptun Hotel",
-    addr: "Dubrovnik",
-    dates: "28 jun–1 jul · 3 netter · NOK 8 899",
-    note: "✅ Bekreftet! NB: Kan ikke refunderes.",
-    maps: "https://maps.google.com/?q=Royal+Neptun+Hotel+Dubrovnik",
-    city: "city1"
-  }
+  rustico:{name:"Guesthouse Rustico",addr:"Dubrovnik Old Town",dates:"25–26 juni",note:"Innsjekk ankomsdag. Lever bagasje tidlig om rommet ikke er klart.",maps:"https://maps.google.com/?q=Guesthouse+Rustico+Dubrovnik",city:"city1"},
+  romano:{name:"Apartment Romano",addr:"Korčula Town",dates:"26–28 juni · 2 netter · NOK 3 733",note:"✅ Bekreftet! Gratis avbestilling.",maps:"https://maps.google.com/?q=Apartment+Romano+Korcula",city:"city2"},
+  dubrovnik2:{name:"Royal Neptun Hotel",addr:"Dubrovnik (Babin Kuk)",dates:"28 jun–1 jul · 3 netter · NOK 8 899",note:"✅ Bekreftet! Buss til Old Town: 50m fra hotellet, hvert 10. min. NB: Kan ikke refunderes.",maps:"https://maps.google.com/?q=Royal+Neptun+Hotel+Dubrovnik",city:"city1"}
 };
-
-const segs = [
-  {k:'rustico', n:1, label:'Guesthouse Rustico', city:'city1'},
-  {k:'romano', n:2, label:'Apt. Romano', city:'city2'},
-  {k:'dubrovnik2', n:3, label:'Royal Neptun Hotel', city:'city1'},
+const segs=[
+  {k:'rustico',n:1,label:'Guesthouse Rustico',city:'city1'},
+  {k:'romano',n:2,label:'Apt. Romano',city:'city2'},
+  {k:'dubrovnik2',n:3,label:'Royal Neptun Hotel',city:'city1'},
+];
+const DAYS=[
+  {d:"25 jun",wd:"Tor",city:"city1",icon:"🏰",hotel:"rustico",checkin:true,checkout:false,cats:[
+    {ic:"✈️",t:"Ankomst & innsjekk",items:[
+      {n:"Ankomst Dubrovnik flyplass",a:"DBV · 08:55",tip:"Ta buss linje 11 til Pile Gate (~35 min, €2) eller taxi (~€35-40)."},
+      {n:"Guesthouse Rustico",a:"Old Town",tip:"Sjekk inn eller lever bagasjen. Friske opp etter reisen!"}
+    ]},
+    {ic:"🚶",t:"Stradun & utforsking",items:[
+      {n:"Stradun (Placa)",a:"Old Town sentrum",tip:"Marmorgaten gjennom gamlebyen. Prøv kaffebarer og isutsal. Gå inn i sidesgatene – billigere og mer lokalt!"},
+      {n:"Kaffe og gelato-stopp",a:"Sidegater fra Stradun",tip:"Bestill espresso ('kava') og en gelato. Café Mala Braća inne i Franciskanerklosteret er en skjult perle!"}
+    ]},
+    {ic:"🏰",t:"Bymuren (billetter booket!)",items:[
+      {n:"Dubrovnik bymur + Lovrijenac",a:"Old Town",tip:"2 km lang mur med fantastisk utsikt. Gå tidlig morgen (08:00) eller ved solnedgang. Billetter booket!",reserved:"Billettnr. 35731167900 & 35044985422 · Vis på mobil eller print"}
+    ]},
+    {ic:"🍽",t:"Middag",items:[
+      {n:"Gradska Kavana Arsenal",a:"Old Town havn",tip:"Reservert kl. 17:00. Spør etter Mario Vrzic. Prøv sjømat og lokal Dalmatinsk vin.",reserved:"Reservert kl. 17:00 · Spør etter Mario Vrzic"}
+    ]}
+  ]},
+  {d:"26 jun",wd:"Fre",city:"city2",icon:"🏝",hotel:"romano",checkin:true,checkout:false,cats:[
+    {ic:"🚢",t:"Reise til Korčula (avgang 14:00)",items:[
+      {n:"Gruž havn, Dubrovnik",a:"Passasjerterminal · Dra ca. 13:15",tip:"Ta buss linje 1A/1B fra Pile Gate (15 min). Kom i god tid! Billetter booket med TP Line.",reserved:"TP Line · Avgang 14:00 · 2DL8015R00C & 2DL8015R00D"},
+      {n:"Katamaran til Korčula",a:"Gruž 14:00 → Korčula Town 16:25",tip:"Nyt turen! Linje 9808. Maks 20 kg bagasje."}
+    ]},
+    {ic:"🏝",t:"Ankomst Korčula",items:[
+      {n:"Ankomst Korčula Town",a:"Korčula havn · 16:25",tip:"Sjekk om båten ankommer øst- eller vestport. Romano er i gangavstand."},
+      {n:"Apartment Romano",a:"Korčula Town",tip:"Sjekk inn. Hvil litt etter reisen."}
+    ]},
+    {ic:"🍷",t:"Kveldsmiddag",items:[
+      {n:"Audio Mare",a:"Korčula Town",tip:"Reservert kl. 18:00. Res.nr. 21825. Bestill Pošip-vinen og fersk sjømat!",reserved:"Reservert kl. 18:00 · Res.nr. 21825"}
+    ]}
+  ]},
+  {d:"27 jun",wd:"Lør",city:"city2",icon:"🛵",hotel:"romano",checkin:false,checkout:false,cats:[
+    {ic:"🛵",t:"Scooter rundt øya",items:[
+      {n:"Lei scootere",a:"Korčula Town",tip:"Kaleta Travel / Korkyra.info / Titan Rent. Ca. €30/dag. Ta med førerkort. Hjelm obligatorisk!"},
+      {n:"Lumbarda landsby",a:"Østenden · ~8 km",tip:"Sjarmerende landsby med vinmarker. Prøv Grk-vinen og finn en lokal konoba til lunsj."},
+      {n:"Strand- og badestopp",a:"Langs kysten",tip:"Stopp spontant ved badestrender – det er det scooterturen handler om!"},
+      {n:"Rundtur resten av øya",a:"Vestenden og Vela Luka",tip:"Kjør videre vestover. Frisk luft og fantastisk kystlandskap."}
+    ]},
+    {ic:"🌅",t:"Kveld i Korčula Town",items:[
+      {n:"Lever tilbake scooterne",a:"Korčula Town",tip:"Lever i god tid før stengning."},
+      {n:"Kveldsmiddag i gamlebyen",a:"Korčula Town",tip:"Finn en lokal konoba i den vakre middelalderlige gamlebyen. Korčula er angivelig Marco Polos fødested!"}
+    ]}
+  ]},
+  {d:"28 jun",wd:"Søn",city:"city1",icon:"🏰",hotel:"dubrovnik2",checkin:true,checkout:true,cats:[
+    {ic:"🚢",t:"Tidlig katamaran tilbake (08:35)",items:[
+      {n:"Tidlig katamaran fra Korčula",a:"Korčula Town havn · 08:35",tip:"Vær ved havnen senest 08:10. Sjekk øst- eller vestport kvelden før!",reserved:"TP Line · Avgang 08:35 · 2DLQ012R007 & 2DLQ012R008"},
+      {n:"Ankomst Gruž, Dubrovnik",a:"Passasjerterminal Gruž · ca. 10:45",tip:"Ta buss 1A/1B til Royal Neptun Hotel. Lever bagasje ved tidlig ankomst."}
+    ]},
+    {ic:"🏨",t:"Innsjekk Royal Neptun Hotel",items:[
+      {n:"Sjekk inn på Royal Neptun Hotel",a:"Dubrovnik (Babin Kuk)",tip:"✅ Bekreftet! Buss til Old Town stopper 50m fra hotellet, hvert 10. min. Copacabana Beach er 900m unna. NB: Kan ikke refunderes."}
+    ]},
+    {ic:"😎",t:"Hviledag",items:[
+      {n:"Chille ved hotellet / stranden",a:"Babin Kuk",tip:"Slapp av etter reisen. Prøv Copacabana Beach (blåflagg, 900m) eller Lapad-promenaden for lokal atmosfære."}
+    ]}
+  ]},
+  {d:"29 jun",wd:"Man",city:"city1",icon:"🔍",hotel:"dubrovnik2",checkin:false,checkout:false,cats:[
+    {ic:"☕",t:"Morgen – skjulte kaffeskatter",items:[
+      {n:"Café Mala Braća",a:"Inne i Franciskanerklosteret, Stradun",tip:"En av Dubrovniks best bevarte hemmeligheter. Kaffe i den gotiske klosterhagen fra 1317. Klosteret huser også ett av Europas eldste apotek – fortsatt i drift! Inngang via kirken."},
+      {n:"Franciskanerklosterets apotek",a:"Stradun 2",tip:"Grunnlagt i 1317 og FORTSATT i drift. Se gamle krukker, urter og resepter. Et absolutt must – og totalt oversett av turister."}
+    ]},
+    {ic:"🎭",t:"Formiddag – hemmelige hjørner",items:[
+      {n:"Jesuit-trappen (Game of Thrones)",a:"Bak Gundulić-torget",tip:"Den brede barokke trappen er der 'skamgangen' til Cersei ble filmet i GoT. Gratis! Like ved er St. Ignatius-kirken."},
+      {n:"War Photo Limited",a:"Ul. Antuninska 6",tip:"Internasjonalt prisbelønnet krigsfotagalleri. Kraftfullt og dypt. Svært ofte oversett av turister. ~€7 inngang."},
+      {n:"Sponza-palasset (gratis)",a:"Luža-torget",tip:"Gratis inngang til de vakre indre gårdsrommene. Gotisk-renessanse fra 1520. Ro og eleganse midt i bylivet."}
+    ]},
+    {ic:"🍷",t:"Ettermiddag – lokale perler",items:[
+      {n:"D'Vino Wine Bar",a:"Palmotićeva 4a",tip:"Dubrovniks beste vinbar for kroatiske viner, gjemt i et smalt sidestrette. Ikke turistete. Bestill Plavac Mali eller Pošip med ostebrett."},
+      {n:"Lokanda Peskarija",a:"Stara Luka (Old Port)",tip:"Sjømatrestaurant rett ved den lille havnen. Lokale priser og fersk fisk. Ingen reservasjon – kom tidlig!"}
+    ]},
+    {ic:"🏖",t:"Kveld – Babin Kuk",items:[
+      {n:"Copacabana Beach eller Lapad-promenaden",a:"900 m fra Royal Neptun",tip:"Slapp av på blåflagg-stranden eller gå Lapad-promenaden (Šetalište Kralja Zvonimira) for lokal kveldsatmosfære. Mye roligere enn Old Town!"}
+    ]}
+  ]},
+  {d:"30 jun",wd:"Tir",city:"city1",icon:"🌊",hotel:"dubrovnik2",checkin:false,checkout:false,cats:[
+    {ic:"⛵",t:"Morgen – Lokrum øy (gå tidlig!)",items:[
+      {n:"Morgenbåt til Lokrum",a:"Stara Luka (Old Port)",tip:"Dra tidlig! Siste båt slutter å gå på kvelden (~20:00). Bilfritt naturreservat."},
+      {n:"Utforsking på Lokrum",a:"Lokrum øy",tip:"Badeviker, Mrtvo More (saltvannssjø), GoT-trone, festningsruiner og massevis av ville påfugler. Ta med mat og vann!"}
+    ]},
+    {ic:"🍺",t:"Ettermiddag – Buza Bar",items:[
+      {n:"Buza Bar",a:"Utenfor bymuren",tip:"Se etter skiltet 'Cold Drinks' inne i gamlebyen langs bymuren. Ikonisk bar i klippehull med bading og iskald øl. Ha med kontanter!"}
+    ]},
+    {ic:"🌅",t:"Siste kveld – Panorama Restaurant",items:[
+      {n:"Dusje og gjøre seg klar",a:"Hotellet",tip:"Kle dere pent til siste middag! 🥂"},
+      {n:"Linbane opp til Srđ-fjellet",a:"Dubrovnik Cable Car (Pile Gate)",tip:"Kjøp returbillett (~€10-12). Åpner til ~22:00. Nyt utsikten!"},
+      {n:"Panorama Restaurant",a:"Srđ-fjellet",tip:"Siste kveld! Fantastisk panoramautsikt over Dubrovnik og Adriaterhavet.",reserved:"Reservert kl. 18:30 · Husk å dobbeltsjekke!"}
+    ]}
+  ]},
+  {d:"1 jul",wd:"Ons",city:"city1",icon:"✈️",hotel:"dubrovnik2",checkin:false,checkout:true,cats:[
+    {ic:"🧳",t:"Avreise",items:[
+      {n:"Pakke og sjekke ut",a:"Royal Neptun Hotel",tip:"Pakk kvelden før. Fly 10:25 → vær på flyplassen senest 08:25."},
+      {n:"Buss til Dubrovnik flyplass",a:"Hotellbussholdeplass (50m) → DBV",tip:"Buss hvert 10. min fra hotellet. Dra ca. 07:30 for 10:25-flyet. Sjekk rutetabell kvelden før!"},
+      {n:"Avreise Oslo",a:"Dubrovnik flyplass (DBV) · 10:25",tip:"DY1923. Ha med pass og boardingkort. God tur hjem! 🇳🇴"}
+    ]}
+  ]}
 ];
 
-const DAYS = [
-  {
-    d: "25 jun", wd: "Tor", city: "city1", icon: "🏰", hotel: "rustico", checkin: true, checkout: false,
-    cats: [
-      {
-        ic: "✈️", t: "Ankomst & innsjekk",
-        items: [
-          {n: "Ankomst Dubrovnik flyplass", a: "DBV flyplass", tip: "Ankomst kl. 08:55. Ta buss linje 11 til Pile Gate (~35 min, €2) eller taxi (~€35-40)."},
-          {n: "Guesthouse Rustico", a: "Old Town", tip: "Sjekk inn eller lever bagasjen hvis rommet ikke er klart. Friske opp etter reisen!"}
-        ]
-      },
-      {
-        ic: "🚶", t: "Stradun & utforsking",
-        items: [
-          {n: "Stradun (Placa)", a: "Old Town sentrum", tip: "Marmorgaten gjennom gamlebyen. Perfekt å gå og finne kaffebarer og isutsal. Ikke sitt på de turistete kaffebarene rett på Stradun – gå inn i sidesgatene."},
-          {n: "Kaffe og gelato-stopp", a: "Sidegater fra Stradun", tip: "Utforsk de smale gatene av gamlebyen. Bestill espresso ('kava') og en gelato."}
-        ]
-      },
-      {
-        ic: "🏰", t: "Bymuren",
-        items: [
-          {n: "Dubrovnik bymur", a: "Old Town", tip: "2 km lang mur med fantastisk utsikt. Gå tidlig morgen (åpner 08:00) eller ved solnedgang – unngå middagssolen! €40/person. Husk å booke online på forhånd.", booking: true}
-        ]
-      },
-      {
-        ic: "🍽", t: "Middag",
-        items: [
-          {n: "Gradska Kavana Arsenal", a: "Old Town havn", tip: "Reservert kl. 17:00. Spør etter Mario Vrzic. Prøv sjømat, risotto og lokal Dalmatinsk vin.", reserved: "Reservert kl. 17:00 · Spør etter Mario Vrzic"}
-        ]
-      }
-    ]
+const TPILLS={
+  0:{
+    "Ankomst Dubrovnik flyplass":{mode:"bus",line:"Buss linje 11",detail:"Flyplass → Pile Gate",time:"35 min · €2",color:"#0D47A1",bg:"#E3F2FD",icon:"🚌",maps:"https://maps.google.com/maps/dir/Dubrovnik+Airport/Pile+Gate+Dubrovnik/"},
+    "Guesthouse Rustico":{mode:"walk",line:"Gange",detail:"→ Stradun",time:"5 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Guesthouse+Rustico+Dubrovnik/Stradun+Dubrovnik/"},
+    "Stradun (Placa)":{mode:"walk",line:"Gange",detail:"→ Sidegater/isbar",time:"2 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Stradun+Dubrovnik/Old+Town+Dubrovnik/"},
+    "Kaffe og gelato-stopp":{mode:"walk",line:"Gange",detail:"→ Bymuren (Pile/Ploce inngang)",time:"5–10 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Old+Town+Dubrovnik/City+Walls+Dubrovnik/"},
+    "Dubrovnik bymur + Lovrijenac":{mode:"walk",line:"Gange",detail:"→ Gradska Kavana Arsenal",time:"10 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/City+Walls+Dubrovnik/Gradska+Kavana+Arsenal+Dubrovnik/"}
   },
-  {
-    d: "26 jun", wd: "Fre", city: "city2", icon: "🏝", hotel: "romano", checkin: true, checkout: false,
-    cats: [
-      {
-        ic: "🚢", t: "Reise til Korčula",
-        items: [
-          {n: "Gruž havn, Dubrovnik", a: "Passasjerterminal (~3 km fra Old Town)", tip: "Ta buss linje 1A/1B fra Pile Gate. Kom i god tid – kø i høysesong! Sjekk reisetid på forhånd (Krilo / Jadrolinija / TP Line). MÅ BOOKES!", booking: true},
-          {n: "Katamaran til Korčula", a: "Gruž → Korčula Town havn", tip: "Ca. 2 timers tur. Nyt utsikten over øyene og Dalmatiakysten!"}
-        ]
-      },
-      {
-        ic: "🏝", t: "Ankomst & hvile",
-        items: [
-          {n: "Ankomst Korčula Town", a: "Korčula havn", tip: "Sjekk om båten ankommer øst- eller vestport. Apartment Romano er i gangavstand fra begge."},
-          {n: "Apartment Romano", a: "Korčula Town", tip: "Sjekk inn. Hvil litt etter reisen."}
-        ]
-      },
-      {
-        ic: "🍷", t: "Kveldsmiddag",
-        items: [
-          {n: "Audio Mare", a: "Korčula Town", tip: "Reservert kl. 18:00. Reservasjonsnummer 21825. Bestill Pošip-vinen og fersk adriatisk sjømat!", reserved: "Reservert kl. 18:00 · Res.nr. 21825"}
-        ]
-      }
-    ]
+  1:{
+    "Gruž havn, Dubrovnik":{mode:"ferry",line:"TP Line katamaran",detail:"Gruž 14:00 → Korčula 16:25",time:"2 t 25 min · Booket",color:"#00695C",bg:"#E0F2F1",icon:"🚢",maps:"https://maps.google.com/maps/dir/Gruz+Ferry+Terminal+Dubrovnik/Korcula+Town/"},
+    "Katamaran til Korčula":{mode:"walk",line:"Gange",detail:"Havn → Apartment Romano",time:"5–10 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Korcula+Ferry+Port/Apartment+Romano+Korcula/"},
+    "Ankomst Korčula Town":{mode:"walk",line:"Gange",detail:"→ Apartment Romano",time:"5 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Korcula+Ferry+Port/Korcula+Town/"},
+    "Apartment Romano":{mode:"walk",line:"Gange",detail:"→ Audio Mare",time:"10 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Apartment+Romano+Korcula/Audio+Mare+Restaurant+Korcula/"}
   },
-  {
-    d: "27 jun", wd: "Lør", city: "city2", icon: "🛵", hotel: "romano", checkin: false, checkout: false,
-    cats: [
-      {
-        ic: "🛵", t: "Scooter rundt øya",
-        items: [
-          {n: "Lei scootere", a: "Korčula Town", tip: "Kaleta Travel, Korkyra.info eller Titan Rent. Ca. €30/dag. Ta med førerkort. Hjelm er obligatorisk!"},
-          {n: "Lumbarda landsby", a: "Østenden av øya (~8 km)", tip: "Sjarmerende landsby med vinmarker. Prøv Grk-vinen (sjelden lokal drue). Finn en lokal konoba til lunsj."},
-          {n: "Strand- og badestopp", a: "Langs kysten", tip: "Korčula har mange flotte badestrender. Stopp spontant langs veien – det er det scooterturen handler om!"},
-          {n: "Rundtur resten av øya", a: "Vestenden og Vela Luka", tip: "Kjør videre vestover mot Vela Luka om dere har energi. Frisk adriatisk luft og fantastisk kystlandskap."}
-        ]
-      },
-      {
-        ic: "🌅", t: "Kveld i Korčula Town",
-        items: [
-          {n: "Lever tilbake scooterne", a: "Korčula Town", tip: "Lever i god tid før stengning."},
-          {n: "Kveldsmiddag i gamlebyen", a: "Korčula Town", tip: "Finn en lokal konoba eller restaurant i den vakre middelalderlige gamlebyen. Korčula hevder å være Marco Polos fødested!"}
-        ]
-      }
-    ]
+  2:{
+    "Lei scootere":{mode:"scooter",line:"Scooter",detail:"→ Lumbarda (~8 km)",time:"15 min",color:"#00695C",bg:"#E0F2F1",icon:"🛵",maps:"https://maps.google.com/maps/dir/Korcula+Town/Lumbarda+Korcula/"},
+    "Lumbarda landsby":{mode:"scooter",line:"Scooter",detail:"→ Kyststrender",time:"variabel",color:"#00695C",bg:"#E0F2F1",icon:"🛵",maps:"https://maps.google.com/maps/dir/Lumbarda/Korcula+Island+beaches/"},
+    "Strand- og badestopp":{mode:"scooter",line:"Scooter",detail:"→ Vela Luka (vestenden)",time:"~40 min",color:"#00695C",bg:"#E0F2F1",icon:"🛵",maps:"https://maps.google.com/maps/dir/Korcula+beaches/Vela+Luka+Korcula/"},
+    "Rundtur resten av øya":{mode:"scooter",line:"Scooter tilbake",detail:"→ Korčula Town",time:"~40 min",color:"#00695C",bg:"#E0F2F1",icon:"🛵",maps:"https://maps.google.com/maps/dir/Vela+Luka/Korcula+Town/"},
+    "Lever tilbake scooterne":{mode:"walk",line:"Gange",detail:"→ Gamlebyen",time:"5 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Korcula+Town+center/Korcula+Old+Town/"}
   },
-  {
-    d: "28 jun", wd: "Søn", city: "city1", icon: "🏰", hotel: "dubrovnik2", checkin: true, checkout: true,
-    cats: [
-      {
-        ic: "🚢", t: "Reise tilbake til Dubrovnik",
-        items: [
-          {n: "Tidlig katamaran fra Korčula", a: "Korčula Town havn", tip: "Dra tidlig! Sjekk avgangstid på forhånd. Sjekk om avgang fra øst- eller vestport. MÅ BOOKES!", booking: true},
-          {n: "Ankomst Gruž, Dubrovnik", a: "Passasjerterminal Gruž", tip: "Ta buss inn til Old Town. Lever bagasje på hotellet ved tidlig ankomst."}
-        ]
-      },
-      {
-        ic: "🏨", t: "Innsjekk nytt hotell",
-        items: [
-          {n: "Sjekk inn på Royal Neptun Hotel", a: "Dubrovnik", tip: "Royal Neptun Hotel er booket og bekreftet (28 jun–1 jul). NB: Kan ikke refunderes. Lever bagasje ved tidlig ankomst om rommet ikke er klart."}
-        ]
-      },
-      {
-        ic: "😎", t: "Hviledag",
-        items: [
-          {n: "Chille ved hotellet", a: "Dubrovnik", tip: "Slapp av etter reisen. Bading, lesing, kafe – nyt Dubrovnik i eget tempo."}
-        ]
-      }
-    ]
+  3:{
+    "Tidlig katamaran fra Korčula":{mode:"ferry",line:"TP Line katamaran",detail:"Korčula 08:35 → Gruž 10:45",time:"2 t 10 min · Booket",color:"#00695C",bg:"#E0F2F1",icon:"🚢",maps:"https://maps.google.com/maps/dir/Korcula+Town+Ferry+Port/Gruz+Dubrovnik/"},
+    "Ankomst Gruž, Dubrovnik":{mode:"bus",line:"Buss 1A/1B",detail:"Gruž → Babin Kuk / Old Town",time:"15 min · €2",color:"#0D47A1",bg:"#E3F2FD",icon:"🚌",maps:"https://maps.google.com/maps/dir/Gruz+Ferry+Terminal+Dubrovnik/Royal+Neptun+Hotel+Dubrovnik/"},
+    "Sjekk inn på Royal Neptun Hotel":{mode:"walk",line:"Gange",detail:"→ Copacabana Beach",time:"10 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Royal+Neptun+Hotel+Dubrovnik/Copacabana+Beach+Dubrovnik/"}
   },
-  {
-    d: "29 jun", wd: "Man", city: "city1", icon: "🌴", hotel: "dubrovnik2", checkin: false, checkout: false,
-    cats: [
-      {
-        ic: "😎", t: "Chille eller Lokrum",
-        items: [
-          {n: "Chille ved hotellet", a: "Dubrovnik", tip: "Hviledag! Nyt Dubrovnik i eget tempo."},
-          {n: "(Valgfritt) Dagstur til Lokrum", a: "Lokrum øy", tip: "Bilfritt naturreservat med badeplasser, påfugler og Game of Thrones-lokasjoner. Ta morgenbåten fra Stara Luka (Old Port). Siste båt ~20:00 – ikke gå glipp av den!"}
-        ]
-      }
-    ]
+  4:{
+    "Café Mala Braća":{mode:"walk",line:"Gange",detail:"→ Franciskanerklosteret apotek",time:"2 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Franciscan+Monastery+Dubrovnik/Stradun+Dubrovnik/"},
+    "Franciskanerklosterets apotek":{mode:"walk",line:"Gange",detail:"→ Jesuit-trappen",time:"5 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Franciscan+Monastery+Dubrovnik/Jesuit+Stairs+Dubrovnik/"},
+    "Jesuit-trappen (Game of Thrones)":{mode:"walk",line:"Gange",detail:"→ War Photo Limited",time:"5 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Jesuit+Stairs+Dubrovnik/War+Photo+Limited+Dubrovnik/"},
+    "War Photo Limited":{mode:"walk",line:"Gange",detail:"→ Sponza-palasset",time:"3 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/War+Photo+Limited+Dubrovnik/Sponza+Palace+Dubrovnik/"},
+    "Sponza-palasset (gratis)":{mode:"walk",line:"Gange",detail:"→ D'Vino Wine Bar",time:"5 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Sponza+Palace+Dubrovnik/DVino+Wine+Bar+Dubrovnik/"},
+    "D'Vino Wine Bar":{mode:"walk",line:"Gange",detail:"→ Lokanda Peskarija",time:"5 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/DVino+Wine+Bar+Dubrovnik/Lokanda+Peskarija+Dubrovnik/"},
+    "Lokanda Peskarija":{mode:"bus",line:"Buss → Babin Kuk",detail:"Old Town → Royal Neptun Hotel",time:"~15 min · €2",color:"#0D47A1",bg:"#E3F2FD",icon:"🚌",maps:"https://maps.google.com/maps/dir/Old+Port+Dubrovnik/Royal+Neptun+Hotel+Dubrovnik/"}
   },
-  {
-    d: "30 jun", wd: "Tir", city: "city1", icon: "🌊", hotel: "dubrovnik2", checkin: false, checkout: false,
-    cats: [
-      {
-        ic: "⛵", t: "Morgen – Lokrum øy",
-        items: [
-          {n: "Morgenbåt til Lokrum", a: "Stara Luka (Old Port)", tip: "Dra tidlig – siste båt går på kvelden! Bilfritt naturreservat med badeplasser, skog og påfugler."},
-          {n: "Bading og utforsking på Lokrum", a: "Lokrum øy", tip: "Badeviker, saltvannssjø (Mrtvo More - Dødehavet), Game of Thrones-trone og festningsruiner. Bring mat og vann!"}
-        ]
-      },
-      {
-        ic: "🍺", t: "Ettermiddag – Buza Bar",
-        items: [
-          {n: "Buza Bar", a: "Utenfor bymuren (hull i muren)", tip: "Ikonisk bar hogd inn i klippen utenfor bymuren. Se etter 'Cold Drinks'-skiltet inne i gamlebyen ved muren. Bading fra klippene, iskald øl med fantastisk utsikt. Ha med kontanter."}
-        ]
-      },
-      {
-        ic: "🌅", t: "Siste kveld – Panorama Restaurant",
-        items: [
-          {n: "Dusje og gjøre seg klar", a: "Hotellet", tip: "Kle dere pent til siste middag! :)"},
-          {n: "Linbane opp til Srđ-fjellet", a: "Dubrovnik Cable Car (ved Pile Gate)", tip: "Kjøp retur-billett (~€10-12). Åpent til ca. 22:00. Nyt utsikten fra toppen!"},
-          {n: "Panorama Restaurant", a: "Srđ-fjellet", tip: "Siste kveld! Bord reservert kl. 18:30 – husk å dobbeltsjekke reservasjonen på forhånd. Fantastisk panoramautsikt over Dubrovnik og Adriaterhavet.", reserved: "Reservert kl. 18:30 · Dobbeltsjekk reservasjonen!"}
-        ]
-      }
-    ]
+  5:{
+    "Morgenbåt til Lokrum":{mode:"ferry",line:"Lokalbåt",detail:"Old Port → Lokrum",time:"15 min · ~€4",color:"#1B5E20",bg:"#E8F5E9",icon:"⛵",maps:"https://maps.google.com/maps/dir/Old+Port+Dubrovnik/Lokrum+Island/"},
+    "Utforsking på Lokrum":{mode:"ferry",line:"Lokalbåt tilbake",detail:"Lokrum → Old Port",time:"15 min",color:"#1B5E20",bg:"#E8F5E9",icon:"⛵",maps:"https://maps.google.com/maps/dir/Lokrum+Island/Old+Port+Dubrovnik/"},
+    "Buza Bar":{mode:"walk",line:"Gange",detail:"→ Hotellet",time:"10 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Buza+Bar+Dubrovnik/Dubrovnik+Old+Town/"},
+    "Dusje og gjøre seg klar":{mode:"walk",line:"Gange",detail:"→ Dubrovnik Cable Car",time:"10 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Dubrovnik+Old+Town/Dubrovnik+Cable+Car/"},
+    "Linbane opp til Srđ-fjellet":{mode:"cable_car",line:"Cable Car",detail:"Nedre stasjon → Srđ-fjellet",time:"4 min · €10-12",color:"#B91C4A",bg:"#FDE7F0",icon:"🚡",maps:"https://maps.google.com/maps/dir/Dubrovnik+Cable+Car/Panorama+Restaurant+Dubrovnik/"}
   },
-  {
-    d: "1 jul", wd: "Ons", city: "city1", icon: "✈️", hotel: "dubrovnik2", checkin: false, checkout: true,
-    cats: [
-      {
-        ic: "🧳", t: "Avreise",
-        items: [
-          {n: "Pakke og sjekke ut", a: "Hotellet", tip: "Pakk kvelden før. Sjekk ut av hotellet. Fly 10:25 → vær på flyplassen senest 08:25."},
-          {n: "Buss til Dubrovnik flyplass", a: "Pile Gate → DBV", tip: "Buss linje 11 fra Pile Gate. Ta bussen ~07:30 for å rekke 10:25-flyet. Sjekk rutetabell kvelden før!"},
-          {n: "Avreise Oslo", a: "Dubrovnik flyplass (DBV)", tip: "Avgang 10:25. Ha med alle dokumenter, pass og boardingkort! God tur hjem!"}
-        ]
-      }
-    ]
-  }
-];
-
-const TPILLS = {
-  0: {
-    "Ankomst Dubrovnik flyplass": {
-      mode:"bus", line:"Buss linje 11", detail:"Flyplass → Pile Gate Old Town",
-      time:"35 min · €2", color:"#0D47A1", bg:"#E3F2FD", icon:"🚌",
-      maps:"https://maps.google.com/maps/dir/Dubrovnik+Airport/Pile+Gate+Dubrovnik/"
-    },
-    "Guesthouse Rustico": {
-      mode:"walk", line:"Gange", detail:"Hotellet → Stradun",
-      time:"5 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/Guesthouse+Rustico+Dubrovnik/Stradun+Dubrovnik/"
-    },
-    "Stradun (Placa)": {
-      mode:"walk", line:"Gange", detail:"Stradun → sidegater",
-      time:"2 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/Stradun+Dubrovnik/Old+Town+Dubrovnik/"
-    },
-    "Kaffe og gelato-stopp": {
-      mode:"walk", line:"Gange", detail:"→ Bymuren (inngang ved Pile/Ploce)",
-      time:"5–10 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/Old+Town+Dubrovnik/City+Walls+Dubrovnik/"
-    },
-    "Dubrovnik bymur": {
-      mode:"walk", line:"Gange", detail:"Bymuren → Arsenal Gradska Kavana",
-      time:"10 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/City+Walls+Dubrovnik/Gradska+Kavana+Arsenal+Dubrovnik/"
-    }
-  },
-  1: {
-    "Gruž havn, Dubrovnik": {
-      mode:"ferry", line:"Katamaran (Krilo/Jadrolinija/TP Line)", detail:"Gruž → Korčula Town",
-      time:"~2 timer · €10-25", color:"#00695C", bg:"#E0F2F1", icon:"🚢",
-      maps:"https://maps.google.com/maps/dir/Gruz+Ferry+Terminal+Dubrovnik/Korcula+Town/"
-    },
-    "Katamaran til Korčula": {
-      mode:"walk", line:"Gange", detail:"Havn → Apartment Romano",
-      time:"5–10 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/Korcula+Ferry+Port/Apartment+Romano+Korcula/"
-    },
-    "Ankomst Korčula Town": {
-      mode:"walk", line:"Gange", detail:"Havn → Apartment Romano",
-      time:"5 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/Korcula+Ferry+Port/Korcula+Town/"
-    },
-    "Apartment Romano": {
-      mode:"walk", line:"Gange", detail:"Hotellet → Audio Mare",
-      time:"10 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/Apartment+Romano+Korcula/Audio+Mare+Restaurant+Korcula/"
-    }
-  },
-  2: {
-    "Lei scootere": {
-      mode:"scooter", line:"Scooter", detail:"Korčula Town → Lumbarda",
-      time:"~15 min · 8 km", color:"#00695C", bg:"#E0F2F1", icon:"🛵",
-      maps:"https://maps.google.com/maps/dir/Korcula+Town/Lumbarda+Korcula/"
-    },
-    "Lumbarda landsby": {
-      mode:"scooter", line:"Scooter", detail:"Lumbarda → kyststrender",
-      time:"variabel", color:"#00695C", bg:"#E0F2F1", icon:"🛵",
-      maps:"https://maps.google.com/maps/dir/Lumbarda/Korcula+Island+beaches/"
-    },
-    "Strand- og badestopp": {
-      mode:"scooter", line:"Scooter", detail:"→ Vela Luka (vestenden)",
-      time:"~40 min", color:"#00695C", bg:"#E0F2F1", icon:"🛵",
-      maps:"https://maps.google.com/maps/dir/Korcula+beaches/Vela+Luka+Korcula/"
-    },
-    "Rundtur resten av øya": {
-      mode:"scooter", line:"Scooter tilbake", detail:"→ Korčula Town",
-      time:"~40 min", color:"#00695C", bg:"#E0F2F1", icon:"🛵",
-      maps:"https://maps.google.com/maps/dir/Vela+Luka/Korcula+Town/"
-    },
-    "Lever tilbake scooterne": {
-      mode:"walk", line:"Gange", detail:"→ Gamlebyen",
-      time:"5 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/Korcula+Town+center/Korcula+Old+Town/"
-    }
-  },
-  3: {
-    "Tidlig katamaran fra Korčula": {
-      mode:"ferry", line:"Katamaran", detail:"Korčula Town → Gruž, Dubrovnik",
-      time:"~2 timer · €10-25", color:"#00695C", bg:"#E0F2F1", icon:"🚢",
-      maps:"https://maps.google.com/maps/dir/Korcula+Town+Ferry+Port/Gruz+Dubrovnik/"
-    },
-    "Ankomst Gruž, Dubrovnik": {
-      mode:"bus", line:"Buss 1A/1B", detail:"Gruž → Pile Gate / Old Town",
-      time:"15 min · €2", color:"#0D47A1", bg:"#E3F2FD", icon:"🚌",
-      maps:"https://maps.google.com/maps/dir/Gruz+Ferry+Terminal+Dubrovnik/Pile+Gate+Dubrovnik/"
-    },
-    "Sjekk inn på siste hotell": {
-      mode:"walk", line:"Gange", detail:"→ Hotellet",
-      time:"5 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/?q=hotels+Dubrovnik+Old+Town"
-    }
-  },
-  4: {
-    "(Valgfritt) Dagstur til Lokrum": {
-      mode:"ferry", line:"Lokalbåt", detail:"Old Port → Lokrum (tur/retur)",
-      time:"15 min · ~€3-4", color:"#1B5E20", bg:"#E8F5E9", icon:"⛵",
-      maps:"https://maps.google.com/maps/dir/Old+Port+Dubrovnik/Lokrum+Island/"
-    }
-  },
-  5: {
-    "Morgenbåt til Lokrum": {
-      mode:"ferry", line:"Lokalbåt", detail:"Old Port → Lokrum",
-      time:"15 min · ~€3-4", color:"#1B5E20", bg:"#E8F5E9", icon:"⛵",
-      maps:"https://maps.google.com/maps/dir/Old+Port+Dubrovnik/Lokrum+Island/"
-    },
-    "Bading og utforsking på Lokrum": {
-      mode:"ferry", line:"Lokalbåt tilbake", detail:"Lokrum → Old Port Dubrovnik",
-      time:"15 min", color:"#1B5E20", bg:"#E8F5E9", icon:"⛵",
-      maps:"https://maps.google.com/maps/dir/Lokrum+Island/Old+Port+Dubrovnik/"
-    },
-    "Buza Bar": {
-      mode:"walk", line:"Gange", detail:"Buza Bar → Hotellet",
-      time:"10 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/Buza+Bar+Dubrovnik/Dubrovnik+Old+Town/"
-    },
-    "Dusje og gjøre seg klar": {
-      mode:"walk", line:"Gange", detail:"→ Dubrovnik Cable Car (Pile Gate-siden)",
-      time:"10 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/Dubrovnik+Old+Town/Dubrovnik+Cable+Car/"
-    },
-    "Linbane opp til Srđ-fjellet": {
-      mode:"cable_car", line:"Linbane (Cable Car)", detail:"Nedre stasjon → Srđ-fjellet",
-      time:"4 min · €10-12 tur/retur", color:"#B91C4A", bg:"#FDE7F0", icon:"🚡",
-      maps:"https://maps.google.com/maps/dir/Dubrovnik+Cable+Car/Panorama+Restaurant+Dubrovnik/"
-    }
-  },
-  6: {
-    "Pakke og sjekke ut": {
-      mode:"walk", line:"Gange", detail:"Hotellet → Pile Gate (bussholdeplass)",
-      time:"5 min", color:"#1B5E20", bg:"#E8F5E9", icon:"🚶",
-      maps:"https://maps.google.com/maps/dir/Dubrovnik+Old+Town/Pile+Gate+Dubrovnik/"
-    },
-    "Buss til Dubrovnik flyplass": {
-      mode:"bus", line:"Buss linje 11", detail:"Pile Gate → Dubrovnik flyplass",
-      time:"~35 min · €2", color:"#0D47A1", bg:"#E3F2FD", icon:"🚌",
-      maps:"https://maps.google.com/maps/dir/Pile+Gate+Dubrovnik/Dubrovnik+Airport/"
-    }
+  6:{
+    "Pakke og sjekke ut":{mode:"walk",line:"Gange",detail:"→ Bussholdeplass (50m)",time:"2 min",color:"#1B5E20",bg:"#E8F5E9",icon:"🚶",maps:"https://maps.google.com/maps/dir/Royal+Neptun+Hotel+Dubrovnik/Dubrovnik+Airport/"},
+    "Buss til Dubrovnik flyplass":{mode:"bus",line:"Buss → Flyplass",detail:"Hotell → DBV",time:"~35 min · €2",color:"#0D47A1",bg:"#E3F2FD",icon:"🚌",maps:"https://maps.google.com/maps/dir/Royal+Neptun+Hotel+Dubrovnik/Dubrovnik+Airport/"}
   }
 };
 
-const MAPD = {
-  rustico: {
-    name: "Guesthouse Rustico", city: "city1",
-    dates: "25–26 juni",
-    note: "Inne i gamlebyen. Lever bagasje tidlig om rommet ikke er klart.",
-    maps: "https://maps.google.com/?q=Guesthouse+Rustico+Dubrovnik"
-  },
-  neptun: {
-    name: "Royal Neptun Hotel", city: "city1",
-    dates: "28 jun–1 jul · NOK 8 899 · Kan ikke refunderes",
-    note: "✅ Bekreftet! Lever bagasje ved tidlig ankomst 28. juni.",
-    maps: "https://maps.google.com/?q=Royal+Neptun+Hotel+Dubrovnik"
-  },
-  romano: {
-    name: "Apartment Romano", city: "city2",
-    dates: "26–28 juni · 2 netter",
-    note: "Gangavstand fra katamaranhavnen.",
-    maps: "https://maps.google.com/?q=Apartment+Romano+Korcula"
-  }
+const MAPD={
+  rustico:{name:"Guesthouse Rustico",city:"city1",dates:"25–26 juni",note:"Inne i gamlebyen. Lever bagasje tidlig om rommet ikke er klart.",maps:"https://maps.google.com/?q=Guesthouse+Rustico+Dubrovnik"},
+  romano:{name:"Apartment Romano",city:"city2",dates:"26–28 juni · 2 netter",note:"✅ Bekreftet. Gangavstand fra katamaranhavnen.",maps:"https://maps.google.com/?q=Apartment+Romano+Korcula"}
 };
 
-/* ─── Functions ─── */
-function sw(id, btn) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('on'));
+function sw(id,btn){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
   btn.classList.add('on');
-  document.getElementById('v-' + id).classList.add('on');
-  window.scrollTo(0, 0);
+  document.getElementById('v-'+id).classList.add('on');
+  window.scrollTo(0,0);
 }
-
-function tToggle(header) {
-  var body = header.nextElementSibling;
-  var chev = header.querySelector('.leg-chev');
+function tToggle(header){
+  var body=header.nextElementSibling;
+  var chev=header.querySelector('.leg-chev');
   body.classList.toggle('open');
-  if (chev) chev.classList.toggle('open');
+  if(chev)chev.classList.toggle('open');
 }
-
-function showMap(key) {
-  const d = MAPD[key];
-  if (!d) return;
-  const card = document.getElementById('map-card');
-  card.className = 'open';
-  card.innerHTML = `
-    <div class="mc-name">${d.name}</div>
-    <div class="mc-dates" style="color:var(--${d.city})">${d.dates}</div>
-    <div class="mc-note">${d.note}</div>
-    <a class="mc-btn" href="${d.maps}" target="_blank"
-       style="background:var(--${d.city}-bg);color:var(--${d.city});border:1px solid var(--${d.city}-bd)">
-      Åpne i Google Maps ↗
-    </a>`;
+function showMap(key){
+  const d=MAPD[key];
+  if(!d)return;
+  const card=document.getElementById('map-card');
+  card.className='open';
+  card.innerHTML=`<div class="mc-name">${d.name}</div><div class="mc-dates" style="color:var(--${d.city})">${d.dates}</div><div class="mc-note">${d.note}</div><a class="mc-btn" href="${d.maps}" target="_blank" style="background:var(--${d.city}-bg);color:var(--${d.city});border:1px solid var(--${d.city}-bd)">Åpne i Google Maps ↗</a>`;
 }
-
-function pick(i) {
-  document.querySelectorAll('.tl-cell').forEach((c, ci) => {
-    c.classList.toggle('on', ci === i);
-  });
-
-  const d = DAYS[i];
-  const h = HOTELS[d.hotel];
-  const cityColor = `var(--${d.city})`;
-  const cityBg = `var(--${d.city}-bg)`;
-  const cityBd = `var(--${d.city}-bd)`;
-
-  let badges = '';
-  if (d.checkin) badges += '<span class="checkin-badge">✅ Innsjekk</span> ';
-  if (d.checkout) badges += '<span class="checkout-badge">🧳 Utsjekk</span> ';
-
-  const hotelEl = h ? `
-    <a class="hotel-btn hotel-${d.city}" href="${h.maps}" target="_blank">
-      <div class="hb-icon">🏨</div>
-      <div class="hb-body">
-        <div class="hb-name">${h.name}</div>
-        <div class="hb-dates">${h.dates}</div>
-        ${h.note ? `<div class="hb-note">${h.note}</div>` : ''}
-      </div>
-      <div class="hb-arrow">↗</div>
-    </a>` : '';
-
-  const catsHtml = d.cats.map(cat => {
-    const itemsHtml = cat.items.map((it, idx, arr) => {
-      const tp = (TPILLS[i] || {})[it.n];
-      const pill = (tp && idx < arr.length - 1) ? `
-        <a class="trans-pill" href="${tp.maps}" target="_blank"
-           style="background:${tp.bg};color:${tp.color};border-color:${tp.color}40">
-          <span>${tp.icon}</span>
-          <span>${tp.line} · ${tp.detail} · ${tp.time}</span>
-        </a>` : '';
-
-      let extras = '';
-      if (it.tip) extras += `<div class="act-tip">💡 ${it.tip}</div>`;
-      if (it.reserved) extras += `<div class="act-res">📅 ${it.reserved}</div>`;
-      if (it.booking) extras += `<div class="act-book">⚠️ MÅ BOOKES på forhånd!</div>`;
-
-      return `
-        <div class="act">
-          <div class="act-name">${it.n}</div>
-          ${it.a ? `<div class="act-area">📍 ${it.a}</div>` : ''}
-          ${extras}
-        </div>
-        ${pill}`;
+function pick(i){
+  document.querySelectorAll('.tl-cell').forEach((c,ci)=>c.classList.toggle('on',ci===i));
+  const d=DAYS[i];
+  const h=HOTELS[d.hotel];
+  let badges='';
+  if(d.checkin)badges+='<span class="checkin-badge">✅ Innsjekk</span> ';
+  if(d.checkout)badges+='<span class="checkout-badge">🧳 Utsjekk</span> ';
+  const hotelEl=h?`<a class="hotel-btn hotel-${d.city}" href="${h.maps}" target="_blank"><div class="hb-icon">🏨</div><div class="hb-body"><div class="hb-name">${h.name}</div><div class="hb-dates">${h.dates}</div>${h.note?`<div class="hb-note">${h.note}</div>`:''}</div><div class="hb-arrow">↗</div></a>`:'';
+  const catsHtml=d.cats.map(cat=>{
+    const itemsHtml=cat.items.map((it,idx,arr)=>{
+      const tp=(TPILLS[i]||{})[it.n];
+      const pill=(tp&&idx<arr.length-1)?`<a class="trans-pill" href="${tp.maps}" target="_blank" style="background:${tp.bg};color:${tp.color};border-color:${tp.color}40"><span>${tp.icon}</span><span>${tp.line} · ${tp.detail} · ${tp.time}</span></a>`:'';
+      let extras='';
+      if(it.tip)extras+=`<div class="act-tip">💡 ${it.tip}</div>`;
+      if(it.reserved)extras+=`<div class="act-res">📅 ${it.reserved}</div>`;
+      return`<div class="act"><div class="act-name">${it.n}</div>${it.a?`<div class="act-area">📍 ${it.a}</div>`:''} ${extras}</div>${pill}`;
     }).join('');
-
-    return `
-      <div class="cat">
-        <div class="cat-hd"><span>${cat.ic}</span>${cat.t}</div>
-        <div class="acts">${itemsHtml}</div>
-      </div>`;
+    return`<div class="cat"><div class="cat-hd"><span>${cat.ic}</span>${cat.t}</div><div class="acts">${itemsHtml}</div></div>`;
   }).join('');
-
-  document.getElementById('day-detail').innerHTML = `
-    <div class="day-header">
-      <span style="font-size:22px">${d.icon}</span>
-      <div>
-        <div class="day-title">${d.wd} ${d.d}</div>
-        <span class="badge ${d.city}">${d.city === 'city1' ? '🏰 Dubrovnik' : '🏝 Korčula'}</span>
-      </div>
-      <div style="margin-left:auto;display:flex;gap:4px;flex-wrap:wrap">${badges}</div>
-    </div>
-    ${hotelEl}
-    ${catsHtml}`;
+  document.getElementById('day-detail').innerHTML=`<div class="day-header"><span style="font-size:22px">${d.icon}</span><div><div class="day-title">${d.wd} ${d.d}</div><span class="badge ${d.city}">${d.city==='city1'?'🏰 Dubrovnik':'🏝 Korčula'}</span></div><div style="margin-left:auto;display:flex;gap:4px;flex-wrap:wrap">${badges}</div></div>${hotelEl}${catsHtml}`;
 }
-
-function renderTL() {
-  const grid = document.getElementById('tl-grid');
-  DAYS.forEach((d, i) => {
-    const cell = document.createElement('div');
-    cell.className = `tl-cell ${d.city}`;
-    cell.innerHTML = `<div class="wd">${d.wd}</div><div class="dd">${d.d.split(' ')[0]}</div><div class="ci">${d.icon}</div>`;
-    cell.onclick = () => pick(i);
+function renderTL(){
+  const grid=document.getElementById('tl-grid');
+  DAYS.forEach((d,i)=>{
+    const cell=document.createElement('div');
+    cell.className=`tl-cell ${d.city}`;
+    cell.innerHTML=`<div class="wd">${d.wd}</div><div class="dd">${d.d.split(' ')[0]}</div><div class="ci">${d.icon}</div>`;
+    cell.onclick=()=>pick(i);
     grid.appendChild(cell);
   });
-
-  // Hotel strip
-  const strip = document.getElementById('hotel-strip');
-  segs.forEach(s => {
-    const seg = document.createElement('div');
-    const nights = s.n;
-    seg.className = 'hs-seg';
-    seg.style.background = `var(--${s.city})`;
-    seg.style.color = '#fff';
-    seg.style.width = (nights * 80) + 'px';
-    seg.innerHTML = `<div class="hs-name">${s.label}</div><div class="hs-nights">${nights} natt${nights > 1 ? 'er' : ''}</div>`;
-    seg.onclick = () => {
-      const h = HOTELS[s.k];
-      if (h) window.open(h.maps, '_blank');
-    };
+  const strip=document.getElementById('hotel-strip');
+  segs.forEach(s=>{
+    const seg=document.createElement('div');
+    seg.className='hs-seg';
+    seg.style.background=`var(--${s.city})`;
+    seg.style.color='#fff';
+    seg.style.width=(s.n*80)+'px';
+    seg.innerHTML=`<div class="hs-name">${s.label}</div><div class="hs-nights">${s.n} natt${s.n>1?'er':''}</div>`;
+    seg.onclick=()=>{const h=HOTELS[s.k];if(h)window.open(h.maps,'_blank');};
     strip.appendChild(seg);
   });
 }
-
 renderTL();
 pick(0);
 </script>
