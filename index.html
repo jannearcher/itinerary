@@ -172,6 +172,7 @@ a{text-decoration:none;color:inherit}
     <div class="tab" onclick="sw('spec',this)">🍷 Mat & drikke</div>
     <div class="tab" onclick="sw('prac',this)">📋 Praktisk</div>
     <div class="tab" onclick="sw('res',this)">🎫 Reservasjoner</div>
+    <div class="tab" onclick="sw('wc',this)">⚽ VM-kamper</div>
   </div>
 </div>
 
@@ -492,6 +493,49 @@ a{text-decoration:none;color:inherit}
   </div>
 </div>
 
+<!-- VM-KAMPER -->
+<div id="v-wc" class="view">
+  <div class="info-box">⚽ <strong>FIFA VM 2026</strong> – USA, Canada & Mexico · Juni–Juli 2026. Norge er i Gruppe I saman med Frankrike, Senegal og Irak.</div>
+
+  <div class="section-title">🇳🇴 Norge sine kamper</div>
+
+  <div class="flight-card" style="border-left:4px solid #C0392B">
+    <div class="flight-route" style="font-size:15px">🇳🇴 Norge <span class="flight-arrow">vs</span> 🇫🇷 Frankrike</div>
+    <div style="font-size:13px;color:var(--text2);margin:6px 0 2px">Fredag 26. juni 2026 · kl. 21:00 norsk tid</div>
+    <div class="flight-meta">
+      <span>📍 Gillette Stadium, Foxborough, Massachusetts</span>
+      <span>📺 FIFA VM – Gruppe I</span>
+    </div>
+    <div class="flight-tip">🍺 <strong>Se kampen i Dubrovnik:</strong> Du er på vei til Korčula denne dagen (katamaran 14:00–16:25). Kampen starter 21:00 – perfekt tid til å finne en bar i Korčula Town etter ankomst!<br><br>
+    <strong>Anbefalte steder på Korčula:</strong><br>
+    • Finn en lokal kafé/bar i gamlebyen med TV<br>
+    • Sjekk med Apartment Romano om de vet om et godt sted<br><br>
+    💡 <em>Tips: Spør hotellet eller gå langs havnepromenaden – lokale barer viser alltid store kamper.</em></div>
+  </div>
+
+  <div class="section-title">🇭🇷 Kroatia sin kamp (hjemmepublikum!)</div>
+
+  <div class="flight-card" style="border-left:4px solid #0D47A1">
+    <div class="flight-route" style="font-size:15px">🇭🇷 Kroatia <span class="flight-arrow">vs</span> 🇬🇭 Ghana</div>
+    <div style="font-size:13px;color:var(--text2);margin:6px 0 2px">Lørdag 27. juni 2026 · kl. 23:00 norsk tid</div>
+    <div class="flight-meta">
+      <span>📍 Lincoln Financial Field, Philadelphia</span>
+      <span>📺 FIFA VM – Gruppe L</span>
+    </div>
+    <div class="flight-tip">🍺 <strong>Se kampen i Dubrovnik:</strong> Du er på Korčula denne kvelden – og kroatisk VM-kamp er BIG deal! Lokale barer vil være fulle og stemningen elektrisk.<br><br>
+    <strong>Anbefalte steder på Korčula:</strong><br>
+    • <strong>Finn en lokal konoba/bar med stor skjerm</strong> – spør lokalbefolkningen, de vet<br>
+    • Havnepromenaden i Korčula Town har flere barer som viser sport<br><br>
+    <strong>Om dere er tilbake i Dubrovnik:</strong><br>
+    • 🏆 <strong>Sport Pub Mario</strong> (Lapad) – <em>beste valget</em>. Stor lokal kroatisk stemning, multiple skjermer, rimelige priser. Ta buss 6 til Lapad. Book bord på forhånd på store kampdager!<br>
+    • 🍺 <strong>Irish Pub Karaka</strong> (Old Town, Između polača 5) – viser FIFA og ESPN live, HD-skjermer, midt i gamlebyen<br>
+    • 🍺 <strong>The Gaffe Irish Pub</strong> (Old Town, Ul. Miha Pracata 4) – avslappet pub-stemning, pålitelig sportsdekning<br><br>
+    💡 <em>Kroatia-kamp i Kroatia = fest i gatene. Gå tidlig for å sikre plass!</em></div>
+  </div>
+
+  <div class="warn-box">⏰ <strong>Tidssoner:</strong> Kampene spilles i USA (Eastern Time, UTC-4). Norge er UTC+2 om sommeren, så +6 timer. Sjekk alltid lokal kroatisk TV-guide for nøyaktig sendetidspunkt.</div>
+</div>
+
 <!-- RESERVASJONER -->
 <div id="v-res" class="view">
   <div class="success-box">✅ Oversikt over alle bekreftede reservasjoner og billetter.</div>
@@ -664,6 +708,9 @@ const DAYS=[
     ]},
     {ic:"🍷",t:"Kveldsmiddag",items:[
       {n:"Audio Mare",a:"Korčula Town",tip:"Reservert kl. 18:00. Res.nr. 21825. Bestill Pošip-vinen og fersk sjømat!",reserved:"Reservert kl. 18:00 · Res.nr. 21825"}
+    ]},
+    {ic:"⚽",t:"VM: Norge vs Frankrike (kl. 21:00)",items:[
+      {n:"🇳🇴 Norge vs 🇫🇷 Frankrike",a:"FIFA VM · Gruppe I · Gillette Stadium, USA",tip:"Kampen starter kl. 21:00 norsk tid! Du er i Korčula – finn en lokal bar med stor skjerm langs havnepromenaden i gamlebyen. Spør gjerne Apartment Romano om tips.",reserved:"FIFA VM 2026 · Fredag 26. juni · kl. 21:00"}
     ]}
   ]},
   {d:"27 jun",wd:"Lør",city:"city2",icon:"🛵",hotel:"romano",checkin:false,checkout:false,cats:[
@@ -676,6 +723,9 @@ const DAYS=[
     {ic:"🌅",t:"Kveld i Korčula Town",items:[
       {n:"Lever tilbake scooterne",a:"Korčula Town",tip:"Lever i god tid før stengning."},
       {n:"Kveldsmiddag i gamlebyen",a:"Korčula Town",tip:"Finn en lokal konoba i den vakre middelalderlige gamlebyen. Korčula er angivelig Marco Polos fødested!"}
+    ]},
+    {ic:"⚽",t:"VM: Kroatia vs Ghana (kl. 23:00)",items:[
+      {n:"🇭🇷 Kroatia vs 🇬🇭 Ghana",a:"FIFA VM · Gruppe L · Philadelphia, USA",tip:"Kl. 23:00 norsk tid – sen kamp, men MUST SEE i Kroatia! Stemningen i lokale barer vil være helt spesiell. Sport Pub Mario i Lapad er best for kroatisk lokalatmosfære. Gå tidlig for å sikre plass!",reserved:"FIFA VM 2026 · Lørdag 27. juni · kl. 23:00"}
     ]}
   ]},
   {d:"28 jun",wd:"Søn",city:"city1",icon:"🏰",hotel:"dubrovnik2",checkin:true,checkout:true,cats:[
