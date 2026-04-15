@@ -7,6 +7,65 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Dubrovnik 2026">
 <title>🇭🇷 Dubrovnik & Korčula – Juni 2026</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js">
+// ── LEAFLET MAP ───────────────────────────────────────────
+let leafletMap = null;
+function initMap() {
+  if (leafletMap) return;
+  leafletMap = L.map('leaflet-map', {zoomControl:true}).setView([42.9, 17.8], 9);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>',
+    maxZoom: 18
+  }).addTo(leafletMap);
+
+  function makeIcon(emoji, color) {
+    return L.divIcon({
+      html: `<div style="background:${color};border:2px solid #fff;border-radius:50% 50% 50% 0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,0.3);transform:rotate(-45deg)"><span style="transform:rotate(45deg)">${emoji}</span></div>`,
+      iconSize:[36,36], iconAnchor:[18,36], popupAnchor:[0,-36], className:''
+    });
+  }
+
+  const pins = [
+    {lat:42.6413, lon:18.1100, icon:'🏰', color:'#C0392B', title:'Guesthouse Rustico', sub:'25–26 juni · Dubrovnik Old Town', note:'Innsjekk ankomsdag. Lever bagasje tidlig om rommet ikke er klart.', maps:'https://maps.google.com/?q=Guesthouse+Rustico+Dubrovnik'},
+    {lat:42.6389, lon:18.1080, icon:'🏰', color:'#C0392B', title:'Royal Neptun Hotel', sub:'28 jun–1 jul · Babin Kuk', note:'Buss til Old Town 50m fra hotellet. Kan ikke refunderes.', maps:'https://maps.google.com/?q=Royal+Neptun+Hotel+Dubrovnik'},
+    {lat:42.9597, lon:17.1363, icon:'🏝', color:'#00695C', title:'Apartment Romano', sub:'26–28 juni · Korčula Town', note:'Bekreftet. Gratis avbestilling. Gangavstand fra havnen.', maps:'https://maps.google.com/?q=Apartment+Romano+Korcula'},
+    {lat:42.6404, lon:18.1183, icon:'⚓', color:'#1565C0', title:'Gruž havn', sub:'Katamaran til/fra Korčula', note:'TP Line katamaran 26. juni 14:00 og 28. juni retur 10:45.', maps:'https://maps.google.com/?q=Gruz+Ferry+Terminal+Dubrovnik'},
+    {lat:42.9580, lon:17.1280, icon:'⚓', color:'#1565C0', title:'Korčula havn', sub:'Katamaran ankomst/avgang', note:'Sjekk om båten ankommer øst- eller vestporten.', maps:'https://maps.google.com/?q=Korcula+Town+Ferry+Port'},
+    {lat:42.6414, lon:18.1088, icon:'🍽', color:'#F57F17', title:'Gradska Kavana Arsenal', sub:'Reservert 25. jun kl. 17:00', note:'Spør etter Mario Vrzic.', maps:'https://maps.google.com/?q=Gradska+Kavana+Arsenal+Dubrovnik'},
+    {lat:42.9600, lon:17.1370, icon:'🦞', color:'#F57F17', title:'Audio Mare', sub:'Reservert 26. jun kl. 18:00', note:'Res.nr. 21825.', maps:'https://maps.google.com/?q=Audio+Mare+Korcula'},
+    {lat:42.6402, lon:18.1099, icon:'🍻', color:'#795548', title:'Buza Bar', sub:'Klippe-bar · bading', note:'Se etter "Cold Drinks"-skiltet langs bymuren.', maps:'https://maps.google.com/?q=Buza+Bar+Dubrovnik'},
+    {lat:42.6441, lon:18.1118, icon:'🚡', color:'#B91C4A', title:'Dubrovnik Cable Car', sub:'Linbane opp til Srđ', note:'~€10-12 tur/retur. Panorama Restaurant på toppen.', maps:'https://maps.google.com/?q=Dubrovnik+Cable+Car'},
+    {lat:42.6238, lon:18.1246, icon:'🏝', color:'#2E7D32', title:'Lokrum øy', sub:'Dagstур 30. juni', note:'Lokalbåt fra Old Port, ~€4 tur/retur. Bilfritt naturreservat.', maps:'https://maps.google.com/?q=Lokrum+Island'},
+    {lat:42.6422, lon:18.1087, icon:'☕', color:'#4E342E', title:'Café Mala Braća', sub:'Kaffeskatt · Franciskanerklosteret', note:'Kaffe i gotisk klosterhage fra 1317. En av Dubrovniks best bevarte hemmeligheter.', maps:'https://maps.google.com/?q=Franciscan+Monastery+Dubrovnik'},
+    {lat:42.6408, lon:18.1109, icon:'🎵', color:'#4E342E', title:'Café Troubadur', sub:'Jazz · Middelaldersk bakgård', note:'Livemusikk om kveldene. Magisk atmosfære bak katedralen.', maps:'https://maps.google.com/?q=Cafe+Troubadur+Dubrovnik'},
+  ];
+
+  // Ferry route line
+  L.polyline([[42.6404,18.1183],[42.9580,17.1280]], {
+    color:'#E879A0', weight:2.5, dashArray:'8,6', opacity:0.8
+  }).addTo(leafletMap).bindTooltip('🚢 TP Line katamaran', {permanent:false});
+
+  pins.forEach(p => {
+    const marker = L.marker([p.lat, p.lon], {icon: makeIcon(p.icon, p.color)}).addTo(leafletMap);
+    marker.on('click', () => {
+      const card = document.getElementById('map-card');
+      card.style.display = 'block';
+      card.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font-size:15px;font-weight:700;margin-bottom:2px">${p.icon} ${p.title}</div><div style="font-size:12px;color:var(--text3);margin-bottom:6px">${p.sub}</div><div style="font-size:12px;color:var(--text2);margin-bottom:10px">${p.note}</div></div><div onclick="document.getElementById('map-card').style.display='none'" style="font-size:20px;color:var(--text3);cursor:pointer;padding:0 4px;flex-shrink:0">×</div></div><a href="${p.maps}" target="_blank" style="display:block;text-align:center;padding:8px;border-radius:8px;font-size:13px;font-weight:600;background:var(--city1-bg);color:var(--city1);border:1px solid var(--city1-bd)">Åpne i Google Maps ↗</a>`;
+    });
+  });
+
+  setTimeout(() => leafletMap.invalidateSize(), 100);
+}
+
+// Override sw to init map when map tab is opened
+const _origSw = sw;
+window.sw = function(id, btn) {
+  _origSw(id, btn);
+  if (id === 'map') setTimeout(initMap, 50);
+};
+
+</script>
 <style>
 :root {
   --text:#1a1a1a;--text2:#555;--text3:#888;
@@ -223,41 +282,9 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <!-- KART -->
-<div id="v-map" class="view">
-  <div class="map-outer">
-    <svg class="map-svg" viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="480" fill="#D6EAF8" rx="8"/>
-      <text x="90" y="420" font-size="11" fill="#7FB3D3" opacity="0.8" font-style="italic">Adriaterhav</text>
-      <path d="M 80 30 L 140 25 L 200 35 L 250 30 L 310 50 L 360 80 L 370 120 L 340 150 L 300 160 L 260 140 L 230 120 L 210 100 L 180 110 L 160 130 L 150 160 L 140 200 L 130 240 L 120 270 L 100 300 L 90 330 L 85 370 L 90 400 L 110 430 L 140 450 L 170 460 L 200 455 L 210 440 L 200 420 L 190 400 L 195 380 L 215 370 L 230 360 L 250 350 L 270 340 L 290 330 L 310 310 L 320 280 L 310 260 L 290 250 L 270 255 L 250 270 L 240 290 L 220 300 L 200 310 L 180 315 L 160 310 L 150 290 L 160 270 L 175 255 L 190 240 L 200 220 L 205 200 L 200 180 L 195 160"
-            stroke="#AEB6BF" stroke-width="1.5" fill="#EAECEE" opacity="0.7"/>
-      <path d="M 190 360 L 230 340 L 270 330 L 280 345 L 260 355 L 230 360 L 200 370 Z" fill="#D5D8DC" stroke="#AEB6BF" stroke-width="1" opacity="0.7"/>
-      <ellipse cx="165" cy="310" rx="35" ry="14" fill="#C8E6C9" stroke="#81C784" stroke-width="1.5"/>
-      <text x="165" y="314" text-anchor="middle" font-size="9" fill="#2E7D32" font-weight="600">KORČULA</text>
-      <ellipse cx="288" cy="405" rx="10" ry="7" fill="#C8E6C9" stroke="#81C784" stroke-width="1"/>
-      <text x="288" y="418" text-anchor="middle" font-size="8" fill="#2E7D32">Lokrum</text>
-      <path d="M 165 300 Q 200 340 280 390" stroke="#E879A0" stroke-width="2" stroke-dasharray="6,4" fill="none" opacity="0.8"/>
-      <g onclick="showMap('rustico')" style="cursor:pointer">
-        <circle cx="280" cy="390" r="26" fill="var(--city1-bg)" stroke="var(--city1-bd)" stroke-width="2"/>
-        <text x="280" y="384" text-anchor="middle" font-size="16">🏰</text>
-        <text x="280" y="397" font-size="10" fill="var(--city1)" font-weight="700" text-anchor="middle">DUBROVNIK</text>
-        <text x="280" y="408" font-size="9" fill="var(--city1-bd)" text-anchor="middle">25–28 jun & 28–1 jul</text>
-      </g>
-      <g onclick="showMap('romano')" style="cursor:pointer">
-        <circle cx="165" cy="285" r="24" fill="var(--city2-bg)" stroke="var(--city2-bd)" stroke-width="2"/>
-        <text x="165" y="279" text-anchor="middle" font-size="16">🏝</text>
-        <text x="165" y="292" font-size="10" fill="var(--city2)" font-weight="700" text-anchor="middle">KORČULA</text>
-        <text x="165" y="303" font-size="9" fill="var(--city2-bd)" text-anchor="middle">26–28 juni</text>
-      </g>
-      <text x="370" y="30" font-size="14" text-anchor="middle">N</text>
-      <line x1="370" y1="33" x2="370" y2="45" stroke="#888" stroke-width="1.5"/>
-    </svg>
-  </div>
-  <div class="map-legend">
-    <div class="map-legend-item"><div class="map-legend-dot" style="background:var(--city1)"></div><span>Dubrovnik</span></div>
-    <div class="map-legend-item"><div class="map-legend-dot" style="background:var(--city2)"></div><span>Korčula</span></div>
-  </div>
-  <p style="font-size:12px;color:var(--text3);margin-bottom:12px">👆 Trykk på en pin for hotellinfo</p>
-  <div id="map-card"></div>
+<div id="v-map" class="view" style="padding:0;position:relative">
+  <div id="leaflet-map" style="width:100%;height:calc(100vh - 90px);min-height:420px"></div>
+  <div id="map-card" style="position:absolute;bottom:16px;left:16px;right:16px;z-index:1000;display:none;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 4px 20px rgba(0,0,0,0.18)"></div>
 </div>
 
 <!-- RESTAURANTER -->
