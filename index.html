@@ -8,7 +8,8 @@
 <meta name="apple-mobile-web-app-title" content="Dubrovnik 2026">
 <title>🇭🇷 Dubrovnik & Korčula – Juni 2026</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
 // ── LEAFLET MAP ───────────────────────────────────────────
 let leafletMap = null;
 function initMap() {
@@ -282,9 +283,50 @@ a{text-decoration:none;color:inherit}
 </div>
 
 <!-- KART -->
-<div id="v-map" class="view" style="padding:0;position:relative">
-  <div id="leaflet-map" style="width:100%;height:calc(100vh - 90px);min-height:420px"></div>
-  <div id="map-card" style="position:absolute;bottom:16px;left:16px;right:16px;z-index:1000;display:none;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px;box-shadow:0 4px 20px rgba(0,0,0,0.18)"></div>
+<div id="v-map" class="view">
+  <div class="map-outer">
+    <svg class="map-svg" viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg">
+      <rect width="400" height="420" fill="#C8E6F5" rx="8"/>
+      <path d="M 30 0 L 120 0 L 180 20 L 230 30 L 280 20 L 340 40 L 390 70 L 400 110 L 380 140 L 350 150 L 310 140 L 280 120 L 260 110 L 240 100 L 220 105 L 200 120 L 185 140 L 175 165 L 165 190 L 150 210 L 135 230 L 120 250 L 105 270 L 95 290 L 90 310 L 95 330 L 105 350 L 120 370 L 100 390 L 60 410 L 0 420 L 0 0 Z" fill="#D4C5A0" stroke="#B8A878" stroke-width="1.5"/>
+      <path d="M 150 210 L 165 200 L 180 210 L 170 230 L 155 225 Z" fill="#C8B888" stroke="#B8A878" stroke-width="1"/>
+      <path d="M 105 270 L 145 255 L 175 260 L 180 275 L 150 285 L 115 285 Z" fill="#D4C5A0" stroke="#B8A878" stroke-width="1"/>
+      <text x="310" y="200" font-size="13" fill="#7BAFC8" opacity="0.8" font-style="italic" text-anchor="middle">Adriaterhavet</text>
+      <path d="M 178 318 Q 220 290 248 305" stroke="#E879A0" stroke-width="2.5" stroke-dasharray="7,5" fill="none" opacity="0.9"/>
+      <text x="225" y="282" font-size="9" fill="#B91C4A" text-anchor="middle" font-style="italic">TP Line katamaran</text>
+      <ellipse cx="200" cy="337" rx="8" ry="5" fill="#A8D5A2" stroke="#6BAE65" stroke-width="1"/>
+      <text x="200" y="350" font-size="8" fill="#2E7D32" text-anchor="middle">Lokrum</text>
+      <ellipse cx="248" cy="308" rx="22" ry="9" fill="#A8D5A2" stroke="#6BAE65" stroke-width="1.5"/>
+      <ellipse cx="175" cy="255" rx="28" ry="8" fill="#BED9B8" stroke="#8BBE85" stroke-width="1" opacity="0.8"/>
+      <text x="175" y="259" font-size="8" fill="#4A7A44" text-anchor="middle" opacity="0.8">Hvar</text>
+      <ellipse cx="220" cy="237" rx="22" ry="8" fill="#BED9B8" stroke="#8BBE85" stroke-width="1" opacity="0.8"/>
+      <text x="220" y="241" font-size="8" fill="#4A7A44" text-anchor="middle" opacity="0.8">Brac</text>
+      <ellipse cx="148" cy="300" rx="16" ry="6" fill="#BED9B8" stroke="#8BBE85" stroke-width="1" opacity="0.7"/>
+      <text x="148" y="304" font-size="7" fill="#4A7A44" text-anchor="middle" opacity="0.7">Mljet</text>
+      <g onclick="showMap('dubrovnik')" style="cursor:pointer">
+        <circle cx="178" cy="318" r="28" fill="#FDEDEC" stroke="#E74C3C" stroke-width="2.5" opacity="0.97"/>
+        <text x="178" y="312" text-anchor="middle" font-size="18">&#127984;</text>
+        <text x="178" y="326" font-size="9.5" fill="#C0392B" font-weight="700" text-anchor="middle">DUBROVNIK</text>
+        <text x="178" y="337" font-size="8" fill="#E74C3C" text-anchor="middle">25-28 &amp; 28 jun-1 jul</text>
+      </g>
+      <g onclick="showMap('korcula')" style="cursor:pointer">
+        <circle cx="248" cy="305" r="26" fill="#E0F2F1" stroke="#00897B" stroke-width="2.5" opacity="0.97"/>
+        <text x="248" y="299" text-anchor="middle" font-size="18">&#127965;</text>
+        <text x="248" y="313" font-size="9.5" fill="#00695C" font-weight="700" text-anchor="middle">KORCULA</text>
+        <text x="248" y="323" font-size="8" fill="#00897B" text-anchor="middle">26-28 juni</text>
+      </g>
+      <text x="370" y="22" font-size="12" text-anchor="middle" fill="#666">N</text>
+      <line x1="370" y1="26" x2="370" y2="40" stroke="#888" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <div class="map-legend">
+    <div class="map-legend-item"><div class="map-legend-dot" style="background:var(--city1)"></div><span>Dubrovnik</span></div>
+    <div class="map-legend-item"><div class="map-legend-dot" style="background:var(--city2)"></div><span>Kor&#269;ula</span></div>
+    <div class="map-legend-item"><div class="map-legend-dot" style="background:#E879A0"></div><span>Fergerute</span></div>
+  </div>
+  <p style="font-size:12px;color:var(--text3);margin-bottom:12px">&#128070; Trykk p&#229; en pin for detaljer</p>
+  <div id="map-card">
+    <div style="color:var(--text3);font-size:13px;text-align:center;padding:10px">Trykk p&#229; Dubrovnik eller Kor&#269;ula for info</div>
+  </div>
 </div>
 
 <!-- RESTAURANTER -->
@@ -984,8 +1026,8 @@ const TPILLS={
 };
 
 const MAPD={
-  rustico:{name:"Guesthouse Rustico",city:"city1",dates:"25–26 juni",note:"Inne i gamlebyen. Lever bagasje tidlig om rommet ikke er klart.",maps:"https://maps.google.com/?q=Guesthouse+Rustico+Dubrovnik"},
-  romano:{name:"Apartment Romano",city:"city2",dates:"26–28 juni · 2 netter",note:"✅ Bekreftet. Gangavstand fra katamaranhavnen.",maps:"https://maps.google.com/?q=Apartment+Romano+Korcula"}
+  dubrovnik:{name:"Dubrovnik",city:"city1",dates:"25-28 juni & 28 jun-1 jul",note:"Guesthouse Rustico (25-26 jun) + Royal Neptun Hotel (28 jun-1 jul). UNESCO-verdensarv, 2 km bymur, Buza Bar og sjoemat.",maps:"https://maps.google.com/?q=Dubrovnik+Old+Town"},
+  korcula:{name:"Korcula",city:"city2",dates:"26-28 juni, 2 netter",note:"Apartment Romano. Bekreftet. Marco Polos fodested. Scooterturer, Posip-vin og Grk-drue fra Lumbarda.",maps:"https://maps.google.com/?q=Korcula+Town+Croatia"}
 };
 
 function sw(id,btn){
